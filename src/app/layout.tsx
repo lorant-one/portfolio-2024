@@ -7,7 +7,7 @@ import { Flex, Background } from '@/once-ui/components'
 import { Footer, Header, RouteGuard } from "@/app/components";
 import { baseURL, effects, home, person, style } from '@/app/resources'
 
-import { Inter } from 'next/font/google'
+import { Montserrat, Nunito } from 'next/font/google'
 import { Source_Code_Pro } from 'next/font/google';
 
 import { Metadata } from "next";
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 	},
 }
 
-const primary = Inter({
+const primary = Nunito({
 	variable: '--font-primary',
 	subsets: ['latin'],
 	display: 'swap',
@@ -51,7 +51,12 @@ type FontConfig = {
 	Replace with code for secondary and tertiary fonts
 	from https://once-ui.com/customize
 */
-const secondary: FontConfig | undefined = undefined;
+const secondary = Montserrat({
+	variable: '--font-secondary',
+	subsets: ['latin'],
+	display: 'swap',
+})
+
 const tertiary: FontConfig | undefined = undefined;
 /*
 */

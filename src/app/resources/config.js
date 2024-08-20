@@ -11,7 +11,7 @@ const routes = {
 // Enable password protection on selected routes
 // Set password in pages/api/authenticate.ts
 const protectedRoutes = {
-    '/work/customizable-design-system': true
+
 }
 
 const effects = {
@@ -22,7 +22,7 @@ const effects = {
 
 const style = {
     theme:       'dark',         // dark | light
-    neutral:     'gray',         // sand | gray | slate
+    neutral:     'slate',        // sand | gray | slate
     brand:       'cyan',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     accent:      'cyan',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
@@ -38,11 +38,11 @@ const display = {
 }
 
 const mailchimp = {
-    action: 'https://url/subscribe/post?parameters',
+    action: 'https://once-ui.us21.list-manage.com/subscribe/post?u=c1a5a210340eb6c7bff33b2ba&amp;id=0462d244aa&amp;f_id=00cd5fe1f0',
     effects: {
         gradient: true,
         dots:     false,
-        lines:    true,
+        lines:    false,
     }
 }
 

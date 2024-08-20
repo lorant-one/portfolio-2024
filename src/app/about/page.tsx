@@ -32,19 +32,6 @@ export function generateMetadata() {
 	};
 }
 
-function scrollTo(id: string, offset: number) {
-    const element = document.getElementById(id);
-    if (element) {
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - offset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    }
-}
-
 const structure = [
     { 
         title: about.intro.title,
@@ -123,7 +110,7 @@ export default function About() {
                             <Flex
                                 wrap
                                 gap="8">
-                                {person.languages.map((language, index) => (
+                                {person.languages.map((language: string, index: number) => (
                                     <Tag
                                         key={index}
                                         size="l">
@@ -146,6 +133,7 @@ export default function About() {
                             <Flex
                                 className={styles.blockAlign}
                                 style={{
+                                    backdropFilter: 'blur(var(--static-space-1))',
                                     border: '1px solid var(--brand-alpha-medium)',
                                     width: 'fit-content'
                                 }}
@@ -258,27 +246,6 @@ export default function About() {
                                                 </Text>
                                             ))}
                                         </Flex>
-                                        {experience.images.length > 0 && (
-                                            <Flex
-                                                fillWidth paddingTop="m" paddingLeft="40" gap="12"
-                                                wrap>
-                                                {experience.images.map((image, index) => (
-                                                    <Flex
-                                                        key={index}
-                                                        border="neutral-medium"
-                                                        borderStyle="solid-1"
-                                                        radius="m"
-                                                        minWidth={image.width} height={image.height}>
-                                                        <SmartImage
-                                                            enlarge
-                                                            radius="m"
-                                                            sizes={image.width.toString()}
-                                                            alt={image.alt}
-                                                            src={image.src}/>
-                                                    </Flex>
-                                                ))}
-                                            </Flex>
-                                        )}
                                     </Flex>
                                 ))}
                             </Flex>

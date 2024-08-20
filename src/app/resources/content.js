@@ -1,16 +1,20 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-    name:      'Lorant Toth',
+    firstName: 'Lorant',
+    lastName:  'Toth',
+    get name() {
+        return `${this.firstName} ${this.lastName}`;
+    },
     role:      'Design Engineer',
     avatar:    '/images/avatar.png',
-    location:  'Europe/Vienna',       // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+    location:  'Europe/Vienna',          // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
     languages: ['English', 'Hungarian']  // optional: Leave the array empty if you don't want to display languages
 }
 
 const newsletter = {
-    title: <>Subscribe to Alex's Newsletter</>,
-    description: <>I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering.</>
+    title: <>Subscribe to {person.firstName}'s Newsletter</>,
+    description: <>An irregular blend of personal insights and professional updates</>
 }
 
 const social = [
@@ -51,7 +55,7 @@ const about = {
     title: 'About me',
     description: `Meet ${person.name}, ${person.role} from ${person.location}`,
     tableOfContent: {
-        display: true,
+        display: false,
         subItems: true
     },
     avatar: {
@@ -64,7 +68,7 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>I’m a Vienna-based design engineer with a passion for solving complex problems through simple, elegant design solutions. My work spans digital interfaces, interactive experiences, and the convergence of design and technology.</>
+        description: <>I’m a Vienna-based design engineer with a passion for all things creative. I design and build web apps, contribute to open-source projects, experiment with generative AI, paint digitally, and occasionally pick up a pen to sketch on paper.</>
     },
     work: {
         display: true, // set to false to hide this section
@@ -73,34 +77,23 @@ const about = {
             {
                 company: 'Once UI',
                 timeframe: '2022 - Present',
-                role: 'Senior Design Engineer',
+                role: 'Founder',
                 achievements: [
-                    <>Redesigned the UI/UX for the Once UI platform, resulting in a 20% increase in user engagement and 30% faster load times.</>,
-                    <>Spearheaded the integration of AI tools into design workflows, enabling designers to iterate 50% faster.</>
+                    <>An open-source Next.js and Figma design system.</>
                 ],
-                images: [ // optional: leave the array empty if you don't want to display images
-                    {
-                        src: '/images/projects/project-01/cover.jpg',
-                        alt: 'Once UI Project',
-                        width: 16,
-                        height: 9
-                    }
-                ]
             },
             {
-                company: 'Creative Labs',
-                timeframe: '2018 - 2022',
-                role: 'Lead Designer',
+                company: 'Creatillo',
+                timeframe: '2019 - Present',
+                role: 'Founder',
                 achievements: [
-                    <>Developed a design system that unified the brand across multiple platforms, improving design consistency by 40%.</>,
-                    <>Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.</>
+                    <>A place for my creative works from the pre-AI era.</>
                 ],
-                images: [ ]
-            }
+            },
         ]
     },
     technical: {
-        display: true, // set to false to hide this section
+        display: false, // set to false to hide this section
         title: 'Technical skills',
         skills: [
             {
@@ -154,7 +147,7 @@ const gallery = {
         { 
             src: '/images/gallery/img-02.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-03.jpg', 
@@ -164,12 +157,12 @@ const gallery = {
         { 
             src: '/images/gallery/img-04.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-05.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-06.jpg', 
@@ -179,7 +172,7 @@ const gallery = {
         { 
             src: '/images/gallery/img-07.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-08.jpg', 
@@ -189,12 +182,12 @@ const gallery = {
         { 
             src: '/images/gallery/img-09.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-10.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-11.jpg', 
@@ -204,17 +197,17 @@ const gallery = {
         { 
             src: '/images/gallery/img-12.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-13.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-14.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
     ]
 }
