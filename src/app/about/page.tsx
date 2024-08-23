@@ -201,7 +201,7 @@ export default function About() {
                                 id={about.work.title}
                                 variant="display-strong-s"
                                 marginBottom="m">
-                                Work experience
+                                {about.work.title}
                             </Heading>
                             <Flex
                                 direction="column"
