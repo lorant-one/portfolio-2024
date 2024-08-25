@@ -55,7 +55,7 @@ export default function Blog() {
 							name: person.name,
                             image: {
 								'@type': 'ImageObject',
-								url: `${baseURL}/images/avatar.png`,
+								url: `${baseURL}/images/avatar.jpg`,
 							},
 						},
 					}),
@@ -66,8 +66,11 @@ export default function Blog() {
                 variant="display-strong-s">
                 {blog.title}
             </Heading>
-            <Posts range={[1,3]}/>
-            <Posts range={[4]} columns="2"/>
+			<Flex
+				fillWidth flex={1}>
+				<Posts range={[1,3]}/>
+				<Posts range={[4]} columns="2"/>
+			</Flex>
             {mailchimp && (
                 <Mailchimp/>
             )}
