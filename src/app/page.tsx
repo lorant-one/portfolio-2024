@@ -57,7 +57,7 @@ export default function Home() {
 							name: person.name,
 							image: {
 								'@type': 'ImageObject',
-								url: `${baseURL}/images/avatar.jpg`,
+								url: `${baseURL}${person.avatar}`,
 							},
 						},
 					}),
@@ -90,9 +90,9 @@ export default function Home() {
 						alignItems="center">
 						{about.avatar.display && (
 							<Avatar
-								style={{marginLeft: '-0.25rem'}}
-								src="/images/avatar.jpg"
-								size="xs"/>
+								style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
+								src={person.avatar}
+								size="m"/>
 							)}
 							About me
 					</Flex>

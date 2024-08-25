@@ -1,5 +1,3 @@
-import { InlineCode } from "@/once-ui/components";
-
 const person = {
     firstName: 'Lorant',
     lastName:  'Toth',
