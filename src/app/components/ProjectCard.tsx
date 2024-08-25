@@ -110,7 +110,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         {description?.trim() && (
                             <Text
                                 wrap="balance"
-                                variant="body-default-s"
+                                variant="body-default-m"
                                 onBackground="neutral-weak">
                                 {description}
                             </Text>
