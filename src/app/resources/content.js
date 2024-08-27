@@ -88,22 +88,6 @@ const about = {
                     <>A place for my creative works from the pre-AI era.</>
                 ],
             },
-            {
-                company: 'Kinsta',
-                timeframe: '202? - 2023',
-                role: 'Designer',
-                achievements: [
-                    <>Boring design system stuff.</>
-                ],
-            },
-            {
-                company: 'Boring',
-                timeframe: 'Don\'t even \'member',
-                role: 'Designer',
-                achievements: [
-                    <>More boring design system stuff.</>
-                ],
-            },
         ]
     },
     technical: {

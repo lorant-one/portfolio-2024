@@ -2,7 +2,7 @@
 
 import { mailchimp } from '@/app/resources'
 import { newsletter } from '@/app/resources'
-import { Button, Flex, Heading, Input, Text } from '@/once-ui/components';
+import { Avatar, Button, Flex, Heading, Input, Text } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
 import { useState } from 'react';
 
@@ -61,6 +61,9 @@ export const Mailchimp = () => {
                 gradient={mailchimp.effects.gradient}
                 dots={mailchimp.effects.dots}
                 lines={mailchimp.effects.lines}/>
+            <Avatar className="mb-m"
+                size="l"
+                src="/images/avatar.jpg"/>
             <Heading style={{position: 'relative'}}
                 marginBottom="s"
                 variant="display-strong-xs">

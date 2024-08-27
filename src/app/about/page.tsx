@@ -173,13 +173,23 @@ export default function About() {
                                 paddingTop="20" paddingBottom="8" gap="8" wrap>
                                 {social.map((item) => (
                                     item.link && (
-                                        <Button
-                                            key={item.name}
-                                            href={item.link}
-                                            prefixIcon={item.icon}
-                                            label={item.name}
-                                            size="s"
-                                            variant="tertiary"/>
+                                        <>
+                                            <Button className="s-flex-hide"
+                                                key={item.name}
+                                                href={item.link}
+                                                prefixIcon={item.icon}
+                                                label={item.name}
+                                                size="s"
+                                                variant="tertiary">
+                                            </Button>
+                                            <IconButton className="s-flex-show"
+                                                key={item.name + 'icon'}
+                                                href={item.link}
+                                                icon={item.icon}
+                                                size="l"
+                                                variant="tertiary">
+                                            </IconButton>
+                                        </>
                                     )
                                 ))}
                             </Flex>

@@ -101,7 +101,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     <Flex
                         flex={7} direction="column"
                         gap="s">
-                        {avatars?.length > 0 && (
+                        {avatars?.length > 1 && (
                             <AvatarGroup
                                 avatars={avatars}
                                 size="m"
