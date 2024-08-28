@@ -174,7 +174,8 @@ export default function About() {
                                 {social.map((item) => (
                                     item.link && (
                                         <>
-                                            <Button className="s-flex-hide"
+                                            <Flex hide="s">
+                                            <Button
                                                 key={item.name}
                                                 href={item.link}
                                                 prefixIcon={item.icon}
@@ -182,13 +183,16 @@ export default function About() {
                                                 size="s"
                                                 variant="tertiary">
                                             </Button>
-                                            <IconButton className="s-flex-show"
+                                            </Flex>
+                                            <Flex show="s">
+                                            <IconButton
                                                 key={item.name + 'icon'}
                                                 href={item.link}
                                                 icon={item.icon}
                                                 size="l"
                                                 variant="tertiary">
                                             </IconButton>
+                                            </Flex>
                                         </>
                                     )
                                 ))}
@@ -197,6 +201,7 @@ export default function About() {
                     </Flex>
                     { about.intro.display && (
                         <Flex
+                            style={{display: 'inline'}}
                             direction="column"
                             textVariant="body-default-l"
                             fillWidth gap="m" marginBottom="xl">

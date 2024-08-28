@@ -102,6 +102,7 @@ export default function Blog({ params }: BlogParams) {
 				Posts
 			</Button>
 			<Heading
+				wrap="balance"
 				variant="display-strong-s">
 				{post.metadata.title}
 			</Heading>
