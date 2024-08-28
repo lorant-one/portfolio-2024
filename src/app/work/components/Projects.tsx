@@ -20,7 +20,7 @@ export function Projects({ range }: ProjectsProps) {
 
     return (
         <Flex
-            fillWidth gap="l" marginBottom="40" paddingX="l"
+            fillWidth gap="xl" marginBottom="40" paddingX="l"
             direction="column">
             {displayedProjects.map((post) => (
                 <ProjectCard

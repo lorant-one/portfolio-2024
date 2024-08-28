@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button,  Avatar } from '@/once-ui/components';
+import { Heading, Flex, Text, Button,  Avatar, SmartImage } from '@/once-ui/components';
 import { Projects } from '@/app/work/components/Projects';
 
 import { about, baseURL, home, person, routes } from '@/app/resources'
 import { Mailchimp } from '@/app/components';
 import { Posts } from '@/app/blog/components/Posts';
+import { Discord } from './components/Discord';
 
 export function generateMetadata() {
 	const title = home.title;
@@ -39,7 +40,7 @@ export function generateMetadata() {
 export default function Home() {
 	return (
 		<Flex
-			maxWidth="m" fillWidth gap="24"
+			maxWidth="m" fillWidth gap="xl"
 			direction="column" alignItems="center">
 			<script
 				type="application/ld+json"
@@ -99,6 +100,7 @@ export default function Home() {
 				</Button>
 			</Flex>
 			<Projects range={[1,1]}/>
+			<Discord/>
 			{routes['/blog'] && (
 				<Flex fillWidth paddingX="20">
 					<Posts range={[1,2]} columns="2"/>

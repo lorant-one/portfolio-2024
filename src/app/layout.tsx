@@ -7,8 +7,8 @@ import { Flex, Background } from '@/once-ui/components'
 import { Footer, Header, RouteGuard } from "@/app/components";
 import { baseURL, effects, home, person, style } from '@/app/resources'
 
-import { Montserrat, Nunito } from 'next/font/google'
-import { Source_Code_Pro } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 
 import { Metadata } from "next";
 
@@ -37,35 +37,8 @@ export const metadata: Metadata = {
 	},
 }
 
-const primary = Nunito({
-	variable: '--font-primary',
-	subsets: ['latin'],
-	display: 'swap',
-})
-
-type FontConfig = {
-    variable: string;
-};
-
-/*
-	Replace with code for secondary and tertiary fonts
-	from https://once-ui.com/customize
-*/
-const secondary = Montserrat({
-	variable: '--font-secondary',
-	subsets: ['latin'],
-	display: 'swap',
-})
-
-const tertiary: FontConfig | undefined = undefined;
-/*
-*/
-
-const code = Source_Code_Pro({
-	variable: '--font-code',
-	subsets: ['latin'],
-	display: 'swap',
-});
+const primaryFont = GeistSans;
+const codeFont = GeistMono;
 
 interface RootLayoutProps {
 	children: React.ReactNode;
@@ -83,10 +56,9 @@ export default function RootLayout({ children } : RootLayoutProps) {
 			data-surface={style.surface}
 			data-transition={style.transition}
 			className={classNames(
-				primary.variable,
-				secondary ? secondary.variable : '',
-				tertiary ? tertiary.variable : '',
-				code.variable)}>
+				primaryFont.variable,
+				codeFont.variable
+			)}>
 			<Flex style={{minHeight: '100vh'}}
 				as="body"
 				fillWidth margin="0" padding="0"

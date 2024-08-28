@@ -121,7 +121,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 style={{margin: '0', width: 'fit-content'}}
                                 href={href}>
                                     <Text
-                                        variant="body-default-s">
+                                        variant="label-default-s">
                                         Read about the project
                                     </Text>
                             </SmartLink>
