@@ -112,6 +112,7 @@ export default function Project({ params }: WorkParams) {
 					Projects
 				</Button>
 				<Heading
+					wrap="balance"
 					variant="display-strong-s">
 					{post.metadata.title}
 				</Heading>
