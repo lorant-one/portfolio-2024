@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import { Button, Flex, Heading, LetterFx, SmartImage, Text } from "@/once-ui/components";
 
 const Discord = () => {
     return (
@@ -47,7 +47,9 @@ const Discord = () => {
                         <Button
                             href="https://discord.com/invite/5EyAQ4eNdS"
                             suffixIcon="chevronRight">
-                            Join now
+                            <LetterFx>
+                                Join now
+                            </LetterFx>
                         </Button>
                     </Flex>
                 </Flex>

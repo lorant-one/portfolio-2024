@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button,  Avatar, SmartImage } from '@/once-ui/components';
+import { Heading, Flex, Text, Button,  Avatar, SmartImage, LetterFx, RevealFx } from '@/once-ui/components';
 import { Projects } from '@/app/work/components/Projects';
 
 import { about, baseURL, home, person, routes } from '@/app/resources'
@@ -67,7 +67,7 @@ export default function Home() {
 			<Flex
 				fillWidth
 				direction="column"
-				marginBottom="l"
+				paddingY="l"
 				gap="m">
 				<Heading
 					wrap="balance"
@@ -95,18 +95,20 @@ export default function Home() {
 								src={person.avatar}
 								size="m"/>
 							)}
-							About me
+							<LetterFx>
+								About me
+							</LetterFx>
 					</Flex>
 				</Button>
 			</Flex>
-			<Projects range={[1,1]}/>
+			<Projects maxWidth="s" range={[1,1]}/>
 			<Discord/>
 			{routes['/blog'] && (
 				<Flex fillWidth paddingX="20">
 					<Posts range={[1,2]} columns="2"/>
 				</Flex>
 			)}
-			<Projects range={[2]}/>
+			<Projects maxWidth="s" range={[2]}/>
 			<Mailchimp/>
 		</Flex>
 	);

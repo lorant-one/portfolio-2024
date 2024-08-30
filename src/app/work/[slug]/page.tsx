@@ -78,7 +78,7 @@ export default function Project({ params }: WorkParams) {
 		<Flex as="section"
 			fillWidth maxWidth="s"
 			direction="column" alignItems="center"
-			gap="l">
+			gap="m">
 			<script
 				type="application/ld+json"
 				suppressHydrationWarning
@@ -102,7 +102,7 @@ export default function Project({ params }: WorkParams) {
 				}}
 			/>
 			<Flex
-				fillWidth maxWidth="xs" gap="16"
+				fillWidth maxWidth="xs" gap="24"
 				direction="column">
 				<Button
 					href="/work"
@@ -117,19 +117,12 @@ export default function Project({ params }: WorkParams) {
 					{post.metadata.title}
 				</Heading>
 			</Flex>
-			{post.metadata.images.length > 0 && (
-				<SmartImage
-					aspectRatio="16 / 9"
-					radius="m"
-					alt="image"
-					src={post.metadata.images[0]}/>
-			)}
-			<Flex style={{margin: 'auto'}}
+			<Flex
 				as="article"
-				maxWidth="xs" fillWidth
-				direction="column">
+				fillWidth
+				direction="column" alignItems="center">
 				<Flex
-					gap="12" marginBottom="24"
+					gap="12" marginBottom="24" fillWidth maxWidth="xs"
 					alignItems="center">
 					{ post.metadata.team && (
 						<AvatarGroup

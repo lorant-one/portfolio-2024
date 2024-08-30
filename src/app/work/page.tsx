@@ -64,7 +64,7 @@ export default function Work() {
                     }),
                 }}
             />
-            <Projects/>
+            <Projects maxWidth="s"/>
         </Flex>
     );
 }

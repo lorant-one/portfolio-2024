@@ -1,7 +1,7 @@
 ---
-title: "Once UI: serving the next generation of the web"
+title: "Once UI: Serving the Next Generation of the Web"
 publishedAt: "2024-04-20"
-summary: "Building Once UI was the most challenging project I've ever worked on, pushing both my technical skills and mental resilience to the limits."
+summary: "The web is undergoing a radical transformation with the increasing presence of LLMs. Once UI is dedicated to supporting this new era of the web."
 images:
   - "/images/projects/once-ui/cover-01.jpg"
   - "/images/projects/once-ui/cover-02.jpg"
@@ -9,7 +9,7 @@ images:
   - "/images/projects/once-ui/cover-04.jpg"
   - "/images/projects/once-ui/image-03.jpg"
 team:
-  - name: "Lorant Toth"
+  - name: "Lorant One"
     role: "Design Engineer"
     avatar: "/images/avatar.jpg"
     linkedIn: "https://www.linkedin.com/company/once-ui/"
@@ -19,39 +19,98 @@ team:
     linkedIn: "https://www.linkedin.com/in/zsofiakomaromi"
 ---
 
-## Intro
-Once UI is a customizable design system built for the next generation of web apps. Our vision centers on where we see the future of the web heading, based on key principles:
+## Introduction
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Accessible.</span>
-In a digital age spanning all demographics, accessibility is crucial. Next-gen apps prioritize inclusivity through optimal colors, alt texts, ARIA labels, and more to ensure everyone can engage seamlessly.
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Responsive.</span>
-Flawless functionality across all devices and screen sizes defines next-gen apps, delivering a consistent user experience everywhere.
+Once UI is a customizable design system crafted for the next generation of web applications. Our vision is shaped by key principles that we believe will define the future of the web:
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Customizable.</span>
-User preferences come first. Next-gen apps offer dynamic interfaces with customizable color schemes, motion settings, and themes, catering even to niche needs like color blindness.
+<Flex
+  style={{overflow:'hidden'}}
+  direction="column"
+  background="surface"
+  fillWidth maxWidth="xs"
+  border="neutral-medium" borderStyle="solid-1" radius="l"
+  marginTop="12"
+  marginBottom="8">
+  <Accordion
+    style={{marginTop: '-1px'}}
+    title="Accessible.">
+    In a digital landscape that spans all demographics, accessibility is essential. Next-generation apps prioritize inclusivity through optimal color contrasts, alt texts, ARIA labels, and more, ensuring seamless engagement for everyone.
+  </Accordion>
+  <Accordion
+    title="Responsive.">
+    Next-generation apps are characterized by flawless functionality across all devices and screen sizes, delivering a consistent user experience everywhere.
+  </Accordion>
+  <Accordion
+    title="Customizable.">
+    User preferences are paramount. Next-generation apps offer dynamic interfaces with customizable color schemes, motion settings, and themes, catering even to specific needs like color blindness.
+  </Accordion>
+  <Accordion
+    title="Performant.">
+    While aesthetics are important, speed is crucial. Prioritizing swift load times and smooth performance, next-generation apps respect the user's time and resources.
+  </Accordion>
+  <Accordion
+    title="Sustainable.">
+    Acknowledging the environmental impact of the digital world, next-generation apps emphasize sustainable practices and efficient resource use.
+  </Accordion>
+  <Accordion
+    title="Secure.">
+    As digital adoption grows, so do security threats. Next-generation apps enforce strong security measures to protect user data.
+  </Accordion>
+  <Accordion
+    title="Ethical.">
+    Transparency, fairness, and responsibility are at our core. Next-generation apps avoid exploitative practices, focusing on genuine value and ethical standards.
+  </Accordion>
+  <Accordion
+    title="Purpose-Driven..">
+    Next-generation apps are purpose-driven: they go beyond a collection of features, serving as targeted solutions to specific problems. Instead of scaling infinitely, they focus on refining and perfecting the solution for the challenge at hand.
+  </Accordion>
+</Flex>
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Performant.</span>
-While aesthetics matter, speed is paramount. Prioritizing swift load times and smooth performance, next-gen apps respect the user's time and resources.
+## Token System
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Sustainable.</span>
-Recognizing the digital world’s environmental impact, next-gen apps emphasize sustainable practices and efficient resource use.
+From the beginning, we recognized that building on a stable foundation was critical for the success of Once UI. Our principles guided us away from gimmicks designed to maximize profit, instead steering us toward a well-defined path focused on the future. We're playing the long game.
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Secure.</span>
-As digital adoption grows, so do threats. Next-gen apps uphold strong security measures to protect user data.
+The foundational layer of a web framework consists of the tokens or variables responsible for styling and customization. We developed our own standard that allows for endless customization with minimal code overhead, all separated from the core logic into a single file.
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Ethical.</span>
-Transparency, fairness, and responsibility are core values. Next-gen apps avoid exploitative tactics, focusing on genuine value and ethical practices.
+<Flex fillWidth paddingTop="l">
+  <Projects slug="the-design-dividend"/>
+</Flex>
 
-<span style={{color: 'var(--brand-on-background-weak)'}}>Purpose-Driven.</span>
-We empower startups to thrive by offering support in product development, funding, and scalable solutions, easing the burdens on founders.
+## Figma System
 
-## Token system
+Once the token system was defined, we translated it into Figma and CSS variables, building the component system on this foundational layer.
 
-Recognizing early on that building on stable foundations was paramount for the success of Once UI. Our principles doesn't allow us to build gimmicks to maximize income, instead it lead us towards a well defined path to build for the future. We're paying the long game.
+![Image of Once UI](/images/projects/once-ui/cover-02.jpg)
 
-The foundation layer of a web framework are the tokens or variables responsible for styling and customization. We've come up with our own standard that allows endless customization options with very minimal code overhead, separated from the core logic into a single file.
+We also created comprehensive documentation for all tokens and components. At this point, our idea was taking shape, and we could already envision endless possibilities, though we were still far from our ultimate goal. With numerous UI kits already available for Figma, we soon realized that this wasn’t the field we wanted to compete in.
 
-## Figma system
+## Next.js Library
 
-When we had the token system defined, we've translated them to Figma and CSS variables, and then we've built the component system on this foundational layer, and then a comprehensive documentation for all tokens and components. At this point our idea was shaping up nicely and we could already see the endless opportunities, although we were very far from what we were aiming for. There were already countless of UI kits available for Figma, and we knew came to realize that it's not the field we want to compete on.
+> Hey GPT, should we create our design system in React or Next.js?
+
+The answer was Next.js. And today, I'm thrilled that it was. We absolutely love [Next.js](https://nextjs.org), and it has opened up a whole new world for us.
+
+You might be wondering...
+
+> Why not Tailwind?
+
+Tailwind is great, I get it. But I worry about a future where everything relies on a single approach. While Tailwind might be an excellent choice for many products, it has its own challenges. From my perspective, the main issue is the lack of semantics, which prevents healthy boundaries and constraints. We could have written a wrapper around it, but I had a clear vision of the ideal tokenized system and didn’t want to compromise. I can confidently say that prototyping and brand evolution are a breeze with our token system.
+
+## The Present
+
+Once UI is slowly gaining traction, and we're genuinely excited about it. The positive feedback we’ve received encourages us to continue building and improving. Convincing people to adopt Once UI has been challenging due to low initial adoption, so we decided to build and publish our own products. We’ll offer open-source, public, and paid templates.
+
+Our first release is Magic Portfolio, which we believe could be a strong contender for the best public portfolio template available.
+
+<Flex fillWidth paddingTop="l">
+  <Projects slug="magic-portfolio"/>
+</Flex>
+
+## Community
+
+Once UI is more than just a product; it’s about a vision and a community. We aim to influence how the next generation of the web is built. We envision a future where designers write code and developers create beautiful interfaces. We foresee the rise of design engineering. Join us on this mission!
+
+<Flex fillWidth paddingY="m">
+  <Discord/>
+</Flex>

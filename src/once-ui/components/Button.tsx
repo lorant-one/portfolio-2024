@@ -46,7 +46,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
         <>
             {prefixIcon && !loading && <Icon name={prefixIcon} size={iconSize} />}
             {loading && <Spinner size={size} />}
-            <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label || children}</div>
+            <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label as string || children as string}</div>
             {suffixIcon && <Icon name={suffixIcon} size={iconSize} />}
         </>
     );

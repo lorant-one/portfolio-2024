@@ -29,6 +29,8 @@ blockquote {
     text-wrap: balance;
     backdrop-filter: blur(var(--static-space-2));
     border: 1px dashed var(--brand-alpha-medium);
+    max-width: var(--responsive-width-xs);
+    width: 100%;
 
     span {
         margin: 0 !important;

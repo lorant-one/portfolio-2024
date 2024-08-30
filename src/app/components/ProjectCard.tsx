@@ -1,6 +1,8 @@
 "use client";
 
 import { AvatarGroup, Flex, Heading, SmartImage, SmartLink, Text } from "@/once-ui/components";
+import { LetterFx } from "@/once-ui/components/LetterFx";
+import { SpacingToken } from "@/once-ui/types";
 import { useState } from "react";
 
 interface ProjectCardProps {
@@ -8,6 +10,7 @@ interface ProjectCardProps {
     images: string[];
     title: string;
     content: string;
+    maxWidth?: number | SpacingToken;
     description: string;
     avatars: { src: string }[];
 }
@@ -17,6 +20,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     images = [],
     title,
     content,
+    maxWidth = 'xs',
     description,
     avatars
 }) => {
@@ -84,15 +88,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 </Flex>
             )}
             <Flex
-                mobileDirection="column"
-                fillWidth paddingX="l" paddingTop="xs" paddingBottom="m" gap="l">
+                mobileDirection="column" style={{alignSelf: "center"}}
+                fillWidth maxWidth={maxWidth} paddingTop="xs" paddingBottom="m" gap="l">
                 {title && (
                     <Flex
                         flex={5}>
                         <Heading
                             as="h2"
                             wrap="balance"
-                            variant="display-strong-xs">
+                            variant={maxWidth === 'xs' ? 'heading-strong-xl' : 'display-strong-xs'}>
                             {title}
                         </Heading>
                     </Flex>
@@ -116,13 +120,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                             </Text>
                         )}
                         {content?.trim() && (
+                            
                             <SmartLink
                                 suffixIcon="chevronRight"
                                 style={{margin: '0', width: 'fit-content'}}
                                 href={href}>
                                     <Text
                                         variant="label-default-s">
-                                        Read about the project
+                                            <LetterFx>
+                                            Read about the project
+                                            </LetterFx>
                                     </Text>
                             </SmartLink>
                         )}

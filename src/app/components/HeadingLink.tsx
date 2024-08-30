@@ -59,7 +59,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
     const asTag = `h${level}` as keyof JSX.IntrinsicElements;
 
     return (
-        <Flex>
+        <>
             <Toaster toasts={toasts} removeToast={removeToast}/>
             <Flex
                 style={style}
@@ -82,6 +82,6 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
                     tooltip="Copy"
                     tooltipPosition="right" />
             </Flex>
-        </Flex>
+        </>
     );
 };

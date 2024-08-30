@@ -1,7 +1,9 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
 
-import { SmartImage, SmartLink, Text } from '@/once-ui/components';
+import { SmartImage, SmartLink, Text, Accordion, Flex } from '@/once-ui/components';
+import { Discord } from '@/app/components';
+import { Projects } from '@/app/work/components/Projects';
 import { HeadingLink } from '@/app/components';
 
 import { TextProps } from '@/once-ui/interfaces';
@@ -95,7 +97,7 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
     const slug = slugify(children as string);
         return (
             <HeadingLink
-                style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)'}}
+                style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)', maxWidth: 'var(--responsive-width-xs)', width: '100%'}}
                 level={level}
                 id={slug}
                 {...props}>
@@ -111,7 +113,7 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
 
 function createParagraph({ children }: TextProps) {
     return (
-        <Text style={{lineHeight: '150%'}}
+        <Text style={{lineHeight: '175%', maxWidth: 'var(--responsive-width-xs)', width: '100%'}}
             variant="body-default-m"
             onBackground="neutral-medium"
             marginTop="8"
@@ -132,6 +134,11 @@ const components = {
     img: createImage as any,
     a: CustomLink as any,
     Table,
+    Flex,
+    SmartLink,
+    Discord,
+    Projects,
+    Accordion
 };
 
 type CustomMDXProps = MDXRemoteProps & {
