@@ -72,7 +72,11 @@ export default function Home() {
 				<Heading
 					wrap="balance"
 					variant="display-strong-l">
-					{home.headline}
+					<span className="font-label">
+					<LetterFx trigger="instant" speed="fast">
+						{home.headline}
+					</LetterFx>
+					</span>
 				</Heading>
 				<Text
 					wrap="balance" 

@@ -3,6 +3,8 @@
 import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Flex, Icon, Heading } from '.';
 
+import styles from './Accordion.module.scss'
+
 interface AccordionProps {
     title: React.ReactNode;
     children: React.ReactNode;
@@ -79,7 +81,7 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
             style={style}
             className={className}>
             <Flex 
-                style={{ borderTop: "1px solid var(--neutral-border-medium)", cursor: 'pointer' }}
+                className={styles.accordion}
                 paddingY="16"
                 paddingLeft="m"
                 paddingRight="m"
@@ -111,7 +113,7 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
                 aria-hidden={!isOpen}>
                 <Flex
                     paddingX="m"
-                    paddingBottom="32"
+                    paddingBottom="16"
                     direction="column">
                     {children}
                 </Flex>

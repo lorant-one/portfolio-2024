@@ -1,4 +1,4 @@
-import { InlineCode, SmartLink } from "@/once-ui/components";
+import { InlineCode } from "@/once-ui/components";
 import Link from "next/link";
 
 const person = {

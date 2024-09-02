@@ -1,0 +1,10 @@
+.accordion {
+    border-top: 1px solid var(--neutral-border-medium);
+    cursor: pointer;
+    transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
+    background: var(--static-transparent);
+
+    &:hover {
+        background: var(--neutral-alpha-weak);
+    }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, ReactNode } from 'react';
 
 const allowedCharacters = ['X', '$', '@', 'a', 'H', 'z', 'o', '0', 'y', '#', '?', '*', '0', '1', '+'];
 
@@ -13,11 +13,18 @@ function createEventHandler(
 	originalText: string,
 	setText: React.Dispatch<React.SetStateAction<string>>,
 	inProgress: boolean,
-	setInProgress: React.Dispatch<React.SetStateAction<boolean>>
+	setInProgress: React.Dispatch<React.SetStateAction<boolean>>,
+	speed: 'fast' | 'medium' | 'slow',
+	setHasAnimated?: React.Dispatch<React.SetStateAction<boolean>>
 ) {
-	const BASE_DELAY = 30;
-	const REVEAL_DELAY = 30;
-	const INITIAL_RANDOM_DURATION = 300;
+	
+	const speedSettings = {
+		fast: { BASE_DELAY: 20, REVEAL_DELAY: 20, INITIAL_RANDOM_DURATION: 200 },
+		medium: { BASE_DELAY: 30, REVEAL_DELAY: 30, INITIAL_RANDOM_DURATION: 300 },
+		slow: { BASE_DELAY: 60, REVEAL_DELAY: 60, INITIAL_RANDOM_DURATION: 600 }
+	};
+
+	const { BASE_DELAY, REVEAL_DELAY, INITIAL_RANDOM_DURATION } = speedSettings[speed];
 
 	const generateRandomText = () =>
 		originalText
@@ -47,34 +54,49 @@ function createEventHandler(
 		}
 
 		setInProgress(false);
+		if (setHasAnimated) {
+			setHasAnimated(true);
+		}
 	};
 }
 
 type LetterFxProps = {
-	children: string;
+	children: ReactNode;
+	trigger?: 'hover' | 'instant';
+	speed?: 'fast' | 'medium' | 'slow';
 };
 
-function LetterFx({ children }: LetterFxProps) {
-	const [text, setText] = useState<string>(children);
+function LetterFx({ children, trigger = 'hover', speed = 'medium' }: LetterFxProps) {
+	const [text, setText] = useState<string>(typeof children === 'string' ? children : '');
 	const [inProgress, setInProgress] = useState<boolean>(false);
-	const originalText = useRef<string>(children);
+	const [hasAnimated, setHasAnimated] = useState<boolean>(false);
+	const originalText = useRef<string>(typeof children === 'string' ? children : '');
 
-	const handleMouseOver = useCallback(createEventHandler(
+	const eventHandler = useCallback(createEventHandler(
 		originalText.current,
 		setText,
 		inProgress,
-		setInProgress
-	), [inProgress]);
+		setInProgress,
+		speed,
+		trigger === 'instant' ? setHasAnimated : undefined
+	), [inProgress, trigger, speed]);
 
 	useEffect(() => {
-		setText(originalText.current);
-	}, [children]);
+		if (typeof children === 'string') {
+			setText(children);
+			originalText.current = children;
+
+			if (trigger === 'instant' && !hasAnimated) {
+				eventHandler();
+			}
+		}
+	}, [children, trigger, eventHandler, hasAnimated]);
 
 	return (
-		<span onMouseOver={handleMouseOver}>
+		<span onMouseOver={trigger === 'hover' ? eventHandler : undefined}>
 			{text}
 		</span>
 	);
 }
 
-export { LetterFx }
+export { LetterFx };
