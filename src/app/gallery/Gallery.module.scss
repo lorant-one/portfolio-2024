@@ -12,3 +12,17 @@
 .gridItem {
     margin-bottom: var(--static-space-16);
 }
+
+.details {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.trigger {
+    &:hover {
+        .details {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

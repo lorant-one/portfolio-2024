@@ -146,8 +146,11 @@ export default function About() {
                                         onBackground="brand-weak"/>
                                 </Flex>
                                 <Flex
-                                    paddingX="8">
-                                    Schedule a call
+                                    direction="column"
+                                    paddingX="8"
+                                    textVariant="body-default-s">
+                                    <Text>Schedule a call</Text>
+                                    <Text size="xs" onBackground="brand-weak">Open for consultation</Text>
                                 </Flex>
                                 <IconButton
                                     href={about.calendar.link}

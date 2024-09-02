@@ -17,9 +17,8 @@ function createEventHandler(
 	speed: 'fast' | 'medium' | 'slow',
 	setHasAnimated?: React.Dispatch<React.SetStateAction<boolean>>
 ) {
-	
 	const speedSettings = {
-		fast: { BASE_DELAY: 20, REVEAL_DELAY: 20, INITIAL_RANDOM_DURATION: 200 },
+		fast: { BASE_DELAY: 10, REVEAL_DELAY: 10, INITIAL_RANDOM_DURATION: 100 },
 		medium: { BASE_DELAY: 30, REVEAL_DELAY: 30, INITIAL_RANDOM_DURATION: 300 },
 		slow: { BASE_DELAY: 60, REVEAL_DELAY: 60, INITIAL_RANDOM_DURATION: 600 }
 	};
@@ -61,12 +60,13 @@ function createEventHandler(
 }
 
 type LetterFxProps = {
-	children: ReactNode;
-	trigger?: 'hover' | 'instant';
+	children: ReactNode; 
+	trigger?: 'hover' | 'instant' | 'custom';
 	speed?: 'fast' | 'medium' | 'slow';
+	onTrigger?: (triggerFn: () => void) => void;
 };
 
-function LetterFx({ children, trigger = 'hover', speed = 'medium' }: LetterFxProps) {
+function LetterFx({ children, trigger = 'hover', speed = 'medium', onTrigger }: LetterFxProps) {
 	const [text, setText] = useState<string>(typeof children === 'string' ? children : '');
 	const [inProgress, setInProgress] = useState<boolean>(false);
 	const [hasAnimated, setHasAnimated] = useState<boolean>(false);
@@ -91,6 +91,12 @@ function LetterFx({ children, trigger = 'hover', speed = 'medium' }: LetterFxPro
 			}
 		}
 	}, [children, trigger, eventHandler, hasAnimated]);
+
+	useEffect(() => {
+		if (trigger === 'custom' && onTrigger) {
+			onTrigger(eventHandler);
+		}
+	}, [trigger, onTrigger, eventHandler]);
 
 	return (
 		<span onMouseOver={trigger === 'hover' ? eventHandler : undefined}>

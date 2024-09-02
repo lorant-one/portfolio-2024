@@ -64,7 +64,7 @@ const about = {
     },
     calendar: {
         display: true,
-        link: 'https://cal.com'
+        link: 'https://cal.com/designedge/intro'
     },
     intro: {
         display: true,
@@ -143,226 +143,143 @@ const gallery = {
         {
         "src": "/images/gallery/img-01.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Zillertal, Austria",
         },
         {
         "src": "/images/gallery/img-02.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "59mm | 1/100 | f11 | ISO100",
+        "location": "Učka, Croatia",
         },
         {
         "src": "/images/gallery/img-03.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "18mm | 1/20 | f22 | ISO100",
+        "location": "Falasarna Beach, Crete",
         },
         {
         "src": "/images/gallery/img-04.jpg",
         "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-05.jpg",
-        "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "27mm | 1/250 | f9.0 | ISO100",
+        "location": "Sao Lourenco, Madeira"
         },
         {
         "src": "/images/gallery/img-06.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "18mm | 1/250 | f9.0 | ISO100",
+        "location": "Guimaraes, Portugal"
+        },
+        {
+        "src": "/images/gallery/img-42.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-07.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "18mm | 1/50 | f7.1 | ISO1600",
+        "location": "Kissamos, Croatia"
         },
         {
-        "src": "/images/gallery/img-08.jpg",
+        "src": "/images/gallery/img-52.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-09.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "18mm | 1/160 | f11 | ISO100",
+        "location": "Seitan Limania, Crete"
         },
-        {
-        "src": "/images/gallery/img-10.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-11.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-12.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-13.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-14.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-
-        {
-        "src": "/images/gallery/img-17.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-18.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-20.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-
         {
         "src": "/images/gallery/img-22.jpg",
         "alt": "image",
-        "orientation": "vertical"
-        },
-        
-        {
-        "src": "/images/gallery/img-24.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-
-        {
-        "src": "/images/gallery/img-26.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-
-        {
-        "src": "/images/gallery/img-28.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        
-        {
-        "src": "/images/gallery/img-30.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-31.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        
-        {
-        "src": "/images/gallery/img-33.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-34.jpg",
-        "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-35.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
-        "src": "/images/gallery/img-36.jpg",
+        "src": "/images/gallery/img-24.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
-        "src": "/images/gallery/img-37.jpg",
+        "src": "/images/gallery/img-26.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
-        "src": "/images/gallery/img-38.jpg",
+        "src": "/images/gallery/img-30.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
-        
         {
-        "src": "/images/gallery/img-40.jpg",
+        "src": "/images/gallery/img-31.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
-        
         {
-        "src": "/images/gallery/img-42.jpg",
+        "src": "/images/gallery/img-33.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
-        
         {
-        "src": "/images/gallery/img-44.jpg",
+        "src": "/images/gallery/img-57.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-34.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-45.jpg",
         "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-46.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-47.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-48.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-49.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        {
-        "src": "/images/gallery/img-50.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        
-        {
-        "src": "/images/gallery/img-52.jpg",
-        "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-53.jpg",
         "alt": "image",
-        "orientation": "vertical"
+        "orientation": "vertical",
+        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "location": "Seoul, South Korea"
         },
-        
-        {
-        "src": "/images/gallery/img-55.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        },
-        
-        {
-        "src": "/images/gallery/img-57.jpg",
-        "alt": "image",
-        "orientation": "vertical"
-        }
     ]
 }
 
