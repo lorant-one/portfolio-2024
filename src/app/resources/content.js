@@ -179,8 +179,8 @@ const gallery = {
         "src": "/images/gallery/img-42.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "18mm | 1/125 | f3.5 | ISO200",
+        "location": "Paiva Walkways, Portugal"
         },
         {
         "src": "/images/gallery/img-07.jpg",
@@ -193,7 +193,7 @@ const gallery = {
         "src": "/images/gallery/img-52.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "technical": "45mm | 1/60 | f7.1 | ISO320",
         "location": "Seoul, South Korea"
         },
         {
@@ -207,77 +207,77 @@ const gallery = {
         "src": "/images/gallery/img-22.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "technical": "135mm | 1/30 | f11 | ISO250",
         "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-35.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "18mm | 1/80 | f5.6 | ISO200",
+        "location": "Peneda-Gerês, Portugal"
         },
         {
         "src": "/images/gallery/img-24.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "51mm | 1/400 | f11 | ISO100",
+        "location": "Tatra Mountains, Poland"
         },
         {
         "src": "/images/gallery/img-26.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "18mm | 1/100 | f7.1 | ISO100",
+        "location": "Zakopane, Poland"
         },
         {
         "src": "/images/gallery/img-30.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "28mm | 1/500 | f5.6 | ISO100",
+        "location": "Großglockner, Austria"
         },
         {
         "src": "/images/gallery/img-31.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "33mm | 1/640 | f4.5 | ISO125",
+        "location": "Schladming, Austria"
         },
         {
         "src": "/images/gallery/img-33.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "18mm | 1/1250 | f9.0 | ISO125",
+        "location": "Dachstein, Austria"
         },
         {
         "src": "/images/gallery/img-57.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "technical": "22mm | 1/500 | f4.0 | ISO100",
         "location": "Seoul, South Korea"
         },
         {
         "src": "/images/gallery/img-34.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "51mm | 1/200 | f5.0 | ISO200",
+        "location": "Peneda-Gerês, Portugal"
         },
         {
         "src": "/images/gallery/img-45.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
-        "location": "Seoul, South Korea"
+        "technical": "18mm | 25.0 | f3.5 | ISO800",
+        "location": "Crete, Greece"
         },
         {
         "src": "/images/gallery/img-53.jpg",
         "alt": "image",
         "orientation": "vertical",
-        "technical": "56mm | 1/1250 | f11 | ISO100",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
         "location": "Seoul, South Korea"
         },
     ]
