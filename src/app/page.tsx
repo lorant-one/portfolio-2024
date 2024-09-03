@@ -11,7 +11,6 @@ import { Discord } from './components/Discord';
 export function generateMetadata() {
 	const title = home.title;
 	const description = home.description;
-	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
 	return {
 		title,
@@ -20,19 +19,12 @@ export function generateMetadata() {
 			title,
 			description,
 			type: 'website',
-			url: `https://${baseURL}/blog`,
-			images: [
-				{
-					url: ogImage,
-					alt: title,
-				},
-			],
+			url: `https://${baseURL}`,
 		},
 		twitter: {
 			card: 'summary_large_image',
 			title,
 			description,
-			images: [ogImage],
 		},
 	};
 }

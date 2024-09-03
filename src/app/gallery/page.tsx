@@ -33,7 +33,7 @@ export function generateMetadata() {
 
 export default function Gallery() {
     return (
-        <Flex fillWidth>
+        <Flex fillWidth justifyContent="center">
             <script
 				type="application/ld+json"
 				suppressHydrationWarning
