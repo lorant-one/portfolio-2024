@@ -65,7 +65,7 @@ export default function Home() {
 					wrap="balance"
 					variant="display-strong-l">
 					<span className="font-label">
-					<LetterFx trigger="instant" speed="fast">
+					<LetterFx trigger="instant">
 						{home.headline}
 					</LetterFx>
 					</span>
