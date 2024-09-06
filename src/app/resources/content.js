@@ -280,6 +280,202 @@ const gallery = {
         "technical": "91mm | 1/15 | f5.6 | ISO200",
         "location": "Seoul, South Korea"
         },
+        {
+        "src": "/images/gallery/img-58.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "67mm | 1/80 | f7.1 | ISO250",
+        "location": "Levada Nova, Madeira"
+        },
+        {
+        "src": "/images/gallery/img-59.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "28mm | 1/8 | f22 | ISO100",
+        "location": "Budapest, Hungary"
+        },
+        {
+        "src": "/images/gallery/img-60.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 13.0 | f11 | ISO100",
+        "location": "Dubai, UAE"
+        },
+        {
+        "src": "/images/gallery/img-74.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "75mm | 1/80 | f6.3 | ISO200",
+        "location": "Bled, Slovenia"
+        },
+        {
+        "src": "/images/gallery/img-61.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/400 | f13 | ISO100",
+        "location": "Dubai, UAE"
+        },
+        {
+        "src": "/images/gallery/img-62.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/125 | f11 | ISO320",
+        "location": "Morskie Oko, Poland"
+        },
+        {
+        "src": "/images/gallery/img-66.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/25 | f11 | ISO100",
+        "location": "Sardinia, Italy"
+        },
+        {
+        "src": "/images/gallery/img-67.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "92mm | 1/80 | f7.1 | ISO200",
+        "location": "Amsterdam, Netherlands"
+        },
+        {
+        "src": "/images/gallery/img-68.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "27mm | 1/3 | f25 | ISO100",
+        "location": "Sao Miguel, Azores"
+        },
+        {
+        "src": "/images/gallery/img-69.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/250 | f11 | ISO125",
+        "location": "Fanal Forest, Madeira"
+        },
+        {
+        "src": "/images/gallery/img-63.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "27mm | 1/200 | f4.5 | ISO250",
+        "location": "Zakopane, Poland"
+        },
+        {
+        "src": "/images/gallery/img-75.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "32mm | 1/50 | f9.0 | ISO320",
+        "location": "Bohinj, Slovenia"
+        },
+        {
+        "src": "/images/gallery/img-85.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/50 | f5.6 | ISO640",
+        "location": "Budapest, Hungary"
+        },
+        {
+        "src": "/images/gallery/img-84.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "50mm | 1/50 | f5.6 | ISO200",
+        "location": "Budapest, Hungary"
+        },
+        {
+        "src": "/images/gallery/img-72.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "18mm | 1/40 | f22 | ISO100",
+        "location": "Sao Miguel, Azores"
+        },
+        {
+        "src": "/images/gallery/img-73.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "63mm | 1/40 | f6.3 | ISO500",
+        "location": "Bohinj, Slovenia"
+        },
+        {
+        "src": "/images/gallery/img-76.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-64.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-70.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-77.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-78.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-79.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-80.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-81.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-65.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-82.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-71.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
+        {
+        "src": "/images/gallery/img-83.jpg",
+        "alt": "image",
+        "orientation": "vertical",
+        "technical": "91mm | 1/15 | f5.6 | ISO200",
+        "location": "Seoul, South Korea"
+        },
     ]
 }
 

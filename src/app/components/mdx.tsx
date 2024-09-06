@@ -5,6 +5,7 @@ import { SmartImage, SmartLink, Text, Accordion, Flex } from '@/once-ui/componen
 import { Discord } from '@/app/components';
 import { Projects } from '@/app/work/components/Projects';
 import { HeadingLink } from '@/app/components';
+import Navbar from '@/app/blog/demos/Navbar'
 
 import { TextProps } from '@/once-ui/interfaces';
 import { SmartImageProps } from '@/once-ui/components/SmartImage';
@@ -139,7 +140,8 @@ const components = {
     SmartImage,
     Discord,
     Projects,
-    Accordion
+    Accordion,
+    Navbar,
 };
 
 type CustomMDXProps = MDXRemoteProps & {

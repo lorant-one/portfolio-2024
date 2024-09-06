@@ -6,11 +6,11 @@ import { Flex, Text } from '.';
 import styles from './Dropdown.module.scss';
 
 interface DropdownOptions {
-    label: string;
+    label: React.ReactNode;
     value: string;
     hasPrefix?: React.ReactNode;
     hasSuffix?: React.ReactNode;
-    description?: string;
+    description?: React.ReactNode;
     dividerAfter?: boolean;
     danger?: boolean;
 }
@@ -82,7 +82,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
 
     useEffect(() => {
         if (typedChars.length > 0) {
-            const matchIndex = options.findIndex(option => option.label.toLowerCase().startsWith(typedChars.toLowerCase()));
+            const matchIndex = options.findIndex(option => option.value.toLowerCase().startsWith(typedChars.toLowerCase()));
             if (matchIndex !== -1) {
                 setFocusedIndex(matchIndex);
             }

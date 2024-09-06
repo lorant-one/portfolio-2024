@@ -10,6 +10,8 @@ interface DropdownWrapperProps {
     dropdownOptions: DropdownOptions[];
     dropdownProps?: Omit<DropdownProps, 'options'> & { onOptionSelect?: (option: DropdownOptions) => void };
     selectedOption?: string;
+    style?: React.CSSProperties;
+    className?: string;
     renderCustomDropdownContent?: () => ReactNode;
 }
 
@@ -18,6 +20,8 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
     dropdownOptions,
     dropdownProps = {},
     selectedOption,
+    style,
+    className,
     renderCustomDropdownContent,
 }, ref) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -104,7 +108,8 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
 
     return (
         <Flex
-            style={{ WebkitTapHighlightColor: 'transparent' }}
+            style={style}
+            className={className}
             position="relative"
             ref={wrapperRef}
             onClick={() => setDropdownOpen(!isDropdownOpen)}
