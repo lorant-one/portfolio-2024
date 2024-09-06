@@ -69,7 +69,7 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>I’m a Vienna-based design engineer with a passion for all things creative. I <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="/work">design and build</Link></InlineCode> web apps, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://github.com/lorant-one" target="_blank">contribute</Link></InlineCode> to open-source projects, experiment with generative AI, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://creatillo.com" target="_blank">paint digitally</Link></InlineCode> and occasionally pick up a pen to sketch on paper.</>
+        description: <>I’m a Vienna-based design engineer with a passion for all things creative. I <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="/work">design and build</Link></InlineCode> web apps, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://github.com/lorant-one" target="_blank">contribute</Link></InlineCode> to open-source projects, experiment with generative AI, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://creatillo.com" target="_blank">paint digitally</Link></InlineCode> and occasionally pick up a pen to <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="/blog/from-my-sketchbook">sketch</Link></InlineCode> on paper.</>
     },
     work: {
         display: true, // set to false to hide this section
