@@ -136,6 +136,7 @@ const components = {
     Table,
     Flex,
     SmartLink,
+    SmartImage,
     Discord,
     Projects,
     Accordion
