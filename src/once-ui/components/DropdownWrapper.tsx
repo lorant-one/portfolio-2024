@@ -108,6 +108,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
 
     return (
         <Flex
+            data-theme="dark" data-surface="filled"
             style={style}
             className={className}
             position="relative"

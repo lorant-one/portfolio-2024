@@ -45,7 +45,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
     const { code, language, label } = codeInstances[selectedInstance] || { code: '', language: '', label: 'Select Code' };
 
-    const [copyIcon, setCopyIcon] = useState<string>('HiClipboard');
+    const [copyIcon, setCopyIcon] = useState<string>('clipboard');
 
     useEffect(() => {
         if (codeRef.current && codeInstances.length > 0) {
@@ -60,7 +60,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     setCopyIcon('check');
 
                     setTimeout(() => {
-                        setCopyIcon('HiClipboard');
+                        setCopyIcon('clipboard');
                     }, 5000);
                 })
                 .catch((err) => {
@@ -103,7 +103,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                                 }))}
                                 dropdownProps={{
                                     onOptionSelect: (option) => {
-                                        const selectedLabel = option.label.split('-')[0];
+                                        const selectedLabel = option.value.split('-')[0];
                                         handleContent(selectedLabel);
                                     },
                                 }}>
@@ -130,8 +130,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     fillHeight
                     padding="l"
                     justifyContent="center"
-                    alignItems="center"
-                    minHeight={12}>
+                    alignItems="center">
                     {Array.isArray(codePreview)
                         ? codePreview.map((item, index) => (
                             <React.Fragment key={index}>{item}</React.Fragment>

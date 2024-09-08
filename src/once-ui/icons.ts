@@ -17,7 +17,10 @@ import {
 	HiCheckCircle,
 	HiMiniGlobeAsiaAustralia,
 	HiEnvelope,
-	HiCalendarDays
+	HiCalendarDays,
+	HiMiniPlus,
+	HiOutlineClipboard,
+	HiArrowRightStartOnRectangle
 } from "react-icons/hi2";
 
 import {
@@ -42,7 +45,10 @@ export const iconLibrary: Record<string, IconType> = {
 	chevronLeft: HiChevronLeft,
 	refresh: HiOutlineArrowPath,
 	arrowUpRight: HiArrowUpRight,
+	arrowRightStart: HiArrowRightStartOnRectangle,
 	check: HiCheck,
+	clipboard: HiOutlineClipboard,
+	plus: HiMiniPlus,
 	helpCircle: HiMiniQuestionMarkCircle,
 	infoCircle: HiInformationCircle,
 	warningTriangle: HiExclamationTriangle,

@@ -20,28 +20,23 @@ export default function Navbar() {
 
     return (
         <Flex
-            fillWidth fillHeight
-            alignItems="center"
-            justifyContent="center"
-            padding="xl"
-            gap="xs">
+            data-theme="light"
+            fillWidth padding="8" gap="xs"
+            background="page" border="neutral-weak" borderStyle="solid-1" radius="m-8">
             <Flex
-                width={18}
-                fillHeight
-                background="surface"
-                border="neutral-weak"
-                borderStyle="solid-1"
-                radius="l"
-                padding="s"
-                gap="m"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                direction="column">
+                data-theme="dark"
+                maxWidth={16} fillWidth fillHeight padding="s" gap="m"
+                background="page" border="neutral-weak" borderStyle="solid-1" radius="l"
+                justifyContent="flex-start" alignItems="flex-start" direction="column">
                 <Flex
+                    data-surface="filled" data-theme="dark"
                     fillWidth
                     onClick={toggleActive}>
                     <DropdownWrapper
-                        className={classNames(styles.selector, active ? styles.active : '')}
+                        className={classNames(
+                            styles.selector,
+                            active ? styles.active : ''
+                        )}
                         dropdownOptions={[
                             {
                                 hasPrefix: <Avatar value="O"/>,
@@ -58,12 +53,10 @@ export default function Navbar() {
                                         alignItems="center"
                                         gap="4">
                                         <Flex
-                                            width="8"
-                                            height="8"
+                                            width="8" height="8"
                                             alignItems="center"> 
                                             <Flex
-                                                width="4"
-                                                height="4"
+                                                width="4" height="4"
                                                 radius="full"
                                                 solid="brand-strong">
                                             </Flex>
@@ -90,12 +83,10 @@ export default function Navbar() {
                                         alignItems="center"
                                         gap="4">
                                         <Flex
-                                            width="8"
-                                            height="8"
+                                            width="8" height="8"
                                             alignItems="center"> 
                                             <Flex
-                                                width="4"
-                                                height="4"
+                                                width="4" height="4"
                                                 radius="full"
                                                 solid="brand-strong">
                                             </Flex>
@@ -112,7 +103,7 @@ export default function Navbar() {
                                         paddingX="8">
                                         <Icon
                                             onBackground="neutral-weak"
-                                            name="HiArrowRightStartOnRectangle"
+                                            name="arrowRightStart"
                                             size="xs"/>
                                     </Flex>,
                                 label: 'Log out',
@@ -120,18 +111,15 @@ export default function Navbar() {
                             }
                         ]}>
                         <Flex
-                            fillWidth
-                            justifyContent="space-between"
-                            alignItems="center"
-                            paddingY="8"
-                            paddingX="12"
+                            fillWidth paddingY="8" paddingX="12"
+                            justifyContent="space-between" alignItems="center"
                             radius="m-8">
                             <User
-                                name="Mark"
+                                name="Lorant One"
                                 subline="Personal account"
                                 avatarProps={{
                                     empty: false,
-                                    src: '/images/demos/avatar_04.png'
+                                    src: '/images/avatar.jpg'
                                 }}/>
                             <Icon
                                 name="HiChevronUpDown"
@@ -140,11 +128,8 @@ export default function Navbar() {
                     </DropdownWrapper>
                 </Flex>
                 <Flex
-                    fillHeight
-                    fillWidth
-                    paddingX="xs"
-                    direction="column"
-                    gap="m">
+                    fillHeight fillWidth paddingX="xs" gap="m"
+                    direction="column">
                     <Flex
                         fillWidth
                         gap="4"
@@ -152,8 +137,7 @@ export default function Navbar() {
                         <Text
                             variant="body-default-xs"
                             onBackground="neutral-weak"
-                            marginBottom="8"
-                            marginLeft="16">
+                            marginBottom="8" marginLeft="16">
                             Dashboard
                         </Text>
                         <ToggleButton
@@ -234,8 +218,7 @@ export default function Navbar() {
                         <Text
                             variant="body-default-xs"
                             onBackground="neutral-weak"
-                            marginY="8"
-                            marginLeft="16">
+                            marginY="8" marginLeft="16">
                             Management
                         </Text>
                         <ToggleButton
@@ -244,14 +227,15 @@ export default function Navbar() {
                             onClick={() => toggleSelected('users')}
                             selected={selected === 'users'}>
                             <Flex
-                                padding="4"
+                                padding="4" gap="12"
                                 alignItems="center"
-                                gap="12"
                                 textVariant="label-default-s">
                                 <Flex
-                                    className={classNames(selected === 'users' ? styles.transform : '', styles.ease)}
-                                    height="1"
-                                    width="16"
+                                    className={classNames(
+                                        selected === 'users' ? styles.transform : '',
+                                        styles.ease
+                                    )}
+                                    height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
                                 Users
@@ -268,9 +252,11 @@ export default function Navbar() {
                                 gap="12"
                                 textVariant="label-default-s">
                                 <Flex
-                                    className={classNames(selected === 'roles' ? styles.transform : '', styles.ease)}
-                                    height="1"
-                                    width="16"
+                                    className={classNames(
+                                        selected === 'roles' ? styles.transform : '',
+                                        styles.ease
+                                    )}
+                                    height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
                                 Roles
@@ -282,14 +268,15 @@ export default function Navbar() {
                             onClick={() => toggleSelected('permissions')}
                             selected={selected === 'permissions'}>
                             <Flex
-                                padding="4"
+                                padding="4" gap="12"
                                 alignItems="center"
-                                gap="12"
                                 textVariant="label-default-s">
                                 <Flex
-                                    className={classNames(selected === 'permissions' ? styles.transform : '', styles.ease)}
-                                    height="1"
-                                    width="16"
+                                    className={classNames(
+                                        selected === 'permissions' ? styles.transform : '',
+                                        styles.ease
+                                    )}
+                                    height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
                                 Permissions
@@ -298,22 +285,17 @@ export default function Navbar() {
                     </Flex>
 
                     <Flex
-                        fillWidth
-                        height="1"
+                        fillWidth height="1"
                         background="neutral-strong">
                     </Flex>
 
                     <Flex
-                        fillWidth
-                        fillHeight
-                        gap="4"
+                        fillWidth fillHeight gap="4"
                         direction="column">
                         <Flex
                             fillWidth
-                            justifyContent="space-between"
-                            alignItems="center"
-                            paddingY="8"
-                            paddingX="16">
+                            justifyContent="space-between" alignItems="center"
+                            paddingY="8" paddingX="16">
                             <Text
                                 variant="body-default-xs"
                                 onBackground="neutral-weak">
@@ -322,7 +304,7 @@ export default function Navbar() {
                             <IconButton
                                 tooltip="Create"
                                 variant="secondary"
-                                icon="HiMiniPlus"
+                                icon="plus"
                                 size="s"/>
                         </Flex>
                         <ToggleButton
@@ -331,14 +313,15 @@ export default function Navbar() {
                             onClick={() => toggleSelected('overview')}
                             selected={selected === 'overview'}>
                             <Flex
-                                padding="4"
+                                padding="4" gap="12"
                                 alignItems="center"
-                                gap="12"
                                 textVariant="label-default-s">
                                 <Flex
-                                    className={classNames(selected === 'overview' ? styles.transform : '', styles.ease)}
-                                    height="1"
-                                    width="16"
+                                    className={classNames(
+                                        selected === 'overview' ? styles.transform : '',
+                                        styles.ease
+                                    )}
+                                    height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
                                 Overview
@@ -350,14 +333,15 @@ export default function Navbar() {
                             onClick={() => toggleSelected('my-projects')}
                             selected={selected === 'my-projects'}>
                             <Flex
-                                padding="4"
+                                padding="4" gap="12"
                                 alignItems="center"
-                                gap="12"
                                 textVariant="label-default-s">
                                 <Flex
-                                    className={classNames(selected === 'my-projects' ? styles.transform : '', styles.ease)}
-                                    height="1"
-                                    width="16"
+                                    className={classNames(
+                                        selected === 'my-projects' ? styles.transform : '',
+                                        styles.ease
+                                    )}
+                                    height="1" width="16"
                                     alpha="neutral-strong">
                                 </Flex>
                                 My projects
@@ -370,44 +354,38 @@ export default function Navbar() {
                     direction="column"
                     fillWidth>
                     <Flex
-                        fillWidth
-                        paddingX="20">
+                        fillWidth paddingX="20">
                         <Flex
                             fillWidth
-                            shadow="m"
-                            border="neutral-medium"
-                            borderStyle="solid-1"
+                            shadow="m" border="neutral-medium" borderStyle="solid-1"
                             style={{
                                 height: 'calc(var(--static-space-4) + var(--static-space-2))',
                                 borderTopLeftRadius: 'var(--radius-m)',
-                                borderTopRightRadius: 'var(--radius-m)'}}>
+                                borderTopRightRadius: 'var(--radius-m)'
+                            }}>
                         </Flex>
                     </Flex>
                     <Flex
                         fillWidth
                         paddingX="12">
                         <Flex
-                            fillWidth
-                            height="8"
-                            shadow="m"
-                            border="neutral-medium"
-                            borderStyle="solid-1"
+                            fillWidth height="8"
+                            shadow="m" border="neutral-medium" borderStyle="solid-1"
                             style={{
                                 marginTop: '-1px',
                                 borderTopLeftRadius: 'var(--radius-m)',
-                                borderTopRightRadius: 'var(--radius-m)'}}>
+                                borderTopRightRadius: 'var(--radius-m)'
+                            }}>
                         </Flex>
                     </Flex>
                     <Flex
-                        style={{marginTop: '-1px'}}
-                        shadow="m"
-                        radius="m"
-                        border="neutral-medium"
-                        borderStyle="solid-1"
-                        padding="s"
-                        fillWidth
-                        direction="column"
-                        gap="4">
+                        style={{
+                            marginTop: '-1px'
+                        }}
+                        shadow="m" radius="m"
+                        border="neutral-medium" borderStyle="solid-1"
+                        fillWidth padding="s" gap="4"
+                        direction="column">
                         <Text
                             variant="heading-strong-xs">
                             Invite your team
@@ -424,23 +402,23 @@ export default function Navbar() {
                             <AvatarGroup
                                 avatars={[
                                     {
-                                        src: '/images/demos/avatar_01.png'
+                                        src: '/images/ui/avatars/avatar-01.jpg'
                                     },
                                     {
-                                        src: '/images/demos/avatar_02.png'
+                                        src: '/images/ui/avatars/avatar-02.jpg'
                                     },
                                     {
-                                        src: '/images/demos/avatar_03.png'
+                                        value: 'a'
                                     },
                                     {
-                                        src: '/images/demos/avatar_04.png'
+                                        value: 'b'
                                     },
                                     {
-                                        src: '/images/demos/avatar_05.png'
+                                        value: 'c'
                                     }
                                 ]}
                                 size="m"
-                                limit={3}/>
+                                limit={2}/>
                             <Button
                                 size="s"
                                 prefixIcon="HiMiniUserPlus">
@@ -450,14 +428,6 @@ export default function Navbar() {
                     </Flex>
                 </Flex>
             </Flex>
-            <Flex
-                fillWidth
-                fillHeight
-                maxWidth={64}
-                background="surface"
-                border="neutral-weak"
-                borderStyle="solid-1"
-                radius="l"></Flex>
         </Flex>
     )
 }

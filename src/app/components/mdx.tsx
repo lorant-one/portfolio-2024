@@ -6,6 +6,7 @@ import { Discord } from '@/app/components';
 import { Projects } from '@/app/work/components/Projects';
 import { HeadingLink } from '@/app/components';
 import Navbar from '@/app/blog/demos/Navbar'
+import { CodeBlock } from '@/once-ui/modules';
 
 import { TextProps } from '@/once-ui/interfaces';
 import { SmartImageProps } from '@/once-ui/components/SmartImage';
@@ -142,6 +143,7 @@ const components = {
     Projects,
     Accordion,
     Navbar,
+    CodeBlock,
 };
 
 type CustomMDXProps = MDXRemoteProps & {

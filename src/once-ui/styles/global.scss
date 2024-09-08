@@ -83,3 +83,7 @@ a {
         background: var(--neutral-alpha-strong);
     }
 }
+
+::-webkit-scrollbar-corner {
+    background-color: var(--static-transparent);
+}
