@@ -1,9 +1,9 @@
 "use client";
 
-import { AvatarGroup, Flex, Heading, SmartImage, SmartLink, Text } from "@/once-ui/components";
+import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
 import { LetterFx } from "@/once-ui/components/LetterFx";
 import { SpacingToken } from "@/once-ui/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProjectCardProps {
     href: string;
@@ -27,22 +27,36 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
-    const handleImageClick = () => {
-        setIsTransitioning(true);
-        const nextIndex = (activeIndex + 1) % images.length;
-        setTimeout(() => {
-            setActiveIndex(nextIndex);
-            setIsTransitioning(false);
-        }, 200);
-    };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsTransitioning(true);
+        }, 1000);
 
+        return () => clearTimeout(timer);
+    }, []);
+
+    const handleImageClick = () => {
+        if(images.length > 1) {
+            setIsTransitioning(false);
+            setTimeout(() => {
+                const nextIndex = (activeIndex + 1) % images.length;
+                setActiveIndex(nextIndex);
+                setTimeout(() => {
+                    setIsTransitioning(true);
+                }, 630);
+            }, 630);
+        }
+    };
+    
     const handleControlClick = (index: number) => {
         if (index !== activeIndex) {
             setIsTransitioning(true);
             setTimeout(() => {
                 setActiveIndex(index);
-                setIsTransitioning(false);
-            }, 200);
+                setTimeout(() => {
+                    setIsTransitioning(false);
+                }, 630);
+            }, 630);
         }
     };
 
@@ -51,20 +65,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             fillWidth gap="m"
             direction="column">
             <Flex onClick={handleImageClick}>
-                <SmartImage
-                    tabIndex={0}
-                    radius="l"
-                    alt={title}
-                    aspectRatio="16 / 9"
-                    src={images[activeIndex]}
-                    style={{
-                        border: '1px solid var(--neutral-alpha-weak)',
-                        ...(images.length > 1 && {
-                            cursor: 'pointer',
-                            opacity: isTransitioning ? 0.2 : 1,
-                            transition: 'opacity 0.2s ease',
-                        }),
-                    }}/>
+                <RevealFx
+                    style={{width: '100%'}}
+                    delay={0.8}
+                    trigger={isTransitioning}
+                    translateY="16"
+                    speed="fast">
+                    <SmartImage
+                        tabIndex={0}
+                        radius="l"
+                        alt={title}
+                        aspectRatio="16 / 9"
+                        src={images[activeIndex]}
+                        style={{
+                            border: '1px solid var(--neutral-alpha-weak)',
+                            ...(images.length > 1 && {
+                                cursor: 'pointer',
+                            }),
+                        }}/>
+                </RevealFx>
             </Flex>
             {images.length > 1 && (
                 <Flex

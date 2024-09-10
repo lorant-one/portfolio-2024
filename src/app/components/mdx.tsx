@@ -5,40 +5,11 @@ import { SmartImage, SmartLink, Text, Accordion, Flex } from '@/once-ui/componen
 import { Discord } from '@/app/components';
 import { Projects } from '@/app/work/components/Projects';
 import { HeadingLink } from '@/app/components';
-import Navbar from '@/app/blog/demos/Navbar'
+import { Navbar, LetterFxHover } from '@/app/blog/demos'
 import { CodeBlock } from '@/once-ui/modules';
 
 import { TextProps } from '@/once-ui/interfaces';
 import { SmartImageProps } from '@/once-ui/components/SmartImage';
-
-type TableProps = {
-    data: {
-        headers: string[];
-        rows: string[][];
-    };
-};
-
-function Table({ data }: TableProps) {
-    const headers = data.headers.map((header, index) => (
-        <th key={index}>{header}</th>
-    ));
-    const rows = data.rows.map((row, index) => (
-        <tr key={index}>
-        {row.map((cell, cellIndex) => (
-            <td key={cellIndex}>{cell}</td>
-        ))}
-        </tr>
-    ));
-
-    return (
-        <table>
-            <thead>
-                <tr>{headers}</tr>
-            </thead>
-            <tbody>{rows}</tbody>
-        </table>
-    );
-}
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string;
@@ -135,15 +106,15 @@ const components = {
     h6: createHeading(6) as any,
     img: createImage as any,
     a: CustomLink as any,
-    Table,
     Flex,
+    Accordion,
     SmartLink,
     SmartImage,
+    CodeBlock,
     Discord,
     Projects,
-    Accordion,
     Navbar,
-    CodeBlock,
+    LetterFxHover
 };
 
 type CustomMDXProps = MDXRemoteProps & {

@@ -6,7 +6,7 @@ import styles from '@/app/blog/demos/Navbar.module.scss'
 import { useState } from 'react';
 import classNames from 'classnames';
 
-export default function Navbar() {
+function Navbar() {
     const [active, setActive] = useState<boolean>(false);
     const [selected, setSelected] = useState<string>('home');
 
@@ -431,3 +431,5 @@ export default function Navbar() {
         </Flex>
     )
 }
+
+export { Navbar };

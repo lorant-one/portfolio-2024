@@ -11,6 +11,8 @@ ul {
 
 li {
     padding: var(--static-space-8) 0;
+    max-width: var(--responsive-width-xs);
+    width: 100%;
     line-height: 150%;
     font-size: inherit;
     color: inherit;

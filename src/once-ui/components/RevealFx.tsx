@@ -1,63 +1,88 @@
-'use client';
+"use client";
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
-import styles from './RevealFx.module.scss'; // Import the CSS module for styling
+import React, { useState, useEffect, forwardRef } from 'react';
+import { SpacingToken } from '../types';
+import styles from './RevealFx.module.scss';
 
-interface RevealFxProps {
-  children: React.ReactNode;
-  trigger?: boolean;
-  autoReveal?: boolean;
-  duration?: number; // duration of the reveal animation in ms
-  delay?: number; // delay before the reveal starts in ms
-  onComplete?: () => void; // callback when reveal is complete
+interface RevealFxProps extends React.HTMLAttributes<HTMLSpanElement> {
+	children: React.ReactNode;
+	speed?: 'slow' | 'medium' | 'fast';
+	delay?: number;
+	translateY?: number | SpacingToken;
+	trigger?: boolean;
+	style?: React.CSSProperties;
+	className?: string;
 }
 
-const RevealFx: React.FC<RevealFxProps> = ({
-  children,
-  trigger = false,
-  autoReveal = true,
-  duration = 1000,
-  delay = 0,
-  onComplete,
-}) => {
-  const [revealed, setRevealed] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+const RevealFx = forwardRef<HTMLSpanElement, RevealFxProps>(({
+	children,
+	speed = 'medium',
+	delay = 0,
+	translateY,
+	trigger,
+	style,
+	className,
+	...rest
+}, ref) => {
+	const [isRevealed, setIsRevealed] = useState(false);
 
-  const startReveal = useCallback(() => {
-    if (containerRef.current) {
-      containerRef.current.classList.add(styles.revealed);
-      setRevealed(true);
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setIsRevealed(true);
+		}, delay * 1000);
 
-      setTimeout(() => {
-        if (onComplete) onComplete();
-      }, duration + delay); // Ensure the onComplete triggers after the animation and delays
-    }
-  }, [duration, delay, onComplete]);
+		return () => clearTimeout(timer);
+	}, [delay]);
 
-  useEffect(() => {
-    if (autoReveal) {
-      setTimeout(() => {
-        startReveal();
-      }, delay);
-    }
-  }, [autoReveal, delay, startReveal]);
+	useEffect(() => {
+		if (trigger !== undefined) {
+			setIsRevealed(trigger);
+		}
+	}, [trigger]);
 
-  useEffect(() => {
-    if (trigger && !revealed) {
-      startReveal();
-    }
-  }, [trigger, revealed, startReveal]);
+	const getSpeedDuration = () => {
+		switch (speed) {
+			case 'fast':
+				return '1s';
+			case 'medium':
+				return '2s';
+			case 'slow':
+				return '3s';
+			default:
+				return '2s';
+		}
+	};
 
-  return (
-    <div ref={containerRef} className={styles.revealFxContainer}>
-      <div className={styles.blurLayer}></div>
-      <div className={styles.blurLayer}></div>
-      <div className={styles.blurLayer}></div>
-      <div className={styles.content}>
-        {children}
-      </div>
-    </div>
-  );
-};
+	const getTranslateYValue = () => {
+		if (typeof translateY === 'number') {
+			return `${translateY}rem`;
+		} else if (typeof translateY === 'string') {
+			return `var(--static-space-${translateY})`;
+		}
+		return undefined;
+	};
 
+	const translateValue = getTranslateYValue();
+
+	const combinedClassName = `${styles.revealFx} ${isRevealed ? styles.revealed : styles.hidden} ${className || ''}`;
+
+	const revealStyle: React.CSSProperties = {
+		transitionDuration: getSpeedDuration(),
+		transform: isRevealed ? 'translateY(0)' : `translateY(${translateValue})`,
+		...style,
+	};
+
+	return (
+		<span
+			ref={ref}
+			aria-hidden="true"
+			style={revealStyle}
+			className={combinedClassName}
+			{...rest}>
+			{children}
+		</span>
+	);
+});
+
+RevealFx.displayName = "RevealFx";
 export { RevealFx };

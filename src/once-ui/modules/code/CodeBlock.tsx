@@ -127,7 +127,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             {codePreview && (
                 <Flex
                     zIndex={0}
-                    fillHeight
                     padding="l"
                     justifyContent="center"
                     alignItems="center">
