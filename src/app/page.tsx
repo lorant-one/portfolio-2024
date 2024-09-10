@@ -65,37 +65,47 @@ export default function Home() {
 					wrap="balance"
 					variant="display-strong-l">
 					<span className="font-label">
-					<LetterFx trigger="instant">
-						{home.headline}
-					</LetterFx>
+						<LetterFx trigger="instant">
+							{home.headline}
+						</LetterFx>
 					</span>
 				</Heading>
-				<Text
-					wrap="balance" 
-					onBackground="neutral-weak"
-					variant="display-default-xs">
-					{home.subline}
-				</Text>
-				<Button
-					data-border="rounded"
-					href="/about"
-					variant="tertiary"
-					suffixIcon="chevronRight"
-					size="m">
-					<Flex
-						gap="8"
-						alignItems="center">
-						{about.avatar.display && (
-							<Avatar
-								style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
-								src={person.avatar}
-								size="m"/>
-							)}
-							<LetterFx>
-								About me
-							</LetterFx>
-					</Flex>
-				</Button>
+				<RevealFx
+                    translateY="8"
+					delay={0.2}
+                    speed="fast">
+					<Text
+						wrap="balance" 
+						onBackground="neutral-weak"
+						variant="display-default-xs">
+						{home.subline}
+					</Text>
+				</RevealFx>
+				<RevealFx
+                    translateY="12"
+					delay={0.4}
+                    speed="fast">
+					<Button
+						data-border="rounded"
+						href="/about"
+						variant="tertiary"
+						suffixIcon="chevronRight"
+						size="m">
+						<Flex
+							gap="8"
+							alignItems="center">
+							{about.avatar.display && (
+								<Avatar
+									style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
+									src={person.avatar}
+									size="m"/>
+								)}
+								<LetterFx>
+									About me
+								</LetterFx>
+						</Flex>
+					</Button>
+				</RevealFx>
 			</Flex>
 			<Projects maxWidth="s" range={[1,1]}/>
 			<Discord/>

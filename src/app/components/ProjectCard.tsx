@@ -67,9 +67,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <Flex onClick={handleImageClick}>
                 <RevealFx
                     style={{width: '100%'}}
-                    delay={0.8}
+                    delay={0.4}
                     trigger={isTransitioning}
-                    translateY="16"
                     speed="fast">
                     <SmartImage
                         tabIndex={0}
