@@ -1,4 +1,4 @@
-import { getPosts } from '@/app/utils'
+import { getPosts } from '@/app/utils/utils'
 import { baseURL } from '@/app/resources'
 
 export default async function sitemap() {

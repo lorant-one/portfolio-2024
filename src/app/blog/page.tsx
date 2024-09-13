@@ -69,7 +69,7 @@ export default function Blog() {
 			<Flex
 				fillWidth flex={1}
 				direction="column">
-				<Posts range={[1,3]}/>
+				<Posts range={[1,3]} thumbnail/>
 				<Posts range={[4]} columns="2"/>
 			</Flex>
             {mailchimp && (

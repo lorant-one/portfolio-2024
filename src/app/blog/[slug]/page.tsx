@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from '@/app/components/mdx'
-import { formatDate, getPosts } from '@/app/utils'
-import { Avatar, Button, Flex, Heading, Text } from '@/once-ui/components'
+import { getPosts } from '@/app/utils/utils'
+import { formatDate } from '@/app/utils/formatDate'
+import { Avatar, Button, Flex, Heading, Tag, Text } from '@/once-ui/components'
 
 import { person, baseURL } from '@/app/resources'
 
@@ -101,25 +102,30 @@ export default function Blog({ params }: BlogParams) {
 				prefixIcon="chevronLeft">
 				Posts
 			</Button>
-			<Heading
-				wrap="balance"
-				variant="display-strong-s">
-				{post.metadata.title}
-			</Heading>
-			<Flex
-				gap="12"
-				alignItems="center">
-				{ person.avatar && (
-					<Avatar
-						size="s"
-						src={person.avatar}/>
-				)}
-				<Text
-					variant="body-default-s"
-					onBackground="neutral-weak">
-					{formatDate(post.metadata.publishedAt)}
-				</Text>
+			<Flex direction="column" gap="8">
+				<Heading
+					wrap="balance"
+					variant="display-strong-s">
+					{post.metadata.title}
+				</Heading>
+				<Flex
+					gap="12"
+					alignItems="center">
+					{ person.avatar && (
+						<Avatar
+							size="s"
+							src={person.avatar}/>
+					)}
+					<Text
+						variant="body-default-s"
+						onBackground="neutral-weak">
+						{formatDate(post.metadata.publishedAt)}
+					</Text>
+				</Flex>
 			</Flex>
+			<Tag
+				label={post.metadata.tag}
+				variant="neutral"/>
 			<Flex
 				as="article"
 				direction="column"

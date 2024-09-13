@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from '@/app/components/mdx'
-import { formatDate, getPosts } from '@/app/utils'
-import { AvatarGroup, Button, Flex, Heading, SmartImage, Text } from '@/once-ui/components'
+import { getPosts } from '@/app/utils/utils'
+import { formatDate } from '@/app/utils/formatDate'
+import { AvatarGroup, Button, Flex, Heading, Text } from '@/once-ui/components'
 import { baseURL, person } from '@/app/resources';
 
 interface WorkParams {

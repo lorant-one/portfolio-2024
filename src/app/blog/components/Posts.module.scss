@@ -2,16 +2,13 @@
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
 
     &:hover {
-        transform: translateX(var(--static-space-8));
-
-        .indicator {
-            transform: rotate(0);
+        .image {
+            transform: scale(1.04);
         }
     }
 }
 
-.indicator {
-    transform: rotate(-90deg);
-    left: -2rem;
+.image {
+    transform: scale(1);
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
 }
