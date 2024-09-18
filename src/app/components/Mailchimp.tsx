@@ -65,6 +65,7 @@ export const Mailchimp = () => {
                 size="l"
                 src="/images/avatar.jpg"/>
             <Heading style={{position: 'relative'}}
+                as="h2"
                 marginBottom="s"
                 variant="display-strong-xs">
                 {newsletter.title}

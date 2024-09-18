@@ -7,18 +7,24 @@ import { useEffect, useState } from "react";
 
 interface ProjectCardProps {
     href: string;
+    sizes?: string;
+    children?: React.ReactNode;
     images: string[];
     title: string;
+    aspectRatio?: string;
     content: string;
     maxWidth?: number | SpacingToken;
-    description: string;
+    description?: string;
     avatars: { src: string }[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
     href,
+    sizes = "(max-width: 760px) 100vw, 880px",
+    children,
     images = [],
     title,
+    aspectRatio = "16 / 9",
     content,
     maxWidth = 'xs',
     description,
@@ -71,10 +77,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     trigger={isTransitioning}
                     speed="fast">
                     <SmartImage
+                        sizes={sizes}
                         tabIndex={0}
                         radius="l"
                         alt={title}
-                        aspectRatio="16 / 9"
+                        aspectRatio={aspectRatio}
                         src={images[activeIndex]}
                         style={{
                             border: '1px solid var(--neutral-alpha-weak)',
@@ -130,16 +137,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 size="m"
                                 reverseOrder/>
                         )}
-                        {description?.trim() && (
+                        {description?.trim() || children && (
                             <Text
                                 wrap="balance"
                                 variant="body-default-m"
                                 onBackground="neutral-weak">
-                                {description}
+                                {description || children}
                             </Text>
                         )}
                         {content?.trim() && (
-                            
                             <SmartLink
                                 suffixIcon="chevronRight"
                                 style={{margin: '0', width: 'fit-content'}}
@@ -147,7 +153,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                     <Text
                                         variant="label-default-s">
                                             <LetterFx>
-                                            Read about the project
+                                                Read about the project
                                             </LetterFx>
                                     </Text>
                             </SmartLink>

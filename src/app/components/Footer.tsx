@@ -1,5 +1,6 @@
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components"
 import { person, social } from '@/app/resources'
+import styles from '@/app/components/Footer.module.scss'
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -11,6 +12,7 @@ export const Footer = () => {
             fillWidth padding="8"
             justifyContent="center" mobileDirection="column">
             <Flex
+                className={styles.mobile}
                 fillWidth maxWidth="m" paddingY="8" paddingX="16" gap="16"
                 justifyContent="space-between" alignItems="center">
                 <Text
@@ -21,12 +23,13 @@ export const Footer = () => {
                         onBackground="neutral-weak">
                         © {currentYear} /
                     </Text>
-                    <Text paddingX="4">
+                    <Text
+                        paddingX="4">
                         {person.name}
                     </Text>
                     <Text onBackground="neutral-weak">
                         {/* Usage of this template requires attribution. Please don't remove the link to Once UI. */}
-                        / Build your portfolio with <SmartLink style={{marginLeft: '-0.125rem'}} href="https://once-ui.com/templates/magic-portfolio">Once UI</SmartLink>
+                        / Build your portfolio with <SmartLink style={{marginLeft: '-0.125rem'}} href="https://once-ui.com/templates/magic-portfolio">Magic Portfolio</SmartLink>
                     </Text>
                 </Text>
                 <Flex

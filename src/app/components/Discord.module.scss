@@ -1,0 +1,21 @@
+.content {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6));
+}
+
+.image {
+    background: transparent;
+}
+
+@media (--s) {
+    .content {
+        align-items: center;
+        text-align: center;
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6));
+    }
+
+    .image {
+        object-position: right;
+    }
+}

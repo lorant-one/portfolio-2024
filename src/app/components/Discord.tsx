@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, LetterFx, SmartImage, Text } from "@/once-ui/components";
+import styles from '@/app/components/Discord.module.scss'
 
 const Discord = () => {
     return (
@@ -19,12 +20,14 @@ const Discord = () => {
                         src="/images/ui/cityscape.jpg"
                         alt="Cityscape illustration"/>
                     <SmartImage style={{background: 'transparent', position: 'absolute'}}
+                        className={styles.image}
                         src="/images/ui/cityscape.jpg"
                         alt="Cityscape illustration"/>
-                    <Flex style={{backgroundImage: 'linear-gradient(to left, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6))'}}
+                    <Flex
+                        className={styles.content}
                         position="relative" zIndex={1}
                         direction="column"
-                        fillWidth paddingX="xl" paddingY="l" gap="l">
+                        fillWidth paddingX="xl" paddingY="l" gap="40">
                         <Flex gap="m" alignItems="center">
                             <Flex width="32">
                                 <SmartImage style={{background: 'transparent'}}
@@ -39,11 +42,19 @@ const Discord = () => {
                                 Once UI
                             </Text>
                         </Flex>
-                        <Heading style={{maxWidth: '24rem'}}
-                            as="h2"
-                            variant="display-strong-s">
-                            The palace of design engineers
-                        </Heading>
+                        <Flex gap="8" fillWidth
+                            direction="column">
+                            <Heading
+                                as="h2"
+                                variant="display-strong-s">
+                                Design Engineers Club
+                            </Heading>
+                            <Text
+                                onBackground="neutral-medium"
+                                variant="heading-default-s">
+                                It's time. The revolution begins.
+                            </Text>
+                        </Flex>
                         <Button
                             href="https://discord.com/invite/5EyAQ4eNdS"
                             suffixIcon="chevronRight">

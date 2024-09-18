@@ -4,7 +4,7 @@ import { Heading, Flex, Text, Button,  Avatar, SmartImage, LetterFx, RevealFx } 
 import { Projects } from '@/app/work/components/Projects';
 
 import { about, baseURL, home, person, routes } from '@/app/resources'
-import { Mailchimp } from '@/app/components';
+import { Mailchimp, ProjectCard } from '@/app/components';
 import { Posts } from '@/app/blog/components/Posts';
 import { Discord } from './components/Discord';
 
@@ -116,6 +116,99 @@ export default function Home() {
 			)}
 			<Projects maxWidth="s" range={[2]}/>
 			<Mailchimp/>
+			<Flex
+				direction="column"
+				fillWidth gap="12">
+				<Heading
+					as="h2"
+					variant="display-strong-m">
+					Fragments
+				</Heading>
+				<Text onBackground="neutral-weak">
+					— Pieces from the drawer
+				</Text>
+			</Flex>
+			<Flex fillWidth gap="l" direction="column">
+				<Flex fillWidth gap="l" mobileDirection="column">
+					<Flex direction="column" fillWidth gap="l">
+						<ProjectCard
+							href=""
+							aspectRatio="16 / 9"
+							images={['/images/projects/fragments/fragment-05.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}>
+						</ProjectCard>
+						<ProjectCard
+							href=""
+							aspectRatio="1 / 1"
+							images={['/images/projects/fragments/fragment-03.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}>
+						</ProjectCard>
+					</Flex>
+					<Flex direction="column" fillWidth gap="l">
+						<ProjectCard
+							href=""
+							aspectRatio="2 / 3"
+							images={['/images/projects/fragments/fragment-02.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}/>
+					</Flex>
+				</Flex>
+				<ProjectCard
+					href=""
+					aspectRatio="4 / 3"
+					images={['/images/projects/fragments/fragment-01.jpg']}
+					title=""
+					content=""
+					maxWidth="s"
+					avatars={[{src: "/"}]}/>
+				<Flex fillWidth gap="l" mobileDirection="column">
+					<Flex direction="column" fillWidth gap="l">
+					<ProjectCard
+							href=""
+							aspectRatio="13 / 6"
+							images={['/images/projects/fragments/fragment-04.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}/>
+						<ProjectCard
+							href=""
+							aspectRatio="1 / 1"
+							images={['/images/projects/fragments/fragment-06.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}/>
+					</Flex>
+					<Flex direction="column" fillWidth gap="l">
+						<ProjectCard
+							sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 480px"
+							href=""
+							aspectRatio="1 / 1"
+							images={['/images/projects/fragments/fragment-07.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}/>
+						<ProjectCard
+							href=""
+							aspectRatio="13 / 6"
+							images={['/images/projects/fragments/fragment-08.jpg']}
+							title=""
+							content=""
+							maxWidth="s"
+							avatars={[{src: "/"}]}/>
+					</Flex>
+				</Flex>
+			</Flex>
 		</Flex>
 	);
 }

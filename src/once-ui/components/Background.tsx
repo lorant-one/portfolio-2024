@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, forwardRef } from 'react';
+import React, { CSSProperties, forwardRef, useEffect, useState } from 'react';
 
 interface BackgroundProps {
     position?: CSSProperties['position'];
@@ -19,6 +19,49 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(({
     className,
     style
 }, ref) => {
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+    const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+    const maskSize = 1200;
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            setCursorPosition({
+                x: event.clientX,
+                y: event.clientY,
+            });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+    useEffect(() => {
+        let animationFrameId: number;
+
+        const updateSmoothPosition = () => {
+            setSmoothPosition((prev) => {
+                const dx = cursorPosition.x - prev.x;
+                const dy = cursorPosition.y - prev.y;
+                const easingFactor = 0.05;
+
+                return {
+                    x: Math.round(prev.x + dx * easingFactor),
+                    y: Math.round(prev.y + dy * easingFactor),
+                };
+            });
+            animationFrameId = requestAnimationFrame(updateSmoothPosition);
+        };
+
+        animationFrameId = requestAnimationFrame(updateSmoothPosition);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [cursorPosition]);
+
     return (
         <>
             {gradient && (
@@ -68,9 +111,8 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(({
                         width: '100%',
                         height: '100%',
                         backgroundImage: 'repeating-linear-gradient(45deg, var(--brand-on-background-weak) 0, var(--brand-on-background-weak) 0.5px, var(--static-transparent) 0.5px, var(--static-transparent) var(--static-space-8))',
-                        maskImage: 'linear-gradient(to bottom left, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%)',
+                        maskImage: `radial-gradient(circle ${maskSize / 2}px at ${smoothPosition.x}px ${smoothPosition.y}px, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%)`,
                         maskSize: '100% 100%',
-                        maskPosition: 'top right',
                         maskRepeat: 'no-repeat',
                         opacity: '0.2',
                         ...style,
