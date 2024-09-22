@@ -135,6 +135,10 @@ const work = {
     // All projects will be listed on the /home and /work routes
 }
 
+const store = {
+    label: 'Store'
+}
+
 const gallery = {
     label: 'Gallery',
     title: 'My photo gallery',
@@ -479,4 +483,4 @@ const gallery = {
     ]
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, gallery, store };

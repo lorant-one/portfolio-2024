@@ -1,0 +1,17 @@
+@media (--m) {
+    .reOrder {
+        order: -1;
+    }
+}
+
+.card {
+    cursor: pointer;
+    border: 1px solid var(--neutral-border-medium);
+    border-radius: var(--radius-l);
+    width: 100%;
+    transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
+
+    &:hover {
+        background-color: var(--neutral-alpha-medium);
+    }
+}
