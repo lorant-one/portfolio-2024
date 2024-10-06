@@ -1,10 +1,7 @@
 import inventory from '../inventory';
 import { Button, Flex, Grid, Heading, Icon, LetterFx, SegmentedControl, Text } from '@/once-ui/components';
 
-import styles from '@/app/store/store.module.scss';
-import Link from 'next/link';
-import { Carousel } from '@/once-ui/components/Carousel';
-import ItemDetails from '../components/Hero';
+import Hero from '../components/Hero';
 
 type Params = {
     params: {
@@ -35,13 +32,7 @@ export default function Template({ params }: Params) {
 			direction="column"
 			fillWidth maxWidth="l"
 			paddingX="l" paddingTop="m" gap="l">
-			<Button
-				href="/templates" 
-				variant="tertiary"
-				prefixIcon="chevronLeft">
-				Back to store
-			</Button>
-			<ItemDetails item={item}/>
+			<Hero item={item}/>
 			<Heading 
 				variant="display-strong-xs" 
 				align="center"

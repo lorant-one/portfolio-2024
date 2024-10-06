@@ -35,7 +35,7 @@ export default function Store() {
                             textDecoration: 'none',
                             overflow: 'hidden',
                         }}
-                        href={`/templates/${template.id}`}
+                        href={`/store/${template.id}`}
                         className={styles.card}
                         key={template.id}>
                         <Flex

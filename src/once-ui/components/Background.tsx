@@ -1,6 +1,6 @@
 "use client";
 
-import React, { CSSProperties, forwardRef, useEffect, useState } from 'react';
+import React, { CSSProperties, forwardRef, useEffect, useRef, useState } from 'react';
 
 interface BackgroundProps {
     position?: CSSProperties['position'];
@@ -19,22 +19,35 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(({
     className,
     style
 }, ref) => {
+    const elementRef = useRef<HTMLDivElement>(null);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
     const maskSize = 1200;
 
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
-            setCursorPosition({
-                x: event.clientX,
-                y: event.clientY,
-            });
+            if (elementRef.current) {
+                const rect = elementRef.current.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                // Ensure the position is within the element's bounds
+                setCursorPosition({
+                    x: Math.max(0, Math.min(x, rect.width)),
+                    y: Math.max(0, Math.min(y, rect.height)),
+                });
+            }
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
+        const element = elementRef.current;
+        if (element) {
+            element.addEventListener('mousemove', handleMouseMove);
+        }
 
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
+            if (element) {
+                element.removeEventListener('mousemove', handleMouseMove);
+            }
         };
     }, []);
 
@@ -63,7 +76,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(({
     }, [cursorPosition]);
 
     return (
-        <>
+        <div ref={elementRef}>
             {gradient && (
                 <div
                     ref={ref}
@@ -119,7 +132,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(({
                     }}>
                 </div>
             )}
-        </>
+        </div>
     );
 });
 

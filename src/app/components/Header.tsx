@@ -73,12 +73,16 @@ export const Header = () => {
                     gap="4"
                     textVariant="body-default-s">
                     { routes['/'] && (
-                        <ToggleButton
-                            prefixIcon="home"
-                            href="/"
-                            selected={pathname === "/"}>
-                            <Flex paddingX="2" hide="s">{home.label}</Flex>
-                        </ToggleButton>
+                        <Flex fillHeight gap="4">
+                            <ToggleButton
+                                prefixIcon="home"
+                                href="/"
+                                selected={pathname === "/"}>
+                            </ToggleButton>
+                            <Flex fillHeight paddingY="4">
+                                <Flex width="1" background="neutral-strong" fillHeight></Flex>
+                            </Flex>
+                        </Flex>
                     )}
                     { routes['/about'] && (
                         <ToggleButton

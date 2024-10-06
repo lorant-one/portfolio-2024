@@ -40,9 +40,15 @@ export default function ItemDetails({ item }: ItemDetailsProps) {
             <Flex
                 flex={4}
                 gap="s"
-                paddingY="m"
                 fillWidth
                 direction="column">
+                <Button
+                    href="/store"
+                    size="s"
+                    variant="tertiary"
+                    prefixIcon="chevronLeft">
+                    All products
+                </Button>
                 <Heading
                     wrap="balance"
                     variant="display-strong-xs"
