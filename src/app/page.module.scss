@@ -1,0 +1,24 @@
+@keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); // Adjust this value for how much the rocks should move up
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .rock {
+    position: relative;
+    animation: float infinite ease-in-out;
+  
+    // Base settings for all rocks
+    @for $i from 1 through 4 {
+      &#{$i} {
+        animation-duration: (3s + $i * 0.5); // Slightly different durations for each rock
+        animation-delay: $i * 0.2s; // Slightly different start delays for each rock
+      }
+    }
+  }  

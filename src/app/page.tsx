@@ -7,6 +7,10 @@ import { about, baseURL, home, person, routes } from '@/app/resources'
 import { Mailchimp, ProjectCard } from '@/app/components';
 import { Posts } from '@/app/blog/components/Posts';
 import { Discord } from './components/Discord';
+import Image from 'next/image';
+
+import styles from './page.module.scss'
+import classNames from 'classnames';
 
 export function generateMetadata() {
 	const title = home.title;
@@ -106,6 +110,60 @@ export default function Home() {
 						</Flex>
 					</Button>
 				</RevealFx>
+			</Flex>
+			<Flex position="relative" fillWidth>
+				<ProjectCard
+					href="/store"
+					aspectRatio="16 / 9"
+					images={['/images/store/cover/oversized-hoodie-anime.jpg']}
+					title=""
+					content=""
+					maxWidth="s"
+					avatars={[{src: "/"}]}/>
+				<Image className={classNames(styles.rock, styles.rock1)}
+					fill
+					src={'/images/store/cover/oversized-hoodie-anime-layer-1.png'}
+					alt="Oversized hoodie cover anime style"/>
+				<Image className={classNames(styles.rock, styles.rock2)}
+					fill
+					src={'/images/store/cover/oversized-hoodie-anime-layer-2.png'}
+					alt="Oversized hoodie cover anime style"/>
+				<Image className={classNames(styles.rock, styles.rock3)}
+					fill
+					src={'/images/store/cover/oversized-hoodie-anime-layer-3.png'}
+					alt="Oversized hoodie cover anime style"/>
+				<Image className={classNames(styles.rock, styles.rock4)}
+					fill
+					src={'/images/store/cover/oversized-hoodie-anime-layer-4.png'}
+					alt="Oversized hoodie cover anime style"/>
+				<Flex
+					style={{
+						top: '0',
+						left: '0',
+						background: 'radial-gradient(ellipse 75% 75% at bottom left, var(--static-black), var(--static-transparent))'
+					}}
+					position="absolute"
+					zIndex={1}
+					fillWidth fillHeight
+					alignItems="flex-end"
+					padding="l">
+					<Flex direction="column" fillWidth gap="l">
+						<Heading variant="display-default-s" as="h2">
+							<span className="font-code">
+								Design Engineer's oversized hoodie
+							</span>
+						</Heading>
+						<Flex gap="8"
+							alignItems="center">
+							<Flex style={{border: '1px solid var(--neutral-alpha-strong)', overflow: 'hidden'}} radius="l" shadow="l" width="80" height="80"><SmartImage aspectRatio="1 / 1" src="/images/store/cover/oversized-hoodie-1.jpg" alt="oversized hoodie"/></Flex>
+							<Flex style={{border: '1px solid var(--neutral-alpha-strong)', overflow: 'hidden'}} radius="l" shadow="l" width="80" height="80"><SmartImage aspectRatio="1 / 1" src="/images/store/cover/oversized-hoodie-2.jpg" alt="oversized hoodie"/></Flex>
+							<Flex style={{border: '1px solid var(--neutral-alpha-strong)', overflow: 'hidden'}} radius="l" shadow="l" width="80" height="80" marginRight="32"><SmartImage aspectRatio="1 / 1" src="/images/store/cover/oversized-hoodie-3.jpg" alt="oversized hoodie"/></Flex>
+							<Button
+								label="Buy now"/>
+						</Flex>
+					</Flex>
+					<Flex fillWidth></Flex>
+				</Flex>
 			</Flex>
 			<Projects maxWidth="s" range={[1,1]}/>
 			<Discord/>

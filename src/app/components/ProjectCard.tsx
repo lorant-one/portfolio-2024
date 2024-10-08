@@ -113,54 +113,56 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     ))}
                 </Flex>
             )}
-            <Flex
-                mobileDirection="column" style={{alignSelf: "center"}}
-                fillWidth maxWidth={maxWidth} paddingTop="xs" paddingBottom="m" gap="l">
-                {title && (
-                    <Flex
-                        flex={5}>
-                        <Heading
-                            as="h2"
-                            wrap="balance"
-                            variant={maxWidth === 'xs' ? 'heading-strong-xl' : 'display-strong-xs'}>
-                            {title}
-                        </Heading>
-                    </Flex>
-                )}
-                {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-                    <Flex
-                        flex={7} direction="column"
-                        gap="s">
-                        {avatars?.length > 1 && (
-                            <AvatarGroup
-                                avatars={avatars}
-                                size="m"
-                                reverseOrder/>
-                        )}
-                        {description?.trim() || children && (
-                            <Text
+            { title &&
+                <Flex
+                    mobileDirection="column" style={{alignSelf: "center"}}
+                    fillWidth maxWidth={maxWidth} paddingTop="xs" paddingBottom="m" gap="l">
+                    {title && (
+                        <Flex
+                            flex={5}>
+                            <Heading
+                                as="h2"
                                 wrap="balance"
-                                variant="body-default-m"
-                                onBackground="neutral-weak">
-                                {description || children}
-                            </Text>
-                        )}
-                        {content?.trim() && (
-                            <SmartLink
-                                suffixIcon="chevronRight"
-                                style={{margin: '0', width: 'fit-content'}}
-                                href={href}>
-                                    <Text
-                                        variant="label-default-s">
-                                            <LetterFx>
-                                                Read about the project
-                                            </LetterFx>
-                                    </Text>
-                            </SmartLink>
-                        )}
-                    </Flex>
-                )}
-            </Flex>
+                                variant={maxWidth === 'xs' ? 'heading-strong-xl' : 'display-strong-xs'}>
+                                {title}
+                            </Heading>
+                        </Flex>
+                    )}
+                    {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+                        <Flex
+                            flex={7} direction="column"
+                            gap="s">
+                            {avatars?.length > 1 && (
+                                <AvatarGroup
+                                    avatars={avatars}
+                                    size="m"
+                                    reverseOrder/>
+                            )}
+                            {description?.trim() || children && (
+                                <Text
+                                    wrap="balance"
+                                    variant="body-default-m"
+                                    onBackground="neutral-weak">
+                                    {description || children}
+                                </Text>
+                            )}
+                            {content?.trim() && (
+                                <SmartLink
+                                    suffixIcon="chevronRight"
+                                    style={{margin: '0', width: 'fit-content'}}
+                                    href={href}>
+                                        <Text
+                                            variant="label-default-s">
+                                                <LetterFx>
+                                                    Read about the project
+                                                </LetterFx>
+                                        </Text>
+                                </SmartLink>
+                            )}
+                        </Flex>
+                    )}
+                </Flex>
+            }
         </Flex>
     );
 };
