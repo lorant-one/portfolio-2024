@@ -28,7 +28,8 @@ import {
 	PiUserCircleDuotone,
 	PiGridFourDuotone,
 	PiBookBookmarkDuotone,
-	PiImageDuotone
+	PiImageDuotone,
+	PiShoppingCartDuotone
 } from "react-icons/pi";
 
 import {
@@ -68,4 +69,5 @@ export const iconLibrary: Record<string, IconType> = {
 	github: FaGithub,
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
+	cart: PiShoppingCartDuotone,
 };

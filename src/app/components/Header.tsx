@@ -118,7 +118,7 @@ export const Header = () => {
                     )}
                     { routes['/store'] && (
                         <ToggleButton
-                            prefixIcon="gallery"
+                            prefixIcon="cart"
                             href="/store"
                             selected={pathname.startsWith('/store')}>
                             <Flex paddingX="2" hide="s">{store.label}</Flex>
