@@ -10,16 +10,20 @@ interface CheckboxProps extends Omit<InteractiveDetailsProps, 'onClick'> {
     className?: string;
     isChecked?: boolean;
     isIndeterminate?: boolean;
+    name?: string;
+    value?: string;
     onToggle?: () => void;
 }
 
 const generateId = () => `checkbox-${Math.random().toString(36).substring(2, 9)}`;
 
-const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLDivElement, CheckboxProps>(({
+const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(({
     style,
     className,
     isChecked: controlledIsChecked,
     isIndeterminate = false,
+    name,
+    value,
     onToggle,
     ...interactiveDetailsProps
 }, ref) => {
@@ -48,13 +52,16 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLDivElement, CheckboxPro
     };
 
     return (
-        <Flex
-            ref={ref}
-            alignItems="center"
-            gap="16"
-            style={style}
-            className={classNames(styles.container, className)}
-            onClick={toggleItem}>
+        <Flex alignItems="center" gap="16" className={classNames(styles.container, className)} style={style}>
+            <input
+                type="checkbox"
+                ref={ref}
+                name={name}
+                value={value}
+                checked={controlledIsChecked !== undefined ? controlledIsChecked : isChecked}
+                onChange={toggleItem}
+                className={styles.hidden}
+            />
             <Flex
                 role="checkbox"
                 aria-checked={isIndeterminate ? 'mixed' : (controlledIsChecked !== undefined ? controlledIsChecked : isChecked)}
@@ -63,6 +70,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLDivElement, CheckboxPro
                 justifyContent="center"
                 alignItems="center"
                 background="surface"
+                onClick={toggleItem}
                 onKeyDown={handleKeyDown}
                 tabIndex={0}
                 className={classNames(styles.checkbox, {
@@ -84,7 +92,8 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLDivElement, CheckboxPro
             <InteractiveDetails
                 id={checkboxId}
                 {...interactiveDetailsProps}
-                onClick={toggleItem}/>
+                onClick={toggleItem}
+            />
         </Flex>
     );
 });

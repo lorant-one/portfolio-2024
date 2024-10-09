@@ -66,9 +66,16 @@ export default function RootLayout({ children } : RootLayoutProps) {
 				fillWidth margin="0" padding="0"
 				direction="column">
 				<Background
-					gradient={effects.gradient}
-					dots={effects.dots}
-					lines={effects.lines}/>
+					mask="cursor"
+					gradient={{
+						display: true,
+						opacity: 0.4
+					}}
+					lines={{
+						display: true,
+						opacity: 0.4
+					}}
+					/>
 				<Flex
 					fillWidth
 					minHeight="16">

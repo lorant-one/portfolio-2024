@@ -10,6 +10,8 @@ interface RadioButtonProps extends Omit<InteractiveDetailsProps, 'onClick'> {
     className?: string;
     isChecked?: boolean;
     onToggle?: () => void;
+    name?: string;
+    value?: string;
 }
 
 const generateId = () => `radio-${Math.random().toString(36).substring(2, 9)}`;
@@ -19,6 +21,8 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLDivElement, Radio
     className,
     isChecked: controlledIsChecked,
     onToggle,
+    name,
+    value,
     ...interactiveDetailsProps
 }, ref) => {
     const [isChecked, setIsChecked] = useState(controlledIsChecked || false);

@@ -6,7 +6,6 @@ import { Avatar, Button, Flex, Heading, Input, Text } from '@/once-ui/components
 import { Background } from '@/once-ui/components/Background';
 import { useState } from 'react';
 
-
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
     let timeout: ReturnType<typeof setTimeout>;
     return ((...args: Parameters<T>) => {
@@ -15,7 +14,19 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T
     }) as T;
 }
 
-export const Mailchimp = () => {
+interface MailchimpProps {
+    avatar?: boolean;
+    heading?: string;
+    description?: string;
+    compact?: boolean;
+}
+
+export const Mailchimp: React.FC<MailchimpProps> = ({
+    avatar = true,
+    heading = newsletter.title,
+    description = newsletter.description,
+    compact = false
+}) => {
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [touched, setTouched] = useState<boolean>(false);
@@ -51,24 +62,37 @@ export const Mailchimp = () => {
 
     return (
         <Flex
-            style={{overflow: 'hidden'}}
+            style={{ overflow: 'hidden' }}
             position="relative"
-            fillWidth padding="l"  radius="l" marginBottom="m"
-            direction="column" alignItems="center" align="center"
-            background="surface" border="neutral-medium" borderStyle="solid-1">
+            fillWidth
+            padding={compact ? 'm' : 'l'}
+            radius="l"
+            marginBottom="m"
+            direction="column"
+            alignItems="center"
+            align="center"
+            background="surface"
+            border="neutral-medium"
+            borderStyle="solid-1">
             <Background
-                position="absolute"
-                gradient={mailchimp.effects.gradient}
-                dots={mailchimp.effects.dots}
-                lines={mailchimp.effects.lines}/>
-            <Avatar className="mb-m"
-                size="l"
-                src="/images/avatar.jpg"/>
-            <Heading style={{position: 'relative'}}
+                mask="cursor"
+                gradient={{
+                    display: true,
+                    opacity: 0.4
+                }}
+                />
+            {avatar && (
+                <Avatar
+                    className="mb-m"
+                    size="l"
+                    src="/images/avatar.jpg" />
+            )}
+            <Heading
+                style={{ position: 'relative' }}
                 as="h2"
-                marginBottom="s"
-                variant="display-strong-xs">
-                {newsletter.title}
+                marginBottom={compact ? 'xs' : 's'}
+                variant={compact ? 'heading-strong-xl' : 'display-strong-xs'}>
+                {heading}
             </Heading>
             <Text
                 style={{
@@ -76,9 +100,9 @@ export const Mailchimp = () => {
                     maxWidth: 'var(--responsive-width-xs)'
                 }}
                 wrap="balance"
-                marginBottom="l"
+                marginBottom={compact ? 'm' : 'l'}
                 onBackground="neutral-medium">
-                {newsletter.description}
+                {description}
             </Text>
             <form
                 style={{
@@ -90,8 +114,7 @@ export const Mailchimp = () => {
                 method="post"
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form">
-                <Flex id="mc_embed_signup_scroll"
-                    fillWidth maxWidth={24} gap="8">
+                <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} gap="8">
                     <Input
                         formNoValidate
                         labelAsPlaceholder
@@ -108,20 +131,19 @@ export const Mailchimp = () => {
                             }
                         }}
                         onBlur={handleBlur}
-                        error={error}/>
-                    <div style={{display: 'none'}}>
-                        <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
+                        error={error} />
+                    <div style={{ display: 'none' }}>
+                        <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked />
                     </div>
                     <div id="mce-responses" className="clearfalse">
-                        <div className="response" id="mce-error-response" style={{display: 'none'}}></div>
-                        <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
+                        <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
+                        <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
                     </div>
-                    <div aria-hidden="true" style={{position: 'absolute', left: '-5000px'}}>
-                        <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1} value=""/>
+                    <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
+                        <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1} value="" />
                     </div>
                     <div className="clear">
-                        <Flex
-                            height="48" alignItems="center">
+                        <Flex height="48" alignItems="center">
                             <Button
                                 id="mc-embedded-subscribe"
                                 value="Subscribe"
@@ -134,5 +156,5 @@ export const Mailchimp = () => {
                 </Flex>
             </form>
         </Flex>
-    )
-}
+    );
+};

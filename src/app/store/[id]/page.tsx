@@ -1,5 +1,5 @@
 import inventory from '../inventory';
-import { Button, Flex, Grid, Heading, Icon, LetterFx, SegmentedControl, Text } from '@/once-ui/components';
+import { Button, Flex, Heading } from '@/once-ui/components';
 
 import Hero from '../components/Hero';
 
@@ -33,23 +33,6 @@ export default function Template({ params }: Params) {
 			fillWidth maxWidth="l"
 			paddingX="l" paddingTop="m" gap="l">
 			<Hero item={item}/>
-			<Heading 
-				variant="display-strong-xs" 
-				align="center"
-				as="h2"
-				paddingTop="l">
-				Features
-			</Heading>
-			<Flex
-				fillWidth
-				justifyContent="center" alignItems="center"
-				paddingY="xl" gap="m">
-				Get started now
-				<Button 
-					variant="tertiary"
-					prefixIcon="IoLogoVercel"
-					label="Deploy to Vercel"/>
-			</Flex>
 		</Flex>
 	);
 }

@@ -53,8 +53,8 @@ export default function Post({ post, thumbnail }: PostProps) {
                     fillWidth gap="8"
                     direction="column" justifyContent="center">
                     <Heading
-                        className="font-code"
                         as="h2"
+                        variant="code-strong-xl"
                         wrap="balance">
                         <LetterFx
                             onTrigger={(handler) => setTrigger(() => handler)}

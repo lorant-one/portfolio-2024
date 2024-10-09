@@ -4,6 +4,7 @@ import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } f
 import { Flex, Icon, Heading } from '.';
 
 import styles from './Accordion.module.scss'
+import classNames from 'classnames';
 
 interface AccordionProps {
     title: React.ReactNode;
@@ -76,10 +77,10 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
 
     return (
         <Flex
+            className={classNames(styles.container, className)}
             fillWidth
             direction="column"
-            style={style}
-            className={className}>
+            style={style}>
             <Flex 
                 className={styles.accordion}
                 paddingY="16"
@@ -113,6 +114,7 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
                 aria-hidden={!isOpen}>
                 <Flex
                     paddingX="m"
+                    paddingTop="8"
                     paddingBottom="16"
                     direction="column">
                     {children}

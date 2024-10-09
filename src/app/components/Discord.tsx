@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, LetterFx, SmartImage, Text } from "@/once-ui/components";
+import { Button, Flex, Heading, LetterFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
 import styles from '@/app/components/Discord.module.scss'
 
 const Discord = () => {
@@ -55,13 +55,22 @@ const Discord = () => {
                                 It's time. The revolution begins.
                             </Text>
                         </Flex>
-                        <Button
-                            href="https://discord.com/invite/5EyAQ4eNdS"
-                            suffixIcon="chevronRight">
-                            <LetterFx>
-                                Join now
-                            </LetterFx>
-                        </Button>
+                        <Flex alignItems="center" gap="m">
+                            <Button
+                                href="https://discord.com/invite/5EyAQ4eNdS"
+                                suffixIcon="chevronRight">
+                                <LetterFx>
+                                    Join now
+                                </LetterFx>
+                            </Button>
+                            <SmartLink href="https://club.dopler.io">
+                                <Text variant="code-default-s">
+                                    <LetterFx>
+                                        Learn more
+                                    </LetterFx>
+                                </Text>
+                            </SmartLink>
+                        </Flex>
                     </Flex>
                 </Flex>
                 <Flex fillWidth maxWidth="24" fillHeight style={{borderTop: '1px solid var(--neutral-border-medium)', borderBottom: '1px solid var(--neutral-border-medium)'}}></Flex>

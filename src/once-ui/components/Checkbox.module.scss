@@ -1,5 +1,6 @@
 .container {
     cursor: pointer;
+    display: flex;
     isolation: isolate;
     z-index: 1;
 
@@ -8,6 +9,12 @@
             display: none;
         }
     }
+}
+
+.hidden {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .checkbox {
@@ -22,7 +29,7 @@
     min-height: var(--static-space-20);
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
     outline: none;
-
+    
     &.checked {
         box-shadow: inset 0 var(--solid-inset-distance) var(--solid-inset-size) var(--solid-inset-color-brand);
         background-color: var(--brand-solid-medium);
