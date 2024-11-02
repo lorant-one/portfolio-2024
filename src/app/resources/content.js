@@ -32,9 +32,9 @@ const social = [
         link: 'https://www.linkedin.com/in/lorant-one',
     },
     {
-        name: 'X (Twitter)',
-        icon: 'x',
-        link: 'https://www.x.com/lorant_one',
+        name: 'Threads',
+        icon: 'threads',
+        link: 'https://www.threads.com/@lorant.one',
     },
     {
         name: 'Email',
@@ -63,7 +63,7 @@ const about = {
         display: true
     },
     calendar: {
-        display: true,
+        display: false,
         link: 'https://cal.com/designedge/intro'
     },
     intro: {
@@ -75,6 +75,30 @@ const about = {
         display: true, // set to false to hide this section
         title: 'Notable projects',
         experiences: [
+            {
+                company: 'Dopler',
+                timeframe: '2024 - Present',
+                role: 'Co-founder',
+                achievements: [
+                    <>Established our "holding company" to make VCs think we're the real deal.</>
+                ],
+            },
+            {
+                company: 'Enroll',
+                timeframe: '2024 - Present',
+                role: 'Co-founder',
+                achievements: [
+                    <>Our first SaaS app that helps you build a community.</>
+                ],
+            },
+            {
+                company: 'Design Engineers Club',
+                timeframe: '2024 - Present',
+                role: 'Community',
+                achievements: [
+                    <>Our thriving community of the most creative folks.</>
+                ],
+            },
             {
                 company: 'Once UI',
                 timeframe: '2022 - Present',
@@ -89,6 +113,14 @@ const about = {
                 role: 'Creator',
                 achievements: [
                     <>A place for my creative works from the pre-AI era.</>
+                ],
+            },
+            {
+                company: 'Journal of the Universe',
+                timeframe: '2017 - Present',
+                role: 'Creator',
+                achievements: [
+                    <>My creative works from the pre-AI era.</>
                 ],
             },
         ]

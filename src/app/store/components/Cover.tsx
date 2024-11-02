@@ -1,5 +1,4 @@
-import { ProjectCard } from "@/app/components";
-import { Button, Flex, Heading, RevealFx, SmartImage, Tag } from "@/once-ui/components";
+import { Button, Flex, Heading, InlineCode, RevealFx, SmartImage, Tag, Text } from "@/once-ui/components";
 import classNames from "classnames";
 import Image from "next/image";
 
@@ -7,141 +6,72 @@ import styles from './Cover.module.scss'
 
 function Cover() {
     return (
-        <Flex position="relative" fillWidth direction="column">
-            <RevealFx
-                style={{width: '100%'}}
-                delay={0.4}
-                speed="fast">
+        <Flex
+            position="relative"
+            fillWidth direction="column" radius="xl" border="neutral-medium" borderStyle="solid-1"
+            style={{overflow: 'hidden'}}>
+            <Flex fillWidth gap="12" padding="24"
+                justifyContent="space-between" mobileDirection="column">
+                <Flex direction="column" gap="4">
+                    <Tag>Gear up!</Tag>
+                    <Heading
+                        variant="display-default-xs" as="h2" wrap="balance"
+                        marginTop="8" marginBottom="8">
+                        My merch store is here!
+                    </Heading>
+                    <Text
+                        onBackground="neutral-weak" wrap="balance"
+                        marginBottom="4">
+                        Get your design engineer T-shirt, hoodie or gaming desk mat - use <InlineCode>LONE10</InlineCode> at checkout.
+                    </Text>
+                </Flex>
+                <Button
+                    href="https://store.dopler.app/promo/LONE10"
+                    suffixIcon="chevronRight"
+                    label="Visit store"/>
+            </Flex>
+            <Flex position="relative" fillWidth direction="column">
                 <SmartImage
                     priority
                     sizes="(max-width: 1080px) 100vw, 1024px"
                     tabIndex={0}
-                    radius="l"
-                    alt="ALT"
+                    alt="Design Engineers Club merch store cover"
                     aspectRatio="16 / 9"
                     src="/images/store/cover/oversized-hoodie-anime.jpg"
                     style={{
                         border: '1px solid var(--neutral-alpha-weak)'
                     }}/>
-            </RevealFx>
-            <Flex
-                fillWidth style={{aspectRatio: '16 / 9'}}
-                position="absolute">
-                <Image className={classNames(styles.rock, styles.rock1)}
-                    fill
-                    priority
-                    sizes="(max-width: 1080px) 100vw, 1024px"
-                    src={'/images/store/cover/oversized-hoodie-anime-layer-1.png'}
-                    alt="Oversized hoodie cover anime style"/>
-                <Image className={classNames(styles.rock, styles.rock2)}
-                    fill
-                    priority
-                    sizes="(max-width: 1080px) 100vw, 1024px"
-                    src={'/images/store/cover/oversized-hoodie-anime-layer-2.png'}
-                    alt="Oversized hoodie cover anime style"/>
-                <Image className={classNames(styles.rock, styles.rock3)}
-                    fill
-                    priority
-                    sizes="(max-width: 1080px) 100vw, 1024px"
-                    src={'/images/store/cover/oversized-hoodie-anime-layer-3.png'}
-                    alt="Oversized hoodie cover anime style"/>
-                <Image className={classNames(styles.rock, styles.rock4)}
-                    fill
-                    priority
-                    sizes="(max-width: 1080px) 100vw, 1024px"
-                    src={'/images/store/cover/oversized-hoodie-anime-layer-4.png'}
-                    alt="Oversized hoodie cover anime style"/>
-            </Flex>
-            <Flex
-                style={{
-                    top: '0',
-                    left: '0',
-                    background: 'radial-gradient(ellipse 75% 75% at bottom left, var(--static-black), var(--static-transparent))'
-                }}
-                className={styles.position}
-                zIndex={1}
-                fillWidth fillHeight
-                alignItems="flex-end"
-                padding="l">
-                <Flex direction="column" flex={1} gap="12">
-                    <RevealFx
-                        speed="fast"
-                        delay={1}
-                        translateY="24">
-                        <Tag size="l" label="Coming soon"/>
-                        <Heading variant="display-default-s" as="h2" marginTop="8" marginBottom="m">
-                            <span className="font-code">
-                                Design Engineer's Oversized Hoodie
-                            </span>
-                        </Heading>
-                    </RevealFx>
-                    <Flex gap="32"
-                        mobileDirection="column">
-                        <Flex gap="8">
-                            <RevealFx
-                                speed="fast"
-                                delay={1.2}
-                                translateY="8">
-                                <Flex
-                                    style={{
-                                        border: '1px solid var(--neutral-alpha-strong)',
-                                        overflow: 'hidden'
-                                    }}
-                                    radius="l" shadow="l" width="80" height="80">
-                                    <SmartImage
-                                        aspectRatio="1 / 1"
-                                        sizes="160px"
-                                        src="/images/store/design-engineers-oversized-hoodie/image-01.jpg"
-                                        alt="oversized hoodie"/>
-                                </Flex>
-                            </RevealFx>
-                            <RevealFx
-                                speed="fast"
-                                delay={1.4}
-                                translateY="12">
-                                <Flex
-                                    style={{
-                                        border: '1px solid var(--neutral-alpha-strong)',
-                                        overflow: 'hidden'
-                                    }}
-                                    radius="l" shadow="l" width="80" height="80">
-                                    <SmartImage
-                                        aspectRatio="1 / 1"
-                                        sizes="160px"
-                                        src="/images/store/design-engineers-oversized-hoodie/image-02.jpg"
-                                        alt="oversized hoodie"/>
-                                </Flex>
-                            </RevealFx>
-                            <RevealFx
-                                speed="fast"
-                                delay={1.6}
-                                translateY="16">
-                                <Flex
-                                    style={{
-                                        border: '1px solid var(--neutral-alpha-strong)',
-                                        overflow: 'hidden'
-                                    }}
-                                    radius="l" shadow="l" width="80" height="80">
-                                    <SmartImage
-                                        priority
-                                        aspectRatio="1 / 1"
-                                        sizes="160px"
-                                        src="/images/store/design-engineers-oversized-hoodie/image-03.jpg"
-                                        alt="oversized hoodie"/>
-                                </Flex>
-                            </RevealFx>
-                        </Flex>
-                        <RevealFx
-                            speed="fast"
-                            delay={1.8}
-                            translateY="16">
-                            <Button
-                                href="/store/design-engineers-oversized-hoodie"
-                                label="Buy now"/>
-                        </RevealFx>
-                    </Flex>
+                <Flex
+                    fillWidth
+                    style={{
+                        aspectRatio: '16 / 9',
+                    }}
+                    position="absolute" zIndex={1}>
+                    <Image className={classNames(styles.rock, styles.rock1)}
+                        fill
+                        priority
+                        sizes="(max-width: 1080px) 100vw, 1024px"
+                        src={'/images/store/cover/oversized-hoodie-anime-layer-1.png'}
+                        alt="Design Engineers Club cover anime style background"/>
+                    <Image className={classNames(styles.rock, styles.rock2)}
+                        fill
+                        priority
+                        sizes="(max-width: 1080px) 100vw, 1024px"
+                        src={'/images/store/cover/oversized-hoodie-anime-layer-2.png'}
+                        alt="Design Engineers Club cover anime style overlay"/>
+                    <Image className={classNames(styles.rock, styles.rock3)}
+                        fill
+                        priority
+                        sizes="(max-width: 1080px) 100vw, 1024px"
+                        src={'/images/store/cover/oversized-hoodie-anime-layer-3.png'}
+                        alt="Design Engineers Club cover anime style overlay"/>
+                    <Image className={classNames(styles.rock, styles.rock4)}
+                        fill
+                        priority
+                        sizes="(max-width: 1080px) 100vw, 1024px"
+                        src={'/images/store/cover/oversized-hoodie-anime-layer-4.png'}
+                        alt="Design Engineers Club cover anime style overlay"/>
                 </Flex>
-                <Flex flex={1} hide="s"></Flex>
             </Flex>
         </Flex>
     )

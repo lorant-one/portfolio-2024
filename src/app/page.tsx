@@ -60,7 +60,8 @@ export default function Home() {
 			<Flex
 				fillWidth
 				direction="column"
-				paddingY="l"
+				paddingTop="l"
+				paddingBottom="16"
 				gap="m">
 				<Heading
 					wrap="balance"
@@ -108,28 +109,44 @@ export default function Home() {
 					</Button>
 				</RevealFx>
 			</Flex>
-			<Cover/>
 			<Flex
 				direction="column"
 				fillWidth gap="12">
-				<Heading
-					as="h2"
-					variant="display-strong-m">
-					My work
-				</Heading>
-				<Text onBackground="neutral-weak">
-					— Notable projects
-				</Text>
+				<RevealFx
+					translateY="8"
+					delay={0.6}
+					speed="fast">
+					<Heading
+						as="h2"
+						variant="display-strong-m">
+						My work
+					</Heading>
+					<Text onBackground="neutral-weak">
+						— Notable projects
+					</Text>
+				</RevealFx>
 			</Flex>
 			<Projects maxWidth="s" range={[1,1]}/>
 			<Discord/>
 			{routes['/blog'] && (
-				<Flex fillWidth paddingX="20">
-					<Posts range={[1,2]} columns="2"/>
+				<Flex
+					fillWidth gap="24"
+					mobileDirection="column">
+					<Flex flex={1} paddingLeft="l">
+						<Heading
+							as="h2"
+							variant="display-strong-xs"
+							wrap="balance">
+							Latest from the blog
+						</Heading>
+					</Flex>
+					<Flex flex={3} paddingX="20">
+						<Posts range={[1,2]} columns="2"/>
+					</Flex>
 				</Flex>
 			)}
 			<Projects maxWidth="s" range={[2]}/>
-			<Mailchimp/>
+			<Cover/>
 			<Flex
 				direction="column"
 				fillWidth gap="12">
@@ -223,6 +240,7 @@ export default function Home() {
 					</Flex>
 				</Flex>
 			</Flex>
+			<Mailchimp/>
 		</Flex>
 	);
 }

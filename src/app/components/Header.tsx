@@ -50,6 +50,18 @@ export const Header = () => {
     const pathname = usePathname() ?? '';
 
     return (
+        <>
+        <Flex
+            position="fixed" zIndex={9}
+            fillWidth minHeight="80" justifyContent="center"
+            style={{
+                pointerEvents: 'none',
+                backdropFilter: 'blur(0.5rem)',
+                background: 'linear-gradient(to bottom, var(--page-background), var(--static-transparent))',
+                maskImage: 'linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%)',
+                maskSize: '100% 100%',
+            }}>
+        </Flex>
         <Flex style={{height: 'fit-content'}}
             className={styles.position}
             as="header"
@@ -119,8 +131,9 @@ export const Header = () => {
                     { routes['/store'] && (
                         <ToggleButton
                             prefixIcon="cart"
-                            href="/store"
-                            selected={pathname.startsWith('/store')}>
+                            href="https://store.dopler.app"
+                            selected={false}
+                            target="_blank">
                             <Flex paddingX="2" hide="s">{store.label}</Flex>
                         </ToggleButton>
                     )}
@@ -136,5 +149,6 @@ export const Header = () => {
                 )}
             </Flex>
         </Flex>
+        </>
     )
 }

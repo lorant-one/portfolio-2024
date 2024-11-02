@@ -5,6 +5,7 @@ import { newsletter } from '@/app/resources'
 import { Avatar, Button, Flex, Heading, Input, Text } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
 import { useState } from 'react';
+import { Cover } from '../store/components/Cover';
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
     let timeout: ReturnType<typeof setTimeout>;
@@ -18,14 +19,12 @@ interface MailchimpProps {
     avatar?: boolean;
     heading?: string;
     description?: string;
-    compact?: boolean;
 }
 
 export const Mailchimp: React.FC<MailchimpProps> = ({
     avatar = true,
     heading = newsletter.title,
     description = newsletter.description,
-    compact = false
 }) => {
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string>('');
@@ -65,7 +64,7 @@ export const Mailchimp: React.FC<MailchimpProps> = ({
             style={{ overflow: 'hidden' }}
             position="relative"
             fillWidth
-            padding={compact ? 'm' : 'l'}
+            padding="l"
             radius="l"
             marginBottom="m"
             direction="column"
@@ -90,8 +89,8 @@ export const Mailchimp: React.FC<MailchimpProps> = ({
             <Heading
                 style={{ position: 'relative' }}
                 as="h2"
-                marginBottom={compact ? 'xs' : 's'}
-                variant={compact ? 'heading-strong-xl' : 'display-strong-xs'}>
+                marginBottom="s"
+                variant="display-strong-xs">
                 {heading}
             </Heading>
             <Text
@@ -100,7 +99,7 @@ export const Mailchimp: React.FC<MailchimpProps> = ({
                     maxWidth: 'var(--responsive-width-xs)'
                 }}
                 wrap="balance"
-                marginBottom={compact ? 'm' : 'l'}
+                marginBottom="l"
                 onBackground="neutral-medium">
                 {description}
             </Text>
