@@ -1,0 +1,18 @@
+.imageContainer {
+    overflow: hidden;
+}
+
+.hoverImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.imageContainer:hover .image {
+    opacity: 0;
+}
+
+.imageContainer:hover .hoverImage {
+    opacity: 1;
+}

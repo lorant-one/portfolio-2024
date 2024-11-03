@@ -5,7 +5,7 @@ import { newsletter } from '@/app/resources'
 import { Avatar, Button, Flex, Heading, Input, Text } from '@/once-ui/components';
 import { Background } from '@/once-ui/components/Background';
 import { useState } from 'react';
-import { Cover } from '../store/components/Cover';
+import { Cover } from './Discord';
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
     let timeout: ReturnType<typeof setTimeout>;

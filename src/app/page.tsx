@@ -7,7 +7,7 @@ import { about, baseURL, home, person, routes } from '@/app/resources'
 import { Mailchimp, ProjectCard } from '@/app/components';
 import { Posts } from '@/app/blog/components/Posts';
 import { Discord } from './components/Discord';
-import { Cover } from './store/components/Cover';
+import { Store } from './components/Store';
 
 export function generateMetadata() {
 	const title = home.title;
@@ -146,7 +146,7 @@ export default function Home() {
 				</Flex>
 			)}
 			<Projects maxWidth="s" range={[2]}/>
-			<Cover/>
+			<Store/>
 			<Flex
 				direction="column"
 				fillWidth gap="12">

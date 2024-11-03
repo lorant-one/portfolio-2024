@@ -5,6 +5,7 @@ import { formatDate } from '@/app/utils/formatDate'
 import { Avatar, Button, Flex, Heading, Tag, Text } from '@/once-ui/components'
 
 import { person, baseURL } from '@/app/resources'
+import { Store } from '@/app/components/Store'
 
 interface BlogParams {
     params: {
@@ -66,66 +67,74 @@ export default function Blog({ params }: BlogParams) {
 	}
 
 	return (
-		<Flex as="section"
-			fillWidth maxWidth="xs"
-			direction="column"
-			gap="m">
-			<script
-				type="application/ld+json"
-				suppressHydrationWarning
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify({
-						'@context': 'https://schema.org',
-						'@type': 'BlogPosting',
-						headline: post.metadata.title,
-						datePublished: post.metadata.publishedAt,
-						dateModified: post.metadata.publishedAt,
-						description: post.metadata.summary,
-						image: `https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`,
-						url: `https://${baseURL}/blog/${post.slug}`,
-						author: {
-							'@type': 'Person',
-							name: person.name,
-						},
-					}),
-				}}
-			/>
-			<Button
-				href="/blog"
-				variant="tertiary"
-				size="s"
-				prefixIcon="chevronLeft">
-				Posts
-			</Button>
-			<Flex direction="column" gap="8">
-				<Heading
-					wrap="balance"
-					variant="display-strong-s">
-					{post.metadata.title}
-				</Heading>
+		<Flex
+			direction="column" alignItems="center"
+			fillWidth gap="xl">
+			<Flex
+				as="section"
+				fillWidth maxWidth="xs"
+				direction="column"
+				gap="m">
+				<script
+					type="application/ld+json"
+					suppressHydrationWarning
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							'@context': 'https://schema.org',
+							'@type': 'BlogPosting',
+							headline: post.metadata.title,
+							datePublished: post.metadata.publishedAt,
+							dateModified: post.metadata.publishedAt,
+							description: post.metadata.summary,
+							image: `https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`,
+							url: `https://${baseURL}/blog/${post.slug}`,
+							author: {
+								'@type': 'Person',
+								name: person.name,
+							},
+						}),
+					}}
+				/>
+				<Button
+					href="/blog"
+					variant="tertiary"
+					size="s"
+					prefixIcon="chevronLeft">
+					Posts
+				</Button>
+				<Flex direction="column" gap="8">
+					<Heading
+						wrap="balance"
+						variant="display-strong-s">
+						{post.metadata.title}
+					</Heading>
+					<Flex
+						gap="12"
+						alignItems="center">
+						{ person.avatar && (
+							<Avatar
+								size="s"
+								src={person.avatar}/>
+						)}
+						<Text
+							variant="body-default-s"
+							onBackground="neutral-weak">
+							{formatDate(post.metadata.publishedAt)}
+						</Text>
+					</Flex>
+				</Flex>
+				<Tag
+					label={post.metadata.tag}
+					variant="neutral"/>
 				<Flex
-					gap="12"
-					alignItems="center">
-					{ person.avatar && (
-						<Avatar
-							size="s"
-							src={person.avatar}/>
-					)}
-					<Text
-						variant="body-default-s"
-						onBackground="neutral-weak">
-						{formatDate(post.metadata.publishedAt)}
-					</Text>
+					as="article"
+					direction="column"
+					fillWidth>
+					<CustomMDX source={post.content} />
 				</Flex>
 			</Flex>
-			<Tag
-				label={post.metadata.tag}
-				variant="neutral"/>
-			<Flex
-				as="article"
-				direction="column"
-				fillWidth>
-				<CustomMDX source={post.content} />
+			<Flex maxWidth="m" fillWidth>
+				<Store/>
 			</Flex>
 		</Flex>
 	)
