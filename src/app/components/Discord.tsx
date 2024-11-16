@@ -107,7 +107,7 @@ function Discord({
                             <Flex gap="m" mobileDirection="column">
                                 <Button
                                     id="joinNow"
-                                    href="https://discord.com/invite/5EyAQ4eNdS"
+                                    href="https://club.dopler.io"
                                     style={{
                                         pointerEvents: 'all'
                                     }}>
@@ -118,7 +118,7 @@ function Discord({
                                     <Arrow color="onSolid" trigger="#joinNow"/>
                                     </Flex>
                                 </Button>
-                                <SmartLink href="/invite?from=Oncer&to=Oncer"
+                                <SmartLink href="/invite?editor=true&from=Oncer&to=Oncer"
                                     style={{
                                         pointerEvents: 'all'
                                     }}>
