@@ -7,6 +7,7 @@ const routes = {
     '/blog':    true,
     '/gallery': true,
     '/store':   true,
+    '/invite':  true,
 }
 
 // Enable password protection on selected routes

@@ -2,6 +2,7 @@ import { getPosts } from '@/app/utils/utils';
 import { Flex } from '@/once-ui/components';
 import { Projects } from '@/app/work/components/Projects';
 import { baseURL, person, work } from '../resources';
+import { Mailchimp } from '../components';
 
 export function generateMetadata() {
 	const title = work.title;
@@ -65,6 +66,7 @@ export default function Work() {
                 }}
             />
             <Projects maxWidth="s"/>
+            <Mailchimp/>
         </Flex>
     );
 }

@@ -2,6 +2,7 @@ import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text 
 import { person, about, social, baseURL } from '@/app/resources'
 import styles from '@/app/about/about.module.scss'
 import TableOfContents from './components/TableOfContents';
+import { Mailchimp } from '../components';
 
 export function generateMetadata() {
 	const title = about.title;
@@ -328,6 +329,7 @@ export default function About() {
                     )}
                 </Flex>
             </Flex>
+            <Mailchimp/>
         </Flex>
     );
 }

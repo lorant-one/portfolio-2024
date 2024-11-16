@@ -109,23 +109,6 @@ export default function Home() {
 					</Button>
 				</RevealFx>
 			</Flex>
-			<Flex
-				direction="column"
-				fillWidth gap="12">
-				<RevealFx
-					translateY="8"
-					delay={0.6}
-					speed="fast">
-					<Heading
-						as="h2"
-						variant="display-strong-m">
-						My work
-					</Heading>
-					<Text onBackground="neutral-weak">
-						— Notable projects
-					</Text>
-				</RevealFx>
-			</Flex>
 			<Projects maxWidth="s" range={[1,1]}/>
 			<Discord/>
 			{routes['/blog'] && (

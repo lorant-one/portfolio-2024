@@ -1,4 +1,5 @@
-export { default as CodeBlock } from './code/CodeBlock';
+export { CodeBlock } from './code/CodeBlock';
+
 export { Table } from './table/Table';
 export { TableBody } from './table/TableBody';
 export { TableCell } from './table/TableCell';

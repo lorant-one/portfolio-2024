@@ -68,3 +68,25 @@
 .token.entity {
   	cursor: help;
 }
+
+@media print {
+	.line-highlight {
+		print-color-adjust: exact;
+		color-adjust: exact;
+	}
+}
+
+.line-highlight {
+    position: absolute;
+    background-color: var(--brand-alpha-medium);
+    width: calc(100% - var(--static-space-16));
+    left: var(--static-space-8);
+    margin-top: var(--static-space-8);
+    z-index: -1;
+    border-radius: var(--radius-s);
+}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+	content: none;
+}
