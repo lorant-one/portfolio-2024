@@ -27,6 +27,8 @@ export async function GET(request: Request) {
                         padding: '16rem',
                         backgroundImage: `url(https://${baseURL}/og/template-invite.jpg)`,
                         backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center center',
                         color: 'white',
                         fontFamily: 'Inter, sans-serif',
                     }}
