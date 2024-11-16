@@ -1,17 +1,16 @@
 .revealFx {
-    display: inline-block;
     position: relative;
     mask-image: linear-gradient(to right, black 0%, black 25%, transparent 50%);
     mask-size: 300% 100%;
     transition: all ease-in-out;
-
-	&.hidden {
+  
+    &.hidden {
 		mask-position: 100% 0;
 		filter: blur(0.5rem);
-	}
-
-	&.revealed {
+    }
+  
+    &.revealed {
 		mask-position: 0 0;
 		filter: blur(0);
-	}
+    }
 }

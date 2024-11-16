@@ -1,6 +1,6 @@
 .accordion {
     cursor: pointer;
-    transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
+    transition: var(--transition-micro-medium);
     background: var(--static-transparent);
 
     &:hover {
@@ -8,10 +8,10 @@
     }
 }
 
-.container {
+.border {
     border-top: 1px solid var(--neutral-border-medium);
-    
-    &:first-child {
-        border-top: none;
+
+    &:first-of-type {
+        border: none;
     }
 }

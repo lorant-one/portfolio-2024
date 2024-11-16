@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { ReactNode, forwardRef } from 'react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
         <>
             {prefixIcon && !loading && <Icon name={prefixIcon} size={iconSize} />}
             {loading && <Spinner size={size} />}
-            <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label as string || children as string}</div>
+            <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label || children}</div>
             {suffixIcon && <Icon name={suffixIcon} size={iconSize} />}
         </>
     );

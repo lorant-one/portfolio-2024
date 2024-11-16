@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { CSSProperties, useState, useRef, useEffect } from 'react';
 import Image, { ImageProps } from 'next/image';
@@ -17,6 +17,7 @@ export type SmartImageProps = ImageProps & {
     objectFit?: CSSProperties['objectFit'];
     enlarge?: boolean;
     src: string;
+    unoptimized?: boolean;
 };
 
 const SmartImage: React.FC<SmartImageProps> = ({
@@ -30,6 +31,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
     objectFit = 'cover',
     enlarge = false,
     src,
+    unoptimized = false,
     ...props
 }) => {
     const [isEnlarged, setIsEnlarged] = useState(false);
@@ -85,7 +87,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
             : '';
     };
 
-    const isVideo = src.endsWith('.mp4');
+    const isVideo = src?.endsWith('.mp4');
     const isYouTube = isYouTubeVideo(src);
 
     return (
@@ -198,6 +200,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
                                 alt={alt}
                                 fill
                                 sizes="90vw"
+                                unoptimized={unoptimized}
                                 style={{ objectFit: 'contain' }}
                             />
                         )}

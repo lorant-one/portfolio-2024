@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
 import React, { CSSProperties, forwardRef, useEffect, useRef, useState } from 'react';
 import { SpacingToken } from '../types';
 
-// Helper function to set refs properly
 function setRef<T>(ref: React.Ref<T> | undefined, value: T | null) {
     if (typeof ref === 'function') {
         ref(value);
@@ -68,6 +67,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
         const maskSize = 1200;
         const backgroundRef = useRef<HTMLDivElement>(null);
+        let lastCall = 0;
 
         useEffect(() => {
             setRef(forwardedRef, backgroundRef.current);
@@ -75,6 +75,10 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
 
         useEffect(() => {
             const handleMouseMove = (event: MouseEvent) => {
+                const now = Date.now();
+                if (now - lastCall < 16) return;
+                lastCall = now;
+
                 if (backgroundRef.current) {
                     const rect = backgroundRef.current.getBoundingClientRect();
                     setCursorPosition({
@@ -183,7 +187,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
                         style={{
                             ...commonStyles,
                             opacity: dots.opacity,
-                            backgroundImage: `radial-gradient(var(--${dotsColor}) 0.5px, var(--static-transparent) 0.5px)`,
+                            backgroundImage: `radial-gradient(var(--${dotsColor}) 1px, var(--static-transparent) 1px)`,
                             backgroundSize: `var(--static-space-${dotsSize}) var(--static-space-${dotsSize})`,
                             ...maskStyle(),
                         }}
@@ -196,7 +200,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
                         style={{
                             ...commonStyles,
                             opacity: lines.opacity,
-                            backgroundImage: `repeating-linear-gradient(45deg, var(--brand-on-background-weak) 0, var(--brand-on-background-weak) 0.5px, var(--static-transparent) 0.5px, var(--static-transparent) ${dots.size})`,
+                            backgroundImage: `repeating-linear-gradient(45deg, var(--brand-on-background-weak) 0, var(--brand-on-background-weak) 1px, var(--static-transparent) 1px, var(--static-transparent) ${dots.size})`,
                             ...maskStyle(),
                         }}
                     />
@@ -207,5 +211,4 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
 );
 
 Background.displayName = 'Background';
-
 export { Background };

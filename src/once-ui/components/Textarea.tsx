@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'react';
+import React, { useState, useEffect, forwardRef, TextareaHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { Flex, Text } from '.';
 import styles from './Input.module.scss';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     id: string;
     label: string;
-    height?: 's' | 'm';
+    lines?: number;
     error?: React.ReactNode;
     description?: React.ReactNode;
     radius?: string;
@@ -16,12 +16,13 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     hasPrefix?: React.ReactNode;
     hasSuffix?: React.ReactNode;
     labelAsPlaceholder?: boolean;
+    resize?: 'horizontal' | 'vertical' | 'both';
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
     id,
     label,
-    height = 'm',
+    lines = 3,
     error,
     description,
     radius,
@@ -29,6 +30,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     hasPrefix,
     hasSuffix,
     labelAsPlaceholder = false,
+    resize = 'vertical',
     children,
     onFocus,
     onBlur,
@@ -37,12 +39,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!props.value);
 
-    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
         setIsFocused(true);
         if (onFocus) onFocus(event);
     };
 
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
         setIsFocused(false);
         if (event.target.value) {
             setIsFilled(true);
@@ -56,18 +58,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
         setIsFilled(!!props.value);
     }, [props.value]);
 
-    const inputClassNames = classNames(styles.input, 'font-body', 'font-default', 'font-m', {
+    const textareaClassNames = classNames(styles.input, 'font-body', 'font-default', 'font-m', {
         [styles.filled]: isFilled,
         [styles.focused]: isFocused,
         [styles.withPrefix]: hasPrefix,
         [styles.withSuffix]: hasSuffix,
         [styles.labelAsPlaceholder]: labelAsPlaceholder,
         [styles.hasChildren]: children,
+        [styles.textarea]: true,
     });
 
     return (
         <div className={classNames(styles.wrapper, className, { [styles.error]: error })}>
-            <div className={classNames(styles.base, { [styles.s]: height === 's'}, { [styles.m]: height === 'm'})}
+            <div className={classNames(styles.base, styles.textareaBase)} 
                 style={{borderRadius: radius}}>
                 { hasPrefix && (
                     <Flex
@@ -77,23 +80,29 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
                     </Flex>
                 )}
                 <div className={styles.content}>
-                    <input
+                    <textarea
                         {...props}
                         ref={ref}
                         id={id}
+                        rows={lines}
                         placeholder={labelAsPlaceholder ? label : props.placeholder}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
-                        className={inputClassNames}
+                        className={textareaClassNames}
                         aria-describedby={error ? `${id}-error` : undefined}
                         aria-invalid={!!error}
+                        style={{
+                            resize,
+                            paddingTop: 'var(--static-space-24)',
+                            minHeight: 'var(--static-space-56)'
+                        }}
                     />
                     { !labelAsPlaceholder && (
                         <Text
                             as="label"
                             variant="label-default-m"
                             htmlFor={id}
-                            className={classNames(styles.label, styles.inputLabel, {
+                            className={classNames(styles.label, styles.textareaLabel, {
                                 [styles.floating]: isFocused || isFilled,
                             })}>
                             {label}
@@ -139,7 +148,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     );
 });
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
 
-export { Input };
-export type { InputProps };
+export { Textarea };
+export type { TextareaProps };

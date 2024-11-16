@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { ElementType, ComponentPropsWithoutRef, CSSProperties } from 'react';
+import React, { ElementType, ComponentPropsWithoutRef } from 'react';
 import classNames from 'classnames';
 
 import { TextProps, CommonProps, SpacingProps } from '../interfaces'
@@ -101,6 +101,6 @@ const Heading = <T extends ElementType = 'h1'>({
     );
 };
 
-Heading.displayName = "Heading";
+Heading.displayName = 'Heading';
 
 export { Heading };

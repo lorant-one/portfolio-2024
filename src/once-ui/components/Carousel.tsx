@@ -1,23 +1,30 @@
-"use client";
+'use client';
 
-import { Flex, RevealFx, SmartImage } from "@/once-ui/components";
+import { Flex, RevealFx, Scroller, SmartImage } from "@/once-ui/components";
 import { useEffect, useState } from "react";
 
-interface CarouselProps {
-    images: string[];
-    indicator?: 'line' | 'media';
-    aspectRatio?: string;
-    sizes?: string;
+interface Image {
+    src: string;
+    alt: string;
 }
 
-export const Carousel: React.FC<CarouselProps> = ({
+interface CarouselProps {
+    images: Image[];
+    indicator?: 'line' | 'thumbnail';
+    aspectRatio?: string;
+    sizes?: string;
+    revealedByDefault?: boolean;
+}
+
+const Carousel: React.FC<CarouselProps> = ({
     images = [],
     indicator = 'line',
     aspectRatio = '16 / 9',
     sizes,
+    revealedByDefault = false,
 }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(false);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [isTransitioning, setIsTransitioning] = useState(revealedByDefault);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -27,36 +34,42 @@ export const Carousel: React.FC<CarouselProps> = ({
         return () => clearTimeout(timer);
     }, []);
 
-    const handleImageClick = () => {
-        setIsTransitioning(false);
-        setTimeout(() => {
+    useEffect(() => {
+        if (images.length > 1) {
             const nextIndex = (activeIndex + 1) % images.length;
-            setActiveIndex(nextIndex);
-            setTimeout(() => {
-                setIsTransitioning(true);
-            }, 630);
-        }, 630);
+            const nextImage = new Image();
+            nextImage.src = images[nextIndex].src;
+        }
+    }, [activeIndex, images]);
+
+    const handleImageClick = () => {
+        if (images.length > 1) {
+            setIsTransitioning(false);
+            const nextIndex = (activeIndex + 1) % images.length;
+            handleControlClick(nextIndex);
+        }
     };
-    
+
     const handleControlClick = (index: number) => {
         if (index !== activeIndex) {
             setIsTransitioning(false);
             setTimeout(() => {
                 setActiveIndex(index);
-                setTimeout(() => {
-                    setIsTransitioning(true);
-                }, 630);
-            }, 630);
+                setIsTransitioning(true);
+            }, 500);
         }
-    };    
+    };
+
+    if (images.length === 0) {
+        return null;
+    }
 
     return (
-        <Flex
-            fillWidth gap="m"
-            direction="column">
+        <Flex fillWidth gap="12" direction="column">
             <Flex onClick={handleImageClick}>
                 <RevealFx
-                    style={{width: '100%'}}
+                    revealedByDefault={revealedByDefault}
+                    fillWidth
                     trigger={isTransitioning}
                     translateY="16"
                     speed="fast">
@@ -65,22 +78,24 @@ export const Carousel: React.FC<CarouselProps> = ({
                         priority
                         tabIndex={0}
                         radius="l"
-                        alt="image"
+                        alt={images[activeIndex]?.alt}
                         aspectRatio={aspectRatio}
-                        src={images[activeIndex]}
+                        src={images[activeIndex]?.src}
                         style={{
                             border: '1px solid var(--neutral-alpha-weak)',
                             ...(images.length > 1 && {
                                 cursor: 'pointer',
                             }),
-                        }}/>
+                        }}
+                    />
                 </RevealFx>
             </Flex>
             {images.length > 1 && (
                 <>
-                    { indicator === 'line' ? (
+                    {indicator === 'line' ? (
                         <Flex
-                            gap="4" paddingX="s"
+                            gap="4"
+                            paddingX="s"
                             fillWidth
                             justifyContent="center">
                             {images.map((_, index) => (
@@ -88,49 +103,56 @@ export const Carousel: React.FC<CarouselProps> = ({
                                     key={index}
                                     onClick={() => handleControlClick(index)}
                                     style={{
-                                        background: activeIndex === index 
-                                            ? 'var(--neutral-on-background-strong)' 
-                                            : 'var(--neutral-alpha-medium)',
+                                        background:
+                                            activeIndex === index
+                                                ? 'var(--neutral-on-background-strong)'
+                                                : 'var(--neutral-alpha-medium)',
                                         cursor: 'pointer',
                                         transition: 'background 0.3s ease',
                                     }}
                                     fillWidth
-                                    height="2">
-                                </Flex>
+                                    height="2"></Flex>
                             ))}
                         </Flex>
                     ) : (
-                        <Flex
-                            fillWidth gap="8" overflowX="auto">
-                            {images.map((_, index) => (
+                        <Scroller fillWidth gap="4">
+                            {images.map((image, index) => (
                                 <Flex
+                                    key={index}
                                     style={{
-                                        border: activeIndex === index 
-                                            ? '2px solid var(--brand-solid-strong)' 
-                                            : 'none',
+                                        border:
+                                            activeIndex === index
+                                                ? '2px solid var(--brand-solid-strong)'
+                                                : 'none',
                                         cursor: 'pointer',
-                                        borderRadius: 'var(--radius-m-nest-4)',
+                                        borderRadius:
+                                            'var(--radius-m-nest-4)',
                                         transition: 'border 0.3s ease',
                                     }}
                                     padding="4"
-                                    width="80" height="80">
-                                <SmartImage
-                                    alt="image"
-                                    key={index}
-                                    aspectRatio="1 / 1"
-                                    src={images[index]}
-                                    onClick={() => handleControlClick(index)}
-                                    style={{
-                                        cursor: 'pointer',
-                                        borderRadius: 'var(--radius-m)',
-                                        transition: 'background 0.3s ease',
-                                    }}/>
+                                    width="80"
+                                    height="80">
+                                    <SmartImage
+                                        alt={image.alt}
+                                        aspectRatio="1 / 1"
+                                        sizes="120px"
+                                        src={image.src}
+                                        onClick={() => handleControlClick(index)}
+                                        style={{
+                                            cursor: 'pointer',
+                                            borderRadius: 'var(--radius-m)',
+                                            transition: 'background 0.3s ease',
+                                        }}
+                                    />
                                 </Flex>
                             ))}
-                        </Flex>
+                        </Scroller>
                     )}
                 </>
             )}
         </Flex>
     );
 };
+
+Carousel.displayName = 'Carousel';
+export { Carousel };
