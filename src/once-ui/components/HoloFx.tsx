@@ -134,8 +134,9 @@ const HoloFx: React.FC<HoloFxProps> = ({
                     position="absolute"
                     fillWidth fillHeight
                     className={styles.overlay1}
+                    zIndex={1}
                     style={{
-                        transform: 'translateX(1px) translateY(1px)',
+                        transform: 'translateX(3px) translateY(2px)',
                         pointerEvents: 'none',
                         opacity: isHovered ? burnDefaults.opacity : 0,
                         transition: 'opacity 0.3s ease-in-out',
@@ -149,11 +150,11 @@ const HoloFx: React.FC<HoloFxProps> = ({
             {lightDefaults?.display &&
                 <Flex
                     position="absolute"
-                    zIndex={1}
+                    zIndex={2}
                     fillWidth fillHeight
                     className={styles.overlay1}
                     style={{
-                        transform: 'translateX(-1px) translateY(-1px)',
+                        transform: 'translateX(-2px) translateY(-3px)',
                         pointerEvents: 'none',
                         opacity: isHovered ? lightDefaults.opacity : 0,
                         transition: 'opacity 0.3s ease-in-out',
@@ -167,7 +168,7 @@ const HoloFx: React.FC<HoloFxProps> = ({
             {textureDefaults?.display &&
                 <Flex
                     position="absolute"
-                    zIndex={2}
+                    zIndex={3}
                     fillWidth fillHeight
                     className={styles.overlay2}
                     style={{

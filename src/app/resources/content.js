@@ -14,8 +14,8 @@ const person = {
 }
 
 const newsletter = {
-    title: <>Subscribe to {person.firstName}'s Newsletter</>,
-    description: <>An irregular blend of personal insights and professional updates</>
+    title: <>The Design Engineers Weekly</>,
+    description: <>A blend of product updates and personal insights</>
 }
 
 const social = [
@@ -48,7 +48,7 @@ const home = {
     title: `${person.firstName}'s Portfolio`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
     headline: <>Design engineer by day, creative by night</>,
-    subline: <>Helping designers code and developers design with Once UI</>
+    subline: <>Empowering indie creators to ignite their creativity with the Design Engineers Club.</>
 }
 
 const about = {
@@ -80,7 +80,7 @@ const about = {
                 timeframe: '2024 - Present',
                 role: 'Co-founder',
                 achievements: [
-                    <>Established our "holding company" to make VCs think we're the real deal.</>
+                    <>Established our "holding company" to impress VCs. /s</>
                 ],
             },
             {
@@ -88,23 +88,23 @@ const about = {
                 timeframe: '2024 - Present',
                 role: 'Co-founder',
                 achievements: [
-                    <>Our first SaaS app that helps you build a community.</>
+                    <>Launched our first SaaS app for building micro-communities.</>
                 ],
             },
             {
                 company: 'Design Engineers Club',
                 timeframe: '2024 - Present',
-                role: 'Community',
+                role: 'Community founder',
                 achievements: [
-                    <>Our thriving community of the most creative folks.</>
+                    <>Engaging and growing a thriving community of creative folks.</>
                 ],
             },
             {
                 company: 'Once UI',
                 timeframe: '2022 - Present',
-                role: 'Co-founder',
+                role: 'Founder',
                 achievements: [
-                    <>An open-source Next.js and Figma design system.</>
+                    <>Designing and (over)engineering an open-source Next.js and Figma design system.</>
                 ],
             },
             {
@@ -112,7 +112,7 @@ const about = {
                 timeframe: '2019 - Present',
                 role: 'Creator',
                 achievements: [
-                    <>A place for my creative works from the pre-AI era.</>
+                    <>A showcase-app for the Journal of the Universe.</>
                 ],
             },
             {
@@ -120,7 +120,7 @@ const about = {
                 timeframe: '2017 - Present',
                 role: 'Creator',
                 achievements: [
-                    <>My creative works from the pre-AI era.</>
+                    <>Digital paintings and stories I made in the pre-AI era.</>
                 ],
             },
         ]

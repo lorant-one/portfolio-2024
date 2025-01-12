@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { Discord } from '../components';
 import { Arrow, Button, Flex, Heading, Input, Text, TiltFx } from '@/once-ui/components';
-import { baseURL } from '../resources';
 
 export function Invite() {
     const searchParams = useSearchParams();
@@ -14,15 +13,26 @@ export function Invite() {
 
     const [from, setFrom] = useState(defaultFrom);
     const [to, setTo] = useState(defaultTo);
+    const [icon, setIcon] = useState('clipboard');
 
-    const emailLink = `https://${baseURL}/invite?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+    const emailLink = `http://localhost:3000/invite?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(emailLink);
+            setIcon('check');
+            setTimeout(() => setIcon('clipboard'), 2000);
+        } catch (error) {
+            console.error('Failed to copy link:', error);
+        }
+    };
 
     return (
         <>
             {editor && (
-                <Flex fillWidth paddingX="xl" paddingY="24">
+                <Flex fillWidth paddingX="xl">
                     <Flex
-                        fillWidth gap="20" paddingX="16" paddingTop="24" paddingBottom="16" marginBottom="24"
+                        fillWidth gap="20" paddingX="12" paddingTop="24" paddingBottom="12" marginBottom="24"
                         border="neutral-medium" borderStyle="solid-1" background="surface" radius="xl"
                         direction="column" justifyContent="space-between">
                         <Flex paddingLeft="16">
@@ -45,8 +55,8 @@ export function Invite() {
                             />
                             <Button
                                 label="Copy link"
-                                prefixIcon="clipboard"
-                                onClick={() => navigator.clipboard.writeText(emailLink)}
+                                prefixIcon={icon}
+                                onClick={handleCopy}
                             />
                         </Flex>
                     </Flex>

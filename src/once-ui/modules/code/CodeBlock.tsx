@@ -45,7 +45,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
     const { code, language, label } = codeInstances[selectedInstance] || { code: '', language: '', label: 'Select Code' };
 
-    const [copyIcon, setCopyIcon] = useState<string>('HiClipboard');
+    const [copyIcon, setCopyIcon] = useState<string>('clipboard');
 
     useEffect(() => {
         if (codeRef.current && codeInstances.length > 0) {
@@ -60,7 +60,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     setCopyIcon('check');
 
                     setTimeout(() => {
-                        setCopyIcon('HiClipboard');
+                        setCopyIcon('clipboard');
                     }, 5000);
                 })
                 .catch((err) => {
@@ -125,7 +125,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             {codePreview && (
                 <Flex
                     position="relative" zIndex={1}
-                    fillHeight padding="l" minHeight={12}
+                    padding="l" minHeight={12}
                     justifyContent="center" alignItems="center">
                     {Array.isArray(codePreview)
                         ? codePreview.map((item, index) => (

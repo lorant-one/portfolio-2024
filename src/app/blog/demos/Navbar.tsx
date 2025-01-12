@@ -25,7 +25,7 @@ function Navbar() {
             background="page" border="neutral-weak" borderStyle="solid-1" radius="m-8">
             <Flex
                 data-theme="dark"
-                maxWidth={16} fillWidth fillHeight padding="s" gap="m"
+                maxWidth={16} fillWidth padding="s" gap="m"
                 background="page" border="neutral-weak" borderStyle="solid-1" radius="l"
                 justifyContent="flex-start" alignItems="flex-start" direction="column">
                 <Flex

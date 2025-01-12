@@ -41,7 +41,7 @@ import {
 
 export const iconLibrary: Record<string, IconType> = {
 	chevronUp: HiChevronUp,
-    chevronDown: HiChevronDown,
+  chevronDown: HiChevronDown,
 	chevronRight: HiChevronRight,
 	chevronLeft: HiChevronLeft,
 	refresh: HiOutlineArrowPath,
