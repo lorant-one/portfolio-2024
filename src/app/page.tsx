@@ -1,17 +1,19 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button,  Avatar, LetterFx, RevealFx } from '@/once-ui/components';
-import { Projects } from '@/app/work/components/Projects';
+import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow, Column } from '@/once-ui/components';
+import { Projects } from '@/components/work/Projects';
 
-import { about, baseURL, home, person, routes } from '@/app/resources'
-import { Mailchimp, ProjectCard } from '@/app/components';
-import { Posts } from '@/app/blog/components/Posts';
-import { Discord } from './components/Discord';
-import { Store } from './components/Store';
+import { baseURL, routes } from '@/app/resources'; 
+import { home, about, person, newsletter } from '@/app/resources/content';
+import { Mailchimp, ProjectCard } from '@/components';
+import { Posts } from '@/components/blog/Posts';
+import { Store } from '@/components/Store';
+import { Discord } from '@/components/Discord';
 
-export function generateMetadata() {
+export async function generateMetadata() {
 	const title = home.title;
 	const description = home.description;
+	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
 	return {
 		title,
@@ -21,20 +23,27 @@ export function generateMetadata() {
 			description,
 			type: 'website',
 			url: `https://${baseURL}`,
+			images: [
+				{
+					url: ogImage,
+					alt: title,
+				},
+			],
 		},
 		twitter: {
 			card: 'summary_large_image',
 			title,
 			description,
+			images: [ogImage],
 		},
 	};
 }
 
 export default function Home() {
 	return (
-		<Flex
-			maxWidth="m" fillWidth gap="xl"
-			direction="column" alignItems="center">
+		<Column
+			maxWidth="m" gap="xl"
+			horizontal="center">
 			<script
 				type="application/ld+json"
 				suppressHydrationWarning
@@ -57,59 +66,54 @@ export default function Home() {
 					}),
 				}}
 			/>
-			<Flex
+			<Column
 				fillWidth
-				direction="column"
-				paddingTop="l"
-				paddingBottom="16"
-				gap="m">
-				<Heading
-					wrap="balance"
-					variant="display-strong-l">
-					<span className="font-label">
-						<LetterFx trigger="instant">
+				paddingY="l" gap="m">
+				<Column
+					maxWidth="m">
+					<RevealFx
+						translateY="4" fillWidth horizontal="start" paddingBottom="m">
+						<Heading
+							wrap="balance"
+							variant="display-strong-l">
 							{home.headline}
-						</LetterFx>
-					</span>
-				</Heading>
-				<RevealFx
-                    translateY="8"
-					delay={0.2}
-                    speed="fast">
-					<Text
-						wrap="balance" 
-						onBackground="neutral-weak"
-						variant="display-default-xs">
-						{home.subline}
-					</Text>
-				</RevealFx>
-				<RevealFx
-                    translateY="12"
-					delay={0.4}
-                    speed="fast">
-					<Button
-						data-border="rounded"
-						href="/about"
-						variant="tertiary"
-						suffixIcon="chevronRight"
-						size="m">
-						<Flex
-							gap="8"
-							alignItems="center">
-							{about.avatar.display && (
-								<Avatar
-									style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
-									src={person.avatar}
-									size="m"/>
-								)}
-								<LetterFx>
-									About me
-								</LetterFx>
-						</Flex>
-					</Button>
-				</RevealFx>
-			</Flex>
-			<Projects maxWidth="s" range={[1,1]}/>
+						</Heading>
+					</RevealFx>
+					<RevealFx
+						translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="m">
+						<Text
+							wrap="balance"
+							onBackground="neutral-weak"
+							variant="display-default-xs">
+							{home.subline}
+						</Text>
+					</RevealFx>
+					<RevealFx translateY="12" delay={0.4} horizontal="start">
+						<Button
+							id="about"
+							data-border="rounded"
+							href="/about"
+							variant="secondary"
+							size="m"
+							arrowIcon>
+							<Flex
+								gap="8"
+								vertical="center">
+								{about.avatar.display && (
+									<Avatar
+										style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
+										src={person.avatar}
+										size="m"/>
+									)}
+									{about.title}
+							</Flex>
+						</Button>
+					</RevealFx>
+				</Column>
+			</Column>
+			<RevealFx translateY="16" delay={0.6}>
+				<Projects range={[1,1]}/>
+			</RevealFx>
 			<Discord/>
 			{routes['/blog'] && (
 				<Flex
@@ -123,12 +127,13 @@ export default function Home() {
 							Latest from the blog
 						</Heading>
 					</Flex>
-					<Flex flex={3} paddingX="20">
+					<Flex
+						flex={3} paddingX="20">
 						<Posts range={[1,2]} columns="2"/>
 					</Flex>
 				</Flex>
 			)}
-			<Projects maxWidth="s" range={[2]}/>
+			<Projects range={[2]}/>
 			<Store/>
 			<Flex
 				direction="column"
@@ -223,7 +228,9 @@ export default function Home() {
 					</Flex>
 				</Flex>
 			</Flex>
-			<Mailchimp/>
-		</Flex>
+			{ newsletter.display &&
+				<Mailchimp newsletter={newsletter} />
+			}
+		</Column>
 	);
 }

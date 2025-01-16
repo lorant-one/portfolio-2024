@@ -14,6 +14,7 @@ const person = {
 }
 
 const newsletter = {
+    display: true,
     title: <>The Design Engineers Weekly</>,
     description: <>A blend of product updates and personal insights</>
 }
@@ -71,6 +72,20 @@ const about = {
         title: 'Introduction',
         description: <>I’m a Vienna-based design engineer with a passion for all things creative. I <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="/work">design and build</Link></InlineCode> web apps, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://github.com/lorant-one" target="_blank">contribute</Link></InlineCode> to open-source projects, experiment with generative AI, <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="https://creatillo.com" target="_blank">paint digitally</Link></InlineCode> and occasionally pick up a pen to <InlineCode style={{padding: 'var(--static-space-2) var(--static-space-8)'}}><Link href="/blog/from-my-sketchbook">sketch</Link></InlineCode> on paper.</>
     },
+    studies: {
+        display: false, // set to false to hide this section
+        title: 'Studies',
+        institutions: [
+            {
+                name: 'University of Jakarta',
+                description: <>Studied software engineering.</>,
+            },
+            {
+                name: 'Build the Future',
+                description: <>Studied online marketing and personal branding.</>,
+            }
+        ]
+    },
     work: {
         display: true, // set to false to hide this section
         title: 'Notable projects',
@@ -82,6 +97,7 @@ const about = {
                 achievements: [
                     <>Established our "holding company" to impress VCs. /s</>
                 ],
+                images: []
             },
             {
                 company: 'Enroll',
@@ -90,6 +106,7 @@ const about = {
                 achievements: [
                     <>Launched our first SaaS app for building micro-communities.</>
                 ],
+                images: []
             },
             {
                 company: 'Design Engineers Club',
@@ -98,6 +115,7 @@ const about = {
                 achievements: [
                     <>Engaging and growing a thriving community of creative folks.</>
                 ],
+                images: []
             },
             {
                 company: 'Once UI',
@@ -106,6 +124,7 @@ const about = {
                 achievements: [
                     <>Designing and (over)engineering an open-source Next.js and Figma design system.</>
                 ],
+                images: []
             },
             {
                 company: 'Creatillo',
@@ -114,6 +133,7 @@ const about = {
                 achievements: [
                     <>A showcase-app for the Journal of the Universe.</>
                 ],
+                images: []
             },
             {
                 company: 'Journal of the Universe',
@@ -122,6 +142,7 @@ const about = {
                 achievements: [
                     <>Digital paintings and stories I made in the pre-AI era.</>
                 ],
+                images: []
             },
         ]
     },

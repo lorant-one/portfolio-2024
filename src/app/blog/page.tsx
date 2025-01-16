@@ -1,11 +1,11 @@
-import { Flex, Heading } from '@/once-ui/components';
-import { Mailchimp } from '@/app/components';
-import { Posts } from '@/app/blog/components/Posts';
+import { Column, Flex, Heading } from '@/once-ui/components';
+import { Mailchimp } from '@/components';
+import { Posts } from '@/components/blog/Posts';
+import { baseURL } from '@/app/resources'
+import { blog, person, newsletter } from '@/app/resources/content';
 
-import { blog, person } from '@/app/resources'
-import { baseURL, mailchimp } from '@/app/resources'
+export async function generateMetadata() {
 
-export function generateMetadata() {
 	const title = blog.title;
 	const description = blog.description;
 	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -36,10 +36,9 @@ export function generateMetadata() {
 
 export default function Blog() {
     return (
-        <Flex
-			fillWidth maxWidth="s"
-			direction="column">
-            <script
+		<Column
+			maxWidth="s">
+			<script
 				type="application/ld+json"
 				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
@@ -49,11 +48,11 @@ export default function Blog() {
 						headline: blog.title,
 						description: blog.description,
 						url: `https://${baseURL}/blog`,
-						image: `https://${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+						image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
 						author: {
 							'@type': 'Person',
 							name: person.name,
-                            image: {
+							image: {
 								'@type': 'ImageObject',
 								url: `${baseURL}${person.avatar}`,
 							},
@@ -61,20 +60,19 @@ export default function Blog() {
 					}),
 				}}
 			/>
-            <Heading
-                marginBottom="l"
-                variant="display-strong-s">
-                {blog.title}
-            </Heading>
-			<Flex
-				fillWidth flex={1}
-				direction="column">
+			<Heading
+				marginBottom="l"
+				variant="display-strong-s">
+				{blog.title}
+			</Heading>
+			<Column
+				fillWidth flex={1}>
 				<Posts range={[1,3]} thumbnail/>
 				<Posts range={[4]} columns="2"/>
-			</Flex>
-            {mailchimp && (
-                <Mailchimp/>
-            )}
-        </Flex>
+			</Column>
+			{newsletter.display && (
+				<Mailchimp newsletter={newsletter} />
+			)}
+		</Column>
     );
 }

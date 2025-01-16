@@ -1,8 +1,9 @@
 import { Flex } from "@/once-ui/components";
-import MasonryGrid from "./components/MasonryGrid";
-import { baseURL, gallery, person } from "../resources";
+import MasonryGrid from "@/components/gallery/MasonryGrid";
+import { baseURL } from "@/app/resources";
+import { gallery, person } from "@/app/resources/content";
 
-export function generateMetadata() {
+export async function generateMetadata() {
 	const title = gallery.title;
 	const description = gallery.description;
 	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -33,7 +34,7 @@ export function generateMetadata() {
 
 export default function Gallery() {
     return (
-        <Flex fillWidth justifyContent="center">
+        <Flex fillWidth>
             <script
 				type="application/ld+json"
 				suppressHydrationWarning

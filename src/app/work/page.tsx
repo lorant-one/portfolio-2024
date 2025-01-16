@@ -1,10 +1,10 @@
 import { getPosts } from '@/app/utils/utils';
-import { Flex } from '@/once-ui/components';
-import { Projects } from '@/app/work/components/Projects';
-import { baseURL, person, work } from '../resources';
-import { Mailchimp } from '../components';
+import { Column } from '@/once-ui/components';
+import { Projects } from '@/components/work/Projects';
+import { baseURL } from '@/app/resources';
+import { person, work } from '@/app/resources/content';
 
-export function generateMetadata() {
+export async function generateMetadata() {
 	const title = work.title;
 	const description = work.description;
 	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
@@ -16,7 +16,7 @@ export function generateMetadata() {
 			title,
 			description,
 			type: 'website',
-			url: `https://${baseURL}/work`,
+			url: `https://${baseURL}/work/`,
 			images: [
 				{
 					url: ogImage,
@@ -37,9 +37,8 @@ export default function Work() {
     let allProjects = getPosts(['src', 'app', 'work', 'projects']);
 
     return (
-        <Flex
-			fillWidth maxWidth="m"
-			direction="column">
+        <Column
+			maxWidth="m">
             <script
                 type="application/ld+json"
                 suppressHydrationWarning
@@ -65,8 +64,7 @@ export default function Work() {
                     }),
                 }}
             />
-            <Projects maxWidth="s"/>
-            <Mailchimp/>
-        </Flex>
+            <Projects />
+        </Column>
     );
 }
