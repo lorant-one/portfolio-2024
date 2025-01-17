@@ -102,6 +102,7 @@ export default function Blog({ params }: BlogParams) {
 				}}
 			/>
 			<Button
+				data-border="rounded"
 				href="/blog"
 				weight="default"
 				variant="tertiary"

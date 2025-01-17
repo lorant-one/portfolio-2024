@@ -148,39 +148,7 @@ export default function Home() {
 				</Text>
 			</Flex>
 			<Flex fillWidth gap="l" direction="column">
-				<Flex fillWidth gap="l" mobileDirection="column">
-					<Flex direction="column" fillWidth gap="l">
-						<ProjectCard
-							href=""
-							aspectRatio="16 / 9"
-							images={['/images/projects/fragments/fragment-05.jpg']}
-							title=""
-							content="">
-						</ProjectCard>
-						<ProjectCard
-							href=""
-							aspectRatio="1 / 1"
-							images={['/images/projects/fragments/fragment-03.jpg']}
-							title=""
-							content="">
-						</ProjectCard>
-					</Flex>
-					<Flex direction="column" fillWidth gap="l">
-						<ProjectCard
-							href=""
-							aspectRatio="2 / 3"
-							images={['/images/projects/fragments/fragment-02.jpg']}
-							title=""
-							content=""/>
-					</Flex>
-				</Flex>
-				<ProjectCard
-					href=""
-					aspectRatio="4 / 3"
-					images={['/images/projects/fragments/fragment-01.jpg']}
-					title=""
-					content=""/>
-				<Flex fillWidth gap="l" mobileDirection="column">
+			<Flex fillWidth gap="l" mobileDirection="column">
 					<Flex direction="column" fillWidth gap="l">
 					<ProjectCard
 							href=""
@@ -207,6 +175,38 @@ export default function Home() {
 							href=""
 							aspectRatio="13 / 6"
 							images={['/images/projects/fragments/fragment-08.jpg']}
+							title=""
+							content=""/>
+					</Flex>
+				</Flex>
+				<ProjectCard
+					href=""
+					aspectRatio="4 / 3"
+					images={['/images/projects/fragments/fragment-01.jpg']}
+					title=""
+					content=""/>
+				<Flex fillWidth gap="l" mobileDirection="column">
+					<Flex direction="column" fillWidth gap="l">
+						<ProjectCard
+							href=""
+							aspectRatio="16 / 9"
+							images={['/images/projects/fragments/fragment-05.jpg']}
+							title=""
+							content="">
+						</ProjectCard>
+						<ProjectCard
+							href=""
+							aspectRatio="1 / 1"
+							images={['/images/projects/fragments/fragment-03.jpg']}
+							title=""
+							content="">
+						</ProjectCard>
+					</Flex>
+					<Flex direction="column" fillWidth gap="l">
+						<ProjectCard
+							href=""
+							aspectRatio="2 / 3"
+							images={['/images/projects/fragments/fragment-02.jpg']}
 							title=""
 							content=""/>
 					</Flex>

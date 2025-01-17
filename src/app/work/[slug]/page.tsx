@@ -106,6 +106,7 @@ export default function Project({ params }: WorkParams) {
 			<Column
 				maxWidth="xs" gap="16">
 				<Button
+					data-border="rounded"
 					href="/work"
 					variant="tertiary"
 					weight="default"

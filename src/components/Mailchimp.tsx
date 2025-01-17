@@ -123,24 +123,26 @@ export const Mailchimp = (
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form">
                 <Flex id="mc_embed_signup_scroll"
-                    fillWidth maxWidth={24} gap="8">
-                    <Input
-                        formNoValidate
-                        labelAsPlaceholder
-                        id="mce-EMAIL"
-                        name="EMAIL"
-                        type="email"
-                        label="Email"
-                        required
-                        onChange={(e) => {
-                            if (error) {
-                                handleChange(e);
-                            } else {
-                                debouncedHandleChange(e);
-                            }
-                        }}
-                        onBlur={handleBlur}
-                        errorMessage={error}/>
+                    fillWidth horizontal="center" gap="8">
+                    <Flex maxWidth={20}>
+                        <Input
+                            formNoValidate
+                            labelAsPlaceholder
+                            id="mce-EMAIL"
+                            name="EMAIL"
+                            type="email"
+                            label="Email"
+                            required
+                            onChange={(e) => {
+                                if (error) {
+                                    handleChange(e);
+                                } else {
+                                    debouncedHandleChange(e);
+                                }
+                            }}
+                            onBlur={handleBlur}
+                            errorMessage={error}/>
+                    </Flex>
                     <div style={{display: 'none'}}>
                         <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
                     </div>
@@ -158,7 +160,8 @@ export const Mailchimp = (
                                 id="mc-embedded-subscribe"
                                 value="Subscribe"
                                 size="m"
-                                fillWidth>
+                                fillWidth
+                                arrowIcon>
                                 Subscribe
                             </Button>
                         </Flex>
