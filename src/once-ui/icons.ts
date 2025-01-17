@@ -22,7 +22,9 @@ import {
 	HiMiniPlus,
 	HiOutlineClipboard,
 	HiArrowRightStartOnRectangle,
-	HiArrowRight
+	HiArrowRight,
+	HiOutlineEye,
+	HiOutlineEyeSlash
 } from "react-icons/hi2";
 
 import {
@@ -70,6 +72,8 @@ export const iconLibrary: Record<string, IconType> = {
 	calendar: HiCalendarDays,
 	home: PiHouseDuotone,
 	gallery: PiImageDuotone,
+	eye: HiOutlineEye,
+	eyeOff: HiOutlineEyeSlash,
 	discord: FaDiscord,
 	github: FaGithub,
 	linkedin: FaLinkedin,
