@@ -30,19 +30,19 @@ const style = {
 
 const effects = {
     mask: {
-        cursor: true,
-        x: 0,
+        cursor: false,
+        x: 50,
         y: 0,
-        radius: 75
+        radius: 100
     },
     gradient: {
         display: true,
         x: 50,
-        y: 0,
+        y: -25,
         width: 100,
         height: 100,
         tilt: 0,
-        colorStart: 'brand-background-strong',
+        colorStart: 'accent-background-strong',
         colorEnd: 'static-transparent',
         opacity: 50
     },
@@ -77,11 +77,11 @@ const mailchimp = {
         },
         gradient: {
             display: true,
-            x: 100,
+            x: 0,
             y: 50,
             width: 100,
             height: 100,
-            tilt: -45,
+            tilt: 45,
             colorStart: 'accent-background-strong',
             colorEnd: 'static-transparent',
             opacity: 100

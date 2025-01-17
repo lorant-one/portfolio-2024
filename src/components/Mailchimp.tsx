@@ -60,7 +60,7 @@ export const Mailchimp = (
             position="relative"
             fillWidth padding="xl"  radius="l" marginBottom="m"
             horizontal="center" align="center"
-            background="surface" border="neutral-medium" >
+            background="surface" border="neutral-alpha-weak" shadow="xl">
             <Background
                 mask={{
                     cursor: mailchimp.effects.mask.cursor,
