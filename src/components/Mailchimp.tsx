@@ -1,7 +1,7 @@
 "use client";
 
 import { mailchimp } from '@/app/resources'
-import { Button, Flex, Heading, Input, Text, Background, Column } from '@/once-ui/components';
+import { Button, Flex, Heading, Input, Text, Background, Column, Avatar } from '@/once-ui/components';
 import { useState } from 'react';
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -96,6 +96,7 @@ export const Mailchimp = (
                     display: mailchimp.effects.lines.display,
                     opacity: mailchimp.effects.lines.opacity as any
                 }}/>
+            <Avatar position="relative" size="l" src="/images/avatar.jpg" marginBottom="24"/>
             <Heading style={{position: 'relative'}}
                 marginBottom="s"
                 variant="display-strong-xs">
