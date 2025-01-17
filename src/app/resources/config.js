@@ -25,7 +25,8 @@ const style = {
     solidStyle:  'flat',         // flat | plastic
     border:      'playful',      // rounded | playful | conservative
     surface:     'translucent',  // filled | translucent
-    transition:  'all'           // all | micro | macro
+    transition:  'all',          // all | micro | macro
+    scaling:     '100',
 }
 
 const effects = {
