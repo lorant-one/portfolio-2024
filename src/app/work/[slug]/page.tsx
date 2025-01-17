@@ -128,8 +128,10 @@ export default function Project({ params }: WorkParams) {
 			)}
 			<Column style={{margin: 'auto'}}
 				as="article"
-				maxWidth="xs">
+				horizontal="center"
+				maxWidth="m">
 				<Flex
+					maxWidth="xs"
 					gap="12" marginBottom="24"
 					vertical="center">
 					{ post.metadata.team && (

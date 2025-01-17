@@ -141,7 +141,7 @@ export default function Home() {
 				<Heading
 					as="h2"
 					variant="display-strong-m">
-					Fragments
+					Fragments of spacetime
 				</Heading>
 				<Text onBackground="neutral-weak">
 					— Pieces from the drawer
@@ -155,18 +155,14 @@ export default function Home() {
 							aspectRatio="16 / 9"
 							images={['/images/projects/fragments/fragment-05.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}>
+							content="">
 						</ProjectCard>
 						<ProjectCard
 							href=""
 							aspectRatio="1 / 1"
 							images={['/images/projects/fragments/fragment-03.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}>
+							content="">
 						</ProjectCard>
 					</Flex>
 					<Flex direction="column" fillWidth gap="l">
@@ -175,9 +171,7 @@ export default function Home() {
 							aspectRatio="2 / 3"
 							images={['/images/projects/fragments/fragment-02.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}/>
+							content=""/>
 					</Flex>
 				</Flex>
 				<ProjectCard
@@ -185,9 +179,7 @@ export default function Home() {
 					aspectRatio="4 / 3"
 					images={['/images/projects/fragments/fragment-01.jpg']}
 					title=""
-					content=""
-					maxWidth="s"
-					avatars={[{src: "/"}]}/>
+					content=""/>
 				<Flex fillWidth gap="l" mobileDirection="column">
 					<Flex direction="column" fillWidth gap="l">
 					<ProjectCard
@@ -195,17 +187,13 @@ export default function Home() {
 							aspectRatio="13 / 6"
 							images={['/images/projects/fragments/fragment-04.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}/>
+							content=""/>
 						<ProjectCard
 							href=""
 							aspectRatio="1 / 1"
 							images={['/images/projects/fragments/fragment-06.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}/>
+							content=""/>
 					</Flex>
 					<Flex direction="column" fillWidth gap="l">
 						<ProjectCard
@@ -214,17 +202,13 @@ export default function Home() {
 							aspectRatio="1 / 1"
 							images={['/images/projects/fragments/fragment-07.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}/>
+							content=""/>
 						<ProjectCard
 							href=""
 							aspectRatio="13 / 6"
 							images={['/images/projects/fragments/fragment-08.jpg']}
 							title=""
-							content=""
-							maxWidth="s"
-							avatars={[{src: "/"}]}/>
+							content=""/>
 					</Flex>
 				</Flex>
 			</Flex>

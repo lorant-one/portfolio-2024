@@ -1,4 +1,4 @@
-import { Arrow, Button, Flex, Heading, HoloFx, LetterFx, SmartImage, SmartLink, Text, TiltFx } from "@/once-ui/components";
+import { Arrow, Button, Column, Flex, Heading, HoloFx, Icon, LetterFx, SmartImage, SmartLink, Text, TiltFx } from "@/once-ui/components";
 import classNames from "classnames";
 import Image from "next/image";
 
@@ -16,13 +16,11 @@ function Discord({
 }: DiscordProps) {
     return (
         <HoloFx fillWidth radius="xl"
-            style={{
-                border: '1px solid var(--neutral-alpha-medium)',
-                overflow: 'hidden'
-                }}>
-            <Flex
+            border="neutral-alpha-medium"
+            overflow="hidden">
+            <Column
                 position="relative"
-                fillWidth direction="column">
+                fillWidth>
                 <SmartImage
                     priority
                     sizes="(max-width: 1080px) 100vw, 1024px"
@@ -31,9 +29,7 @@ function Discord({
                     src="/images/store/cover/oversized-hoodie-anime.jpg"/>
                 <Flex
                     fillWidth
-                    style={{
-                        aspectRatio: '16 / 9'
-                    }}
+                    aspectRatio="16 / 9"
                     position="absolute" zIndex={1}>
                     <Image className={classNames(styles.rock, styles.rock1)}
                         fill
@@ -60,28 +56,22 @@ function Discord({
                         src={'/images/store/cover/oversized-hoodie-anime-layer-4.png'}
                         alt="Design Engineers Club cover anime style overlay"/>
                 </Flex>
-                <Flex
+                <Column
                     zIndex={3}
                     radius="xl"
+                    pointerEvents="none"
                     className={styles.position}
                     style={{
-                        pointerEvents: 'none',
                         background: 'linear-gradient(to right, var(--page-background) 0%, var(--static-transparent) 60%)',
                     }}
-                    direction="column"
                     fillWidth padding="xl">
                     {children ? (
                         children
                     ) : (
-                        <Flex fillWidth fillHeight gap="40"
-                            direction="column" horizontal="center">
+                        <Column fill gap="40"
+                            vertical="center">
                             <Flex gap="m" vertical="center">
-                                <Flex width="32">
-                                    <SmartImage style={{background: 'transparent'}}
-                                        aspectRatio="1 / 1"
-                                        src="/trademark/discord-dark.svg"
-                                        alt="Discord trademark"/>
-                                </Flex>
+                                <Icon name="discord"/>
                                 <Text variant="label-default-s">
                                     /
                                 </Text>
@@ -110,13 +100,11 @@ function Discord({
                                     href="https://club.dopler.io"
                                     style={{
                                         pointerEvents: 'all'
-                                    }}>
-                                    <Flex vertical="center">
+                                    }}
+                                    arrowIcon>
                                     <LetterFx>
                                         Join now
                                     </LetterFx>
-                                    <Arrow color="onSolid" trigger="#joinNow"/>
-                                    </Flex>
                                 </Button>
                                 <SmartLink href="/invite?editor=true&from=Oncer&to=Oncer"
                                     style={{
@@ -129,10 +117,10 @@ function Discord({
                                     </Flex>
                                 </SmartLink>
                             </Flex>
-                        </Flex>
+                        </Column>
                     )}
-                </Flex>
-            </Flex>
+                </Column>
+            </Column>
         </HoloFx>
     )
 }

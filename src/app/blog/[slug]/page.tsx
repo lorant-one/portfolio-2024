@@ -109,6 +109,7 @@ export default function Blog({ params }: BlogParams) {
 				prefixIcon="chevronLeft">
 				Posts
 			</Button>
+			<Column fillWidth gap="16">
 			<Heading
 				variant="display-strong-s">
 				{post.metadata.title}
@@ -128,6 +129,7 @@ export default function Blog({ params }: BlogParams) {
 					{formatDate(post.metadata.publishedAt)}
 				</Text>
 			</Row>
+			</Column>
 			<Column
 				as="article"
 				fillWidth>

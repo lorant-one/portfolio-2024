@@ -7,13 +7,13 @@ interface ProjectCardProps {
     href: string;
     aspectRatio?: string;
     sizes?: string;
-    maxWidth?: SpacingToken;
+    maxWidth?: SpacingToken | number;
     priority?: boolean;
     images: string[];
     title: string;
     content: string;
     description?: string;
-    avatars: { src: string }[];
+    avatars?: { src: string }[];
     link?: string;
 }
 
@@ -54,11 +54,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         </Heading>
                     </Flex>
                 )}
-                {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+                {( (avatars && avatars?.length > 0) || description?.trim() || content?.trim()) && (
                     <Column
                         flex={7}
                         gap="16">
-                        {avatars?.length > 0 && (
+                        {avatars && avatars?.length > 0 && (
                             <AvatarGroup
                                 avatars={avatars}
                                 size="m"

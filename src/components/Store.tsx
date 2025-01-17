@@ -122,24 +122,20 @@ const extra = [
 export function Store() {
     return (
         <Flex
-            style={{
-                overflow: 'hidden',
-                border: '1px solid var(--neutral-alpha-medium)'
-            }}
+            overflow="hidden"
+            border="neutral-alpha-medium"
             direction="column"
             fillWidth radius="xl">
             <Flex
                 paddingY="32" paddingX="l" gap="12"
-                justifyContent="space-between" alignItems="center">
+                horizontal="space-between" vertical="center">
                 <Heading as="h2" wrap="balance">
-                    Gear up for the seasons!
+                    Gear up for the future
                 </Heading>
                 <Button id="shopNow"
-                    href="https://store.dopler.app">
-                    <Flex alignItems="center">
-                        Shop now
-                        <Arrow color="onSolid" trigger="#shopNow"/>
-                    </Flex>
+                    href="https://store.dopler.app"
+                    arrowIcon>
+                    Shop now
                 </Button>
             </Flex>
             <Scroller>
@@ -189,7 +185,7 @@ export function Store() {
                     <SmartLink unstyled href="https://store.dopler.app/"
                         id="visitStore">
                         <Flex direction="column" gap="12" minWidth={16} fillWidth fillHeight>
-                        <Grid columns="repeat(2, 1fr)" gap="8" padding="12" fillWidth style={{aspectRatio: '4 / 5'}}>
+                        <Grid columns="2" gap="8" padding="12" fillWidth style={{aspectRatio: '4 / 5'}}>
                             {extra.map((item) => (
                                 <Flex radius="l" fillWidth fillHeight style={{overflow: 'hidden'}}>
                                     <Flex
@@ -199,7 +195,7 @@ export function Store() {
                                         background="surface"
                                         position="relative">
                                         <SmartImage
-                                            style={{cursor: 'pointer'}}
+                                            cursor="interactive"
                                             sizes="120px"
                                             src={item.image}
                                             alt={`${item.title} image`}
@@ -209,12 +205,12 @@ export function Store() {
                             ))}
                         </Grid>
                         <Flex
-                            fillWidth paddingX="12" justifyContent="center">
+                            fillWidth paddingX="12" horizontal="center">
                             <Text
                                 onBackground="brand-medium"
                                 variant="code-default-m"
                                 wrap="balance">
-                                <Flex alignItems="center" align="center">
+                                <Flex vertical="center" align="center">
                                     Visit store
                                     <Arrow trigger="#visitStore"/>
                                 </Flex>

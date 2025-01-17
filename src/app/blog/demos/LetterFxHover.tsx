@@ -3,7 +3,7 @@
 import { Flex, LetterFx, SmartImage } from "@/once-ui/components";
 import { useState } from "react";
 
-import styles from "@/app/gallery/Gallery.module.scss";
+import styles from "@/components/gallery/Gallery.module.scss";
 
 function LetterFxHover() {
     const [triggerLocation, setTriggerLocation] = useState<() => void>(() => () => {});
@@ -25,8 +25,8 @@ function LetterFxHover() {
                 alt="Image for letter effect demo"
                 className={styles.gridItem}/>
             <Flex className={styles.details}
-                position="absolute" fillWidth fillHeight zIndex={1}
-                direction="column" justifyContent="flex-end" alignItems="center" gap="8"
+                position="absolute" fill zIndex={1}
+                direction="column" vertical="end" horizontal="center" gap="8"
                 textVariant="label-default-s" paddingBottom="32" paddingX="24">
                 <LetterFx
                     trigger="custom"

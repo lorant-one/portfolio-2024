@@ -6,6 +6,8 @@
 ul {
     margin: 0;
     padding: 0 0 0 var(--static-space-12);
+    max-width: var(--responsive-width-xs);
+    width: 100%;
 }
 
 li {
@@ -18,6 +20,26 @@ li {
 
     &::marker {
         color: var(--brand-on-background-weak);
+    }
+}
+
+blockquote {
+    display: flex;
+    margin: var(--static-space-16) 0;
+    border-radius: var(--radius-m);
+    background: var(--brand-alpha-weak);
+    overflow: hidden;
+    text-wrap: balance;
+    backdrop-filter: blur(var(--static-space-2));
+    border: 1px dashed var(--brand-alpha-medium);
+    max-width: var(--responsive-width-xs);
+    width: 100%;
+
+    span {
+        margin: 0 !important;
+        padding: var(--static-space-16) var(--static-space-24);
+        color: var(--brand-on-background-medium) !important;
+        font-family: var(--font-family-code) !important;
     }
 }
 

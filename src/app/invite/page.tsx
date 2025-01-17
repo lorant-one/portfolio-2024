@@ -1,6 +1,6 @@
 
 import { about, baseURL, home, person, routes } from '@/app/resources';
-import { Flex } from '@/once-ui/components';
+import { Column, Flex } from '@/once-ui/components';
 import { Invite } from './Invite';
 
 export async function generateMetadata({ params, searchParams }: { params: any, searchParams: { from?: string, to?: string } }) {
@@ -38,12 +38,11 @@ export async function generateMetadata({ params, searchParams }: { params: any, 
 
 export default function Home() {
     return (
-        <Flex
+        <Column
             flex={1}
-            fillWidth maxWidth="m"
-            direction="column"
-            justifyContent="center">
+            maxWidth="m"
+            vertical="center">
             <Invite/>
-        </Flex>
+        </Column>
     );
 }

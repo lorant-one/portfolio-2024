@@ -9,6 +9,7 @@ import { TextProps } from '@/once-ui/interfaces';
 import { SmartImageProps } from '@/once-ui/components/SmartImage';
 import { Discord } from './Discord';
 import { Projects } from './work/Projects';
+import { LetterFxHover, Navbar } from '@/app/blog/demos';
 
 type TableProps = {
     data: {
@@ -98,7 +99,13 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
     const slug = slugify(children as string);
         return (
             <HeadingLink
-                style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)'}}
+                style={{
+                    marginTop: 'var(--static-space-24)',
+                    marginBottom: 'var(--static-space-12)',
+                    maxWidth: 'var(--responsive-width-xs)',
+                    width: '100%'
+                }}
+                className="fill-width"
                 level={level}
                 id={slug}
                 {...props}>
@@ -114,7 +121,12 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
 
 function createParagraph({ children }: TextProps) {
     return (
-        <Text style={{lineHeight: '175%'}}
+        <Text
+            style={{
+                lineHeight: '175%',
+                maxWidth: 'var(--responsive-width-xs)',
+            }}
+            className="fill-width"
             variant="body-default-m"
             onBackground="neutral-medium"
             marginTop="8"
@@ -139,7 +151,11 @@ const components = {
     Accordion,
     Discord,
     Flex,
-    Projects
+    Projects,
+    LetterFxHover,
+    SmartLink,
+    SmartImage,
+    Navbar
 };
 
 type CustomMDXProps = MDXRemoteProps & {

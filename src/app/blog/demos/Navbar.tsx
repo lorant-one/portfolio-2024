@@ -1,435 +1,148 @@
 "use client";
 
-import { Avatar, AvatarGroup, Button, DropdownWrapper, Flex, Icon, IconButton, Tag, Text, ToggleButton, User } from "@/once-ui/components";
+import { Column, Icon, IconButton, Line, Row, Tag, Text, ToggleButton } from "@/once-ui/components";
+import { usePathname } from "next/navigation";
 
-import styles from '@/app/blog/demos/Navbar.module.scss'
-import { useState } from 'react';
-import classNames from 'classnames';
+const Navbar: React.FC = ({}) => {
+  const pathname = usePathname() ?? "";
 
-function Navbar() {
-    const [active, setActive] = useState<boolean>(false);
-    const [selected, setSelected] = useState<string>('home');
+  return (
+    <Column
+      maxWidth={16}
+      fill
+      paddingX="16"
+      paddingY="32"
+      gap="m"
+      background="page"
+      border="neutral-weak"
+      radius="l"
+    >
+      <Column fill paddingX="xs" gap="m">
+        <Column fillWidth gap="4">
+          <Text
+            variant="body-default-xs"
+            onBackground="neutral-weak"
+            marginBottom="8"
+            marginLeft="16"
+          >
+            Dashboard
+          </Text>
+          <ToggleButton fillWidth justifyContent="flex-start" selected={true}>
+            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
+              <Icon name="PiHouseDuotone" onBackground="neutral-weak" size="xs" />
+              Home
+            </Row>
+          </ToggleButton>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "analytics"}
+          >
+            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
+              <Icon name="PiTrendUpDuotone" onBackground="neutral-weak" size="xs" />
+              Analytics
+            </Row>
+          </ToggleButton>
+          <ToggleButton
+            style={{
+              position: "relative",
+            }}
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "reports"}
+          >
+            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
+              <Icon name="PiNotebookDuotone" onBackground="neutral-weak" size="xs" />
+              Reports
+              <Tag
+                variant="neutral"
+                size="s"
+                position="absolute"
+                right="8">
+                New
+              </Tag>
+            </Row>
+          </ToggleButton>
+        </Column>
 
-    function toggleActive() {
-        setActive(!active)
-    }
+        <Line/>
 
-    function toggleSelected(route: string) {
-        setSelected(route)
-    }
+        <Column fillWidth gap="4">
+          <Text variant="body-default-xs" onBackground="neutral-weak" marginY="8" marginLeft="16">
+            Management
+          </Text>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "users"}
+          >
+            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
+            <Line width="16"/>
+              Users
+            </Row>
+          </ToggleButton>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "roles"}
+          >
+            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
+            <Line width="16"/>
+              Roles
+            </Row>
+          </ToggleButton>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "permissions"}
+          >
+            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
+            <Line width="16"/>
+              Permissions
+            </Row>
+          </ToggleButton>
+        </Column>
 
-    return (
-        <Flex
-            data-theme="light"
-            fillWidth padding="8" gap="xs"
-            background="page" border="neutral-weak" borderStyle="solid-1" radius="m-8">
-            <Flex
-                data-theme="dark"
-                maxWidth={16} fillWidth padding="s" gap="m"
-                background="page" border="neutral-weak" borderStyle="solid-1" radius="l"
-                justifyContent="flex-start" alignItems="flex-start" direction="column">
-                <Flex
-                    data-surface="filled" data-theme="dark"
-                    fillWidth
-                    onClick={toggleActive}>
-                    <DropdownWrapper
-                        className={classNames(
-                            styles.selector,
-                            active ? styles.active : ''
-                        )}
-                        dropdownOptions={[
-                            {
-                                hasPrefix: <Avatar value="O"/>,
-                                label:
-                                    <Text
-                                        as="div"
-                                        variant="body-strong-m"
-                                        paddingBottom="2">
-                                            Once UI
-                                    </Text>,
-                                description: 
-                                    <Flex
-                                        onBackground="neutral-weak"
-                                        alignItems="center"
-                                        gap="4">
-                                        <Flex
-                                            width="8" height="8"
-                                            alignItems="center"> 
-                                            <Flex
-                                                width="4" height="4"
-                                                radius="full"
-                                                solid="brand-strong">
-                                            </Flex>
-                                        </Flex>
-                                        <Text variant="body-default-xs">
-                                            3 notifications
-                                        </Text>
-                                    </Flex>,
-                                value: 'profile'
-                            },
-                            {
-                                dividerAfter: true,
-                                hasPrefix: <Avatar value="D"/>,
-                                label:
-                                    <Text
-                                        as="div"
-                                        variant="body-strong-m"
-                                        paddingBottom="2">
-                                            Design Edge
-                                    </Text>,
-                                description: 
-                                    <Flex
-                                        onBackground="neutral-weak"
-                                        alignItems="center"
-                                        gap="4">
-                                        <Flex
-                                            width="8" height="8"
-                                            alignItems="center"> 
-                                            <Flex
-                                                width="4" height="4"
-                                                radius="full"
-                                                solid="brand-strong">
-                                            </Flex>
-                                        </Flex>
-                                        <Text variant="body-default-xs">
-                                            1 notification
-                                        </Text>
-                                    </Flex>,
-                                value: 'profile'
-                            },
-                            {
-                                hasPrefix:
-                                    <Flex
-                                        paddingX="8">
-                                        <Icon
-                                            onBackground="neutral-weak"
-                                            name="arrowRightStart"
-                                            size="xs"/>
-                                    </Flex>,
-                                label: 'Log out',
-                                value: 'logout'
-                            }
-                        ]}>
-                        <Flex
-                            fillWidth paddingY="8" paddingX="12"
-                            justifyContent="space-between" alignItems="center"
-                            radius="m-8">
-                            <User
-                                name="Lorant One"
-                                subline="Personal account"
-                                avatarProps={{
-                                    empty: false,
-                                    src: '/images/avatar.jpg'
-                                }}/>
-                            <Icon
-                                name="HiChevronUpDown"
-                                onBackground="neutral-weak"/>
-                        </Flex>
-                    </DropdownWrapper>
-                </Flex>
-                <Flex
-                    fillHeight fillWidth paddingX="xs" gap="m"
-                    direction="column">
-                    <Flex
-                        fillWidth
-                        gap="4"
-                        direction="column">
-                        <Text
-                            variant="body-default-xs"
-                            onBackground="neutral-weak"
-                            marginBottom="8" marginLeft="16">
-                            Dashboard
-                        </Text>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('home')}
-                            selected={selected === 'home'}>
-                            <Flex
-                                padding="4"
-                                alignItems="center"
-                                gap="12"
-                                textVariant="label-default-s">
-                                <Icon
-                                    name="PiHouseDuotone"
-                                    onBackground="neutral-weak"
-                                    size="xs"/>
-                                Home
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('analytics')}
-                            selected={selected === 'analytics'}>
-                            <Flex
-                                padding="4"
-                                alignItems="center"
-                                gap="12"
-                                textVariant="label-default-s">
-                                <Icon
-                                    name="PiTrendUpDuotone"
-                                    onBackground="neutral-weak"
-                                    size="xs"/>
-                                Analytics
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            style={{position: 'relative'}}
-                            prefixIcon=""
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('reports')}
-                            selected={selected === 'reports'}>
-                            <Flex
-                                padding="4"
-                                alignItems="center"
-                                gap="12"
-                                textVariant="label-default-s">
-                                <Icon
-                                    name="PiNotebookDuotone"
-                                    onBackground="neutral-weak"
-                                    size="xs"/>
-                                Reports
-                                <Flex
-                                    position="absolute"
-                                    style={{right: 'var(--static-space-12)'}}>
-                                    <Tag
-                                        prefixIcon="HiMiniStar"
-                                        variant="neutral"
-                                        size="s">
-                                        New
-                                    </Tag>
-                                </Flex>
-                            </Flex>
-                        </ToggleButton>
-                    </Flex>
+        <Line/>
 
-                    <Flex
-                        fillWidth
-                        height="1"
-                        background="neutral-strong">
-                    </Flex>
+        <Column fill gap="4">
+          <Row
+            fillWidth
+            horizontal="space-between"
+            vertical="center"
+            paddingY="8"
+            paddingX="16"
+          >
+            <Text variant="body-default-xs" onBackground="neutral-weak">
+              Projects
+            </Text>
+            <IconButton tooltip="Create" variant="secondary" icon="plus" size="s" />
+          </Row>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "overview"}
+          >
+            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
+            <Line width="16"/>
+              Overview
+            </Row>
+          </ToggleButton>
+          <ToggleButton
+            fillWidth
+            justifyContent="flex-start"
+            selected={pathname === "projects"}
+          >
+            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
+              <Line width="16"/>
+              My projects
+            </Row>
+          </ToggleButton>
+        </Column>
+      </Column>
+    </Column>
+  );
+};
 
-                    <Flex
-                        fillWidth
-                        gap="4"
-                        direction="column">
-                        <Text
-                            variant="body-default-xs"
-                            onBackground="neutral-weak"
-                            marginY="8" marginLeft="16">
-                            Management
-                        </Text>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('users')}
-                            selected={selected === 'users'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    className={classNames(
-                                        selected === 'users' ? styles.transform : '',
-                                        styles.ease
-                                    )}
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                Users
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('roles')}
-                            selected={selected === 'roles'}>
-                            <Flex
-                                padding="4"
-                                alignItems="center"
-                                gap="12"
-                                textVariant="label-default-s">
-                                <Flex
-                                    className={classNames(
-                                        selected === 'roles' ? styles.transform : '',
-                                        styles.ease
-                                    )}
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                Roles
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('permissions')}
-                            selected={selected === 'permissions'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    className={classNames(
-                                        selected === 'permissions' ? styles.transform : '',
-                                        styles.ease
-                                    )}
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                Permissions
-                            </Flex>
-                        </ToggleButton>
-                    </Flex>
-
-                    <Flex
-                        fillWidth height="1"
-                        background="neutral-strong">
-                    </Flex>
-
-                    <Flex
-                        fillWidth fillHeight gap="4"
-                        direction="column">
-                        <Flex
-                            fillWidth
-                            justifyContent="space-between" alignItems="center"
-                            paddingY="8" paddingX="16">
-                            <Text
-                                variant="body-default-xs"
-                                onBackground="neutral-weak">
-                                Projects
-                            </Text>
-                            <IconButton
-                                tooltip="Create"
-                                variant="secondary"
-                                icon="plus"
-                                size="s"/>
-                        </Flex>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('overview')}
-                            selected={selected === 'overview'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    className={classNames(
-                                        selected === 'overview' ? styles.transform : '',
-                                        styles.ease
-                                    )}
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                Overview
-                            </Flex>
-                        </ToggleButton>
-                        <ToggleButton
-                            width="fill"
-                            align="start"
-                            onClick={() => toggleSelected('my-projects')}
-                            selected={selected === 'my-projects'}>
-                            <Flex
-                                padding="4" gap="12"
-                                alignItems="center"
-                                textVariant="label-default-s">
-                                <Flex
-                                    className={classNames(
-                                        selected === 'my-projects' ? styles.transform : '',
-                                        styles.ease
-                                    )}
-                                    height="1" width="16"
-                                    alpha="neutral-strong">
-                                </Flex>
-                                My projects
-                            </Flex>
-                        </ToggleButton>
-                    </Flex>
-                </Flex>
-
-                <Flex
-                    direction="column"
-                    fillWidth>
-                    <Flex
-                        fillWidth paddingX="20">
-                        <Flex
-                            fillWidth
-                            shadow="m" border="neutral-medium" borderStyle="solid-1"
-                            style={{
-                                height: 'calc(var(--static-space-4) + var(--static-space-2))',
-                                borderTopLeftRadius: 'var(--radius-m)',
-                                borderTopRightRadius: 'var(--radius-m)'
-                            }}>
-                        </Flex>
-                    </Flex>
-                    <Flex
-                        fillWidth
-                        paddingX="12">
-                        <Flex
-                            fillWidth height="8"
-                            shadow="m" border="neutral-medium" borderStyle="solid-1"
-                            style={{
-                                marginTop: '-1px',
-                                borderTopLeftRadius: 'var(--radius-m)',
-                                borderTopRightRadius: 'var(--radius-m)'
-                            }}>
-                        </Flex>
-                    </Flex>
-                    <Flex
-                        style={{
-                            marginTop: '-1px'
-                        }}
-                        shadow="m" radius="m"
-                        border="neutral-medium" borderStyle="solid-1"
-                        fillWidth padding="s" gap="4"
-                        direction="column">
-                        <Text
-                            variant="heading-strong-xs">
-                            Invite your team
-                        </Text>
-                        <Text
-                            onBackground="neutral-weak"
-                            variant="body-default-xs"
-                            marginBottom="12">
-                            It's much more fun in a party!
-                        </Text>
-                        <Flex
-                            alignItems="center"
-                            justifyContent="space-between">
-                            <AvatarGroup
-                                avatars={[
-                                    {
-                                        src: '/images/ui/avatars/avatar-01.jpg'
-                                    },
-                                    {
-                                        src: '/images/ui/avatars/avatar-02.jpg'
-                                    },
-                                    {
-                                        value: 'a'
-                                    },
-                                    {
-                                        value: 'b'
-                                    },
-                                    {
-                                        value: 'c'
-                                    }
-                                ]}
-                                size="m"
-                                limit={2}/>
-                            <Button
-                                size="s"
-                                prefixIcon="HiMiniUserPlus">
-                                Invite
-                            </Button>
-                        </Flex>
-                    </Flex>
-                </Flex>
-            </Flex>
-        </Flex>
-    )
-}
-
+Navbar.displayName = "Navbar";
 export { Navbar };

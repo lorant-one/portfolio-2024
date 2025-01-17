@@ -2,8 +2,8 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { Discord } from '../components';
-import { Arrow, Button, Flex, Heading, Input, Text, TiltFx } from '@/once-ui/components';
+import { Arrow, Button, Column, Flex, Heading, Input, Text, TiltFx } from '@/once-ui/components';
+import { Discord } from '@/components/Discord';
 
 export function Invite() {
     const searchParams = useSearchParams();
@@ -31,15 +31,15 @@ export function Invite() {
         <>
             {editor && (
                 <Flex fillWidth paddingX="xl">
-                    <Flex
-                        fillWidth gap="20" paddingX="12" paddingTop="24" paddingBottom="12" marginBottom="24"
-                        border="neutral-medium" borderStyle="solid-1" background="surface" radius="xl"
-                        direction="column" justifyContent="space-between">
-                        <Flex paddingLeft="16">
+                    <Column
+                        fillWidth gap="20" paddingY="40" paddingX="24"
+                        vertical="space-between">
+                        <Heading align="center" variant="display-default-s" marginBottom="24">
                             Create your personal invite to the Design Engineers Club!
-                        </Flex>
-                        <Flex fillWidth gap="8" alignItems="center" mobileDirection="column">
+                        </Heading>
+                        <Flex fillWidth vertical="center" gap="-1" mobileDirection="column" marginBottom="40">
                             <Input
+                                radius="left"
                                 height="s"
                                 id="from"
                                 label="From"
@@ -47,6 +47,7 @@ export function Invite() {
                                 onChange={(e) => setFrom(e.target.value)}
                             />
                             <Input
+                                radius="none"
                                 height="s"
                                 id="to"
                                 label="To"
@@ -54,17 +55,19 @@ export function Invite() {
                                 onChange={(e) => setTo(e.target.value)}
                             />
                             <Button
+                                size="l"
+                                radius="right"
                                 label="Copy link"
                                 prefixIcon={icon}
                                 onClick={handleCopy}
                             />
                         </Flex>
-                    </Flex>
+                    </Column>
                 </Flex>
             )}
             <TiltFx>
                 <Discord>
-                    <Flex maxWidth={32} fillHeight direction="column" justifyContent="center" gap="16">
+                    <Column maxWidth={32} fillHeight vertical="center" gap="16">
                         <Heading
                             style={{ textTransform: 'capitalize' }}
                             wrap="balance"
@@ -81,13 +84,11 @@ export function Invite() {
                         <Button
                             id="accept"
                             href="https://club.dopler.io"
-                            style={{ pointerEvents: 'all' }}>
-                            <Flex alignItems="center">
-                                Accept invite
-                                <Arrow color="onSolid" trigger="#accept" />
-                            </Flex>
+                            style={{ pointerEvents: 'all' }}
+                            arrowIcon>
+                            Accept invite
                         </Button>
-                    </Flex>
+                    </Column>
                 </Discord>
             </TiltFx>
         </>

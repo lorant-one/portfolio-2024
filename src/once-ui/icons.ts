@@ -31,6 +31,7 @@ import {
 	PiGridFourDuotone,
 	PiBookBookmarkDuotone,
 	PiImageDuotone,
+	PiShoppingBagDuotone,
 } from "react-icons/pi";
 
 import {
@@ -52,6 +53,7 @@ export const iconLibrary: Record<string, IconType> = {
 	check: HiCheck,
 	clipboard: HiOutlineClipboard,
 	plus: HiMiniPlus,
+	store: PiShoppingBagDuotone,
 	arrowRight: HiArrowRight,
 	helpCircle: HiMiniQuestionMarkCircle,
 	infoCircle: HiInformationCircle,
