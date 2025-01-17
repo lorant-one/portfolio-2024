@@ -454,84 +454,84 @@ const gallery = {
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Madeira, Portugal"
         },
         {
         "src": "/images/gallery/img-64.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Zakopane, Poland"
         },
         {
         "src": "/images/gallery/img-70.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Azores, Portugal"
         },
         {
         "src": "/images/gallery/img-77.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Zell am See, Austria"
         },
         {
         "src": "/images/gallery/img-78.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Madeira, Portugal"
         },
         {
         "src": "/images/gallery/img-79.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Bled, Slovenia"
         },
         {
         "src": "/images/gallery/img-80.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Madeira, Portugal"
         },
         {
         "src": "/images/gallery/img-81.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Cyprus, Greece"
         },
         {
         "src": "/images/gallery/img-65.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Zakopane, Poland"
         },
         {
         "src": "/images/gallery/img-82.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Halstatt, Austria"
         },
         {
         "src": "/images/gallery/img-71.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Azores, Portugal"
         },
         {
         "src": "/images/gallery/img-83.jpg",
         "alt": "image",
         "orientation": "vertical",
         "technical": "91mm | 1/15 | f5.6 | ISO200",
-        "location": "Seoul, South Korea"
+        "location": "Budapest, Hungary"
         },
     ]
 }
