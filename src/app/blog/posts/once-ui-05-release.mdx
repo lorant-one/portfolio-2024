@@ -1,0 +1,369 @@
+---
+title: "Once UI 0.5 is here, and it's crazy"
+image: "/images/blog/thumbnails/once-ui-05.jpg"
+publishedAt: "2025-01-18"
+summary: "Learn about what's new in Once UI 0.5."
+team:
+  - name: "Lorant One"
+    role: "Design Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+tag: "development"
+---
+
+<SmartImage priority sizes="(max-width: 640px) 100vw, 640px" src="/images/blog/thumbnails/once-ui-05.jpg" alt="Once UI 0.5" radius="l" aspectRatio="16 / 9" marginBottom="32"/>
+
+## Build responsive layouts easier than ever
+
+We've made significant improvements to the <InlineCode>Flex</InlineCode> component, the cornerstone of Once UI's responsive layout system.
+
+The most notable change is the rework of _alignItems_ and _justifyContent_ properties. These are now automatically applied based on the new _horizontal_ and _vertical_ props, ensuring consistent alignment regardless of flex-direction. We've also introduced the _center_ prop for quick horizontal and vertical centering.
+
+To improve code semantics, we've introduced <InlineCode>Column</InlineCode> and <InlineCode>Row</InlineCode> components that extend <InlineCode>Flex</InlineCode>, making your layouts more intuitive and maintainable.
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+        <Column fillWidth gap="16">
+          <Row fillWidth gap="16" mobileDirection="column">
+        <Column fillWidth center border="neutral-alpha-medium" radius="m" padding="16">
+            col
+        </Column>
+        <Column fill gap="16">
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              row
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              row
+          </Row>
+        </Column>
+        <Column fillWidth center border="neutral-alpha-medium" radius="m" padding="16">
+            col
+        </Column>
+      </Row>
+        <Grid fillWidth columns="4" tabletColumns="2" mobileColumns="2" gap="16">
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+          <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+              grid
+          </Row>
+        </Grid>
+        </Column>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Column fillWidth gap="16">
+  <Row fillWidth gap="16" mobileDirection="column">
+    <Column fillWidth center border="neutral-alpha-medium" radius="m" padding="16">
+        col
+    </Column>
+    <Column fill gap="16">
+      <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+          row
+      </Row>
+      <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+          row
+      </Row>
+    </Column>
+    <Column fillWidth center border="neutral-alpha-medium" radius="m" padding="16">
+        col
+    </Column>
+  </Row>
+  <Grid fillWidth columns="4" tabletColumns="2" mobileColumns="2" gap="16">
+    <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+        grid
+    </Row>
+    ...
+    <Row fill center border="neutral-alpha-medium" radius="m" padding="16">
+        grid
+    </Row>
+  </Grid>
+</Column>`,
+        }
+]}/>
+
+## Styling made easy
+
+We've added more custom properties to the <InlineCode>Flex</InlineCode> component to handle commonly used customization options, such as uneven borders and gap correction with negative gaps.
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+      <Row fillWidth gap="-1" textVariant="body-default-s">
+        <Column flex={1} border="neutral-medium" leftRadius="m" gap="16" direction="column" padding="24">
+            <Heading variant="heading-default-m" as="h3">Once UI</Heading>
+            <Text onBackground="neutral-weak">A flexible design system for building next-gen web apps</Text>
+            <SmartLink unstyled suffixIcon="chevronRight" href="https://once-ui.com">Learn more</SmartLink>
+        </Column>
+        <Column flex={1} border="neutral-medium" rightRadius="m" gap="16" direction="column" padding="24">
+          <Heading variant="heading-default-m" as="h3">Magic Portfolio</Heading>
+          <Text onBackground="neutral-weak">A creative portfolio boilerplate based on Once UI</Text>
+          <SmartLink unstyled suffixIcon="chevronRight" href="https://magic-portfolio.com">Learn more</SmartLink>
+        </Column>
+      </Row>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Row fillWidth gap="-1" textVariant="body-default-s">
+  <Column flex={1} border="neutral-medium" leftRadius="m" gap="16" direction="column" padding="24">
+      <Heading variant="heading-default-m" as="h3">
+        Once UI
+      </Heading>
+      <Text onBackground="neutral-weak">
+        A flexible design system for building next-gen web apps
+      </Text>
+      <SmartLink unstyled suffixIcon="chevronRight" href="https://once-ui.com">
+        Learn more
+      </SmartLink>
+  </Column>
+  <Column flex={1} border="neutral-medium" rightRadius="m" gap="16" direction="column" padding="24">
+    <Heading variant="heading-default-m" as="h3">
+      Magic Portfolio
+    </Heading>
+    <Text onBackground="neutral-weak">
+      A creative portfolio boilerplate based on Once UI
+    </Text>
+    <SmartLink unstyled suffixIcon="chevronRight" href="https://magic-portfolio.com">
+      Learn more
+    </SmartLink>
+  </Column>
+</Row>`,
+        }
+]}/>
+
+What makes this even more powerful is that Flex props are exposed on most components, enabling clean and efficient style overrides without duplicate classes or inline styles.
+
+In the following example, we'll center the description, remove the bottom border radius and add a zIndex to the <InlineCode>Feedback</InlineCode>, and set an aspect ratio, border and border radius on the <InlineCode>SmartImage</InlineCode>:
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+      <Column fillWidth gap="-1" maxWidth={28}>
+        <Feedback icon description="Successful update!" variant="success" radius="none" topRadius="l" vertical="center" zIndex={1}/>
+        <SmartImage sizes="(max-width: 640px) 80vw, 560px" src="/images/gallery/img-57.jpg" fillWidth aspectRatio="3 / 4" border="neutral-medium" bottomRadius="l"/>
+      </Column>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Column fillWidth gap="-1">
+  <Feedback icon description="Successful update!" variant="success" radius="none" topRadius="l" vertical="center" zIndex={1}/>
+  <Row fillWidth center height={8} border="neutral-medium" bottomRadius="l">
+    Row
+  </Row>
+</Column>`,
+        }
+]}/>
+
+Although the <InlineCode>Input</InlineCode> and <InlineCode>Button</InlineCode> are not based on the <InlineCode>Flex</InlineCode> component, they share similar border radius functionality. Instead of specifying sizes directly, you can define which sides should have radius applied - a feature that's particularly useful for creating visually connected form fields.
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+      <Column fillWidth gap="24">
+        <Heading as="h2" variant="heading-default-xl">Access your account</Heading>
+        <Column fillWidth gap="-1">
+          <Input radius="top" label="Email" id="email"/>
+          <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
+        </Column>
+        <Button id="submit" label="Submit" fillWidth arrowIcon/>
+      </Column>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Column fillWidth gap="24">
+  <Column fillWidth gap="-1">
+    <Input radius="top" label="Email" id="email"/>
+    <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
+  </Column>
+  <Button id="submit" label="Submit" fillWidth arrowIcon/>
+</Column>`,
+        }
+]}/>
+
+## Craft immersive backgrounds
+
+The <InlineCode>Background</InlineCode> component now supports advanced customization and masking effects, allowing you to create spectacular backgrounds. You can stack Backgrounds and use them with different data-attributes to achieve complex effects.
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+      <Row 
+        padding="24"
+        border="neutral-alpha-medium" position="relative" fillWidth aspectRatio="3 / 4" maxWidth={24} center 
+        radius="l" overflow="hidden">
+        <Background
+          position="absolute"
+          mask={{
+            cursor: false,
+            x: 0,
+            y: 50,
+            radius: 75,
+          }}
+          gradient={{
+            display: true,
+            x: 0,
+            y: 30,
+            width: 150,
+            height: 50,
+            tilt: 45,
+            colorStart: "accent-solid-medium",
+            colorEnd: "static-transparent",
+            opacity: 100
+          }}
+          dots={{
+            display: true,
+            color: "accent-alpha-medium",
+            size: "4",
+            opacity: 100
+          }}/>
+          <Background
+            data-solid="inverse"
+            position="absolute"
+            mask={{
+              cursor: false,
+              x: 100,
+              y: 100,
+              radius: 75,
+            }}
+            gradient={{
+              display: true,
+              x: 100,
+              y: 75,
+              width: 150,
+              height: 50,
+              tilt: -45,
+              colorStart: "brand-background-strong",
+              colorEnd: "static-transparent",
+              opacity: 100
+            }}/>
+            <Background
+              data-solid="inverse"
+              position="absolute"
+              mask={{
+                cursor: false,
+                x: 50,
+                y: 100,
+                radius: 75,
+              }}
+              gradient={{
+                display: true,
+                x: 75,
+                y: 100,
+                width: 150,
+                height: 50,
+                tilt: 45,
+                colorStart: "brand-solid-strong",
+                colorEnd: "static-transparent",
+                opacity: 100
+              }}/>
+              <Background
+                position="absolute"
+                mask={{
+                  cursor: false,
+                  x: 100,
+                  y: 0,
+                  radius: 50,
+                }}
+                gradient={{
+                  display: true,
+                  x: 75,
+                  y: 100,
+                  width: 150,
+                  height: 50,
+                  tilt: 45,
+                  colorStart: "accent-background-weak",
+                  colorEnd: "static-transparent",
+                  opacity: 100
+                }}/>
+          <Flex textVariant="heading-strong-xl" position="relative" align="center">Hello, friend!</Flex>
+      </Row>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Column fillWidth gap="24">
+  <Column fillWidth gap="-1">
+    <Input radius="top" label="Email" id="email"/>
+    <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
+  </Column>
+  <Button id="submit" label="Submit" fillWidth arrowIcon/>
+</Column>`,
+        }
+]}/>
+
+## Get crazy with effects
+
+The new Flex-based <InlineCode>HoloFx</InlineCode> and <InlineCode>TiltFx</InlineCode> wrapper components make it effortless to add stunning 3D effects to your content.
+
+<CodeBlock
+    marginTop="20"
+    marginBottom="32"
+    codeHeight={16}
+    codePreview={
+      <TiltFx aspectRatio="3 / 4" maxWidth={20} radius="l" border="neutral-alpha-weak">
+      <HoloFx fill>
+        <SmartImage sizes="(max-width: 640px) 80vw, 480px" fill src="/images/gallery/img-33.jpg"/>
+      </HoloFx>
+      </TiltFx>
+    }
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'Next.js',
+            code:
+`<Column fillWidth gap="24">
+  <Column fillWidth gap="-1">
+    <Input radius="top" label="Email" id="email"/>
+    <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
+  </Column>
+  <Button id="submit" label="Submit" fillWidth arrowIcon/>
+</Column>`,
+        }
+]}/>
+
+## There's more
+
+It's just a brief summary of my favorite changes, but there is a lot more! Visit the [Once UI documentation](https://once-ui.com/docs) to see all the new components and updates.

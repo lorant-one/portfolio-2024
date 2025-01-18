@@ -1,7 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
 
-import { Accordion, Flex, SmartImage, SmartLink, Text } from '@/once-ui/components';
+import { Accordion, Background, Button, Card, Column, Feedback, Flex, Grid, Heading, HoloFx, InlineCode, Input, PasswordInput, Row, SmartImage, SmartLink, Text, TiltFx, User } from '@/once-ui/components';
 import { CodeBlock } from '@/once-ui/modules';
 import { HeadingLink } from '@/components';
 
@@ -155,7 +155,22 @@ const components = {
     LetterFxHover,
     SmartLink,
     SmartImage,
-    Navbar
+    Navbar,
+    InlineCode,
+    Column,
+    Row,
+    Button,
+    Input,
+    Feedback,
+    PasswordInput,
+    Background,
+    Grid,
+    Heading,
+    HoloFx,
+    TiltFx,
+    Card,
+    User,
+    Text,
 };
 
 type CustomMDXProps = MDXRemoteProps & {
