@@ -179,11 +179,9 @@ In the following example, we'll center the description, remove the bottom border
             language: 'tsx',
             label: 'Next.js',
             code:
-`<Column fillWidth gap="-1">
+`<Column fillWidth gap="-1" maxWidth={28}>
   <Feedback icon description="Successful update!" variant="success" radius="none" topRadius="l" vertical="center" zIndex={1}/>
-  <Row fillWidth center height={8} border="neutral-medium" bottomRadius="l">
-    Row
-  </Row>
+  <SmartImage sizes="(max-width: 640px) 80vw, 560px" src="/images/gallery/img-57.jpg" fillWidth aspectRatio="3 / 4" border="neutral-medium" bottomRadius="l"/>
 </Column>`,
         }
 ]}/>
@@ -210,6 +208,7 @@ Although the <InlineCode>Input</InlineCode> and <InlineCode>Button</InlineCode> 
             label: 'Next.js',
             code:
 `<Column fillWidth gap="24">
+  <Heading as="h2" variant="heading-default-xl">Access your account</Heading>
   <Column fillWidth gap="-1">
     <Input radius="top" label="Email" id="email"/>
     <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
@@ -228,33 +227,53 @@ The <InlineCode>Background</InlineCode> component now supports advanced customiz
     marginBottom="32"
     codeHeight={16}
     codePreview={
-      <Row 
-        padding="24"
-        border="neutral-alpha-medium" position="relative" fillWidth aspectRatio="3 / 4" maxWidth={24} center 
-        radius="l" overflow="hidden">
+    <Row 
+      padding="24"
+      border="neutral-alpha-medium" position="relative" fillWidth aspectRatio="3 / 4" maxWidth={24} center 
+      radius="l" overflow="hidden">
+      <Background
+        position="absolute"
+        mask={{
+          cursor: false,
+          x: 0,
+          y: 50,
+          radius: 75,
+        }}
+        gradient={{
+          display: true,
+          x: 0,
+          y: 30,
+          width: 150,
+          height: 50,
+          tilt: 45,
+          colorStart: "accent-solid-medium",
+          colorEnd: "static-transparent",
+          opacity: 100
+        }}
+        dots={{
+          display: true,
+          color: "accent-alpha-medium",
+          size: "4",
+          opacity: 100
+        }}/>
         <Background
+          data-solid="inverse"
           position="absolute"
           mask={{
             cursor: false,
-            x: 0,
-            y: 50,
+            x: 100,
+            y: 100,
             radius: 75,
           }}
           gradient={{
             display: true,
-            x: 0,
-            y: 30,
+            x: 100,
+            y: 75,
             width: 150,
             height: 50,
-            tilt: 45,
-            colorStart: "accent-solid-medium",
+            tilt: -45,
+            colorStart: "brand-background-strong",
             colorEnd: "static-transparent",
-            opacity: 100
-          }}
-          dots={{
-            display: true,
-            color: "accent-alpha-medium",
-            size: "4",
             opacity: 100
           }}/>
           <Background
@@ -262,29 +281,28 @@ The <InlineCode>Background</InlineCode> component now supports advanced customiz
             position="absolute"
             mask={{
               cursor: false,
-              x: 100,
+              x: 50,
               y: 100,
               radius: 75,
             }}
             gradient={{
               display: true,
-              x: 100,
-              y: 75,
+              x: 75,
+              y: 100,
               width: 150,
               height: 50,
-              tilt: -45,
-              colorStart: "brand-background-strong",
+              tilt: 45,
+              colorStart: "brand-solid-strong",
               colorEnd: "static-transparent",
               opacity: 100
             }}/>
             <Background
-              data-solid="inverse"
               position="absolute"
               mask={{
                 cursor: false,
-                x: 50,
-                y: 100,
-                radius: 75,
+                x: 100,
+                y: 0,
+                radius: 50,
               }}
               gradient={{
                 display: true,
@@ -293,44 +311,111 @@ The <InlineCode>Background</InlineCode> component now supports advanced customiz
                 width: 150,
                 height: 50,
                 tilt: 45,
-                colorStart: "brand-solid-strong",
+                colorStart: "accent-background-weak",
                 colorEnd: "static-transparent",
                 opacity: 100
               }}/>
-              <Background
-                position="absolute"
-                mask={{
-                  cursor: false,
-                  x: 100,
-                  y: 0,
-                  radius: 50,
-                }}
-                gradient={{
-                  display: true,
-                  x: 75,
-                  y: 100,
-                  width: 150,
-                  height: 50,
-                  tilt: 45,
-                  colorStart: "accent-background-weak",
-                  colorEnd: "static-transparent",
-                  opacity: 100
-                }}/>
-          <Flex textVariant="heading-strong-xl" position="relative" align="center">Hello, friend!</Flex>
-      </Row>
+        <Flex textVariant="heading-strong-xl" position="relative" align="center">
+          Hello, friend!
+        </Flex>
+    </Row>
     }
     codeInstances={[
         {
             language: 'tsx',
             label: 'Next.js',
             code:
-`<Column fillWidth gap="24">
-  <Column fillWidth gap="-1">
-    <Input radius="top" label="Email" id="email"/>
-    <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
-  </Column>
-  <Button id="submit" label="Submit" fillWidth arrowIcon/>
-</Column>`,
+`<Row 
+  padding="24"
+  border="neutral-alpha-medium" position="relative" fillWidth aspectRatio="3 / 4" maxWidth={24} center radius="l" overflow="hidden">
+  <Background
+    position="absolute"
+    mask={{
+      cursor: false,
+      x: 0,
+      y: 50,
+      radius: 75,
+    }}
+    gradient={{
+      display: true,
+      x: 0,
+      y: 30,
+      width: 150,
+      height: 50,
+      tilt: 45,
+      colorStart: "accent-solid-medium",
+      colorEnd: "static-transparent",
+      opacity: 100
+    }}
+    dots={{
+      display: true,
+      color: "accent-alpha-medium",
+      size: "4",
+      opacity: 100
+    }}/>
+  <Background
+    data-solid="inverse"
+    position="absolute"
+    mask={{
+      cursor: false,
+      x: 100,
+      y: 100,
+      radius: 75,
+    }}
+    gradient={{
+      display: true,
+      x: 100,
+      y: 75,
+      width: 150,
+      height: 50,
+      tilt: -45,
+      colorStart: "brand-background-strong",
+      colorEnd: "static-transparent",
+      opacity: 100
+    }}/>
+  <Background
+    data-solid="inverse"
+    position="absolute"
+    mask={{
+      cursor: false,
+      x: 50,
+      y: 100,
+      radius: 75,
+    }}
+    gradient={{
+      display: true,
+      x: 75,
+      y: 100,
+      width: 150,
+      height: 50,
+      tilt: 45,
+      colorStart: "brand-solid-strong",
+      colorEnd: "static-transparent",
+      opacity: 100
+    }}/>
+  <Background
+    position="absolute"
+    mask={{
+      cursor: false,
+      x: 100,
+      y: 0,
+      radius: 50,
+    }}
+    gradient={{
+      display: true,
+      x: 75,
+      y: 100,
+      width: 150,
+      height: 50,
+      tilt: 45,
+      colorStart: "accent-background-weak",
+      colorEnd: "static-transparent",
+      opacity: 100
+    }}/>
+  <Flex textVariant="heading-strong-xl" position="relative" align="center">
+    Hello, friend!
+  </Flex>
+</Row>`,
         }
 ]}/>
 
@@ -344,9 +429,9 @@ The new Flex-based <InlineCode>HoloFx</InlineCode> and <InlineCode>TiltFx</Inlin
     codeHeight={16}
     codePreview={
       <TiltFx aspectRatio="3 / 4" maxWidth={20} radius="l" border="neutral-alpha-weak">
-      <HoloFx fill>
-        <SmartImage sizes="(max-width: 640px) 80vw, 480px" fill src="/images/gallery/img-33.jpg"/>
-      </HoloFx>
+        <HoloFx fill>
+          <SmartImage sizes="(max-width: 640px) 80vw, 480px" fill src="/images/gallery/img-33.jpg"/>
+        </HoloFx>
       </TiltFx>
     }
     codeInstances={[
@@ -354,13 +439,11 @@ The new Flex-based <InlineCode>HoloFx</InlineCode> and <InlineCode>TiltFx</Inlin
             language: 'tsx',
             label: 'Next.js',
             code:
-`<Column fillWidth gap="24">
-  <Column fillWidth gap="-1">
-    <Input radius="top" label="Email" id="email"/>
-    <PasswordInput radius="bottom" label="Password" id="password" autoComplete="new-password"/>
-  </Column>
-  <Button id="submit" label="Submit" fillWidth arrowIcon/>
-</Column>`,
+`<TiltFx aspectRatio="3 / 4" maxWidth={20} radius="l" border="neutral-alpha-weak">
+  <HoloFx fill>
+    <SmartImage sizes="(max-width: 640px) 80vw, 480px" fill src="/images/gallery/img-33.jpg"/>
+  </HoloFx>
+</TiltFx>`,
         }
 ]}/>
 
