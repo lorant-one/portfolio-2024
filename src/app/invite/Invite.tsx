@@ -15,7 +15,7 @@ export function Invite() {
     const [to, setTo] = useState(defaultTo);
     const [icon, setIcon] = useState('clipboard');
 
-    const emailLink = `http://localhost:3000/invite?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+    const emailLink = `https://lorant.one/invite?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
 
     const handleCopy = async () => {
         try {
