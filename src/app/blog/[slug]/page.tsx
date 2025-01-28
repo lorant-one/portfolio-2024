@@ -77,7 +77,8 @@ export default function Blog({ params }: BlogParams) {
 	return (
 		<Column
 			as="section"
-			maxWidth="xs"
+			maxWidth="m"
+			horizontal="center"
 			gap="l">
 			<script
 				type="application/ld+json"
@@ -101,6 +102,8 @@ export default function Blog({ params }: BlogParams) {
 					}),
 				}}
 			/>
+			<Column
+				maxWidth="xs" gap="16">
 			<Button
 				data-border="rounded"
 				href="/blog"
@@ -131,7 +134,9 @@ export default function Blog({ params }: BlogParams) {
 				</Text>
 			</Row>
 			</Column>
+			</Column>
 			<Column
+				horizontal="center"
 				as="article"
 				fillWidth>
 				<CustomMDX source={post.content} />

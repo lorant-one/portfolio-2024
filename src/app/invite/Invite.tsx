@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { Arrow, Button, Column, Flex, Heading, Input, Text, TiltFx } from '@/once-ui/components';
+import { Arrow, Button, Column, Flex, Heading, Input, Row, SmartLink, Text, TiltFx } from '@/once-ui/components';
 import { Discord } from '@/components/Discord';
 
 export function Invite() {
@@ -91,6 +91,27 @@ export function Invite() {
                     </Column>
                 </Discord>
             </TiltFx>
+            {!editor && (
+                <Row fillWidth horizontal="center">
+                    <Column fillWidth gap="40" paddingY="160" paddingX="24" maxWidth="s">
+                        <Heading variant="display-default-s">
+                            Ready to join the Design Engineers Club?
+                        </Heading>
+                        <Text variant="body-default-m" wrap="balance">
+                            <Text as="p" marginBottom="24">
+                                The world is changing faster than ever—AI is evolving, corporations are locking down creativity, and the future is being built without us. We believe it doesn’t have to be this way.
+                            </Text>
+                            <Text as="p" marginBottom="24" wrap="balance">
+                                The Design Engineers Club is a decentralized movement of designers, developers, and creators who refuse to just watch—we build. We connect. We create our own opportunities.
+                            </Text>
+                            <Text as="p" wrap="balance">
+                                No bosses. No corporate structure. Just people shaping the future together.
+                            </Text>
+                        </Text>
+                        <SmartLink href="/blog/our-future" suffixIcon="arrowRight" iconSize="s">Read more</SmartLink>
+                    </Column>
+                </Row>
+            )}
         </>
     );
 }
