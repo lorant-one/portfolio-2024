@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow, Column } from '@/once-ui/components';
+import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow, Column, Badge, LetterFx } from '@/once-ui/components';
 import { Projects } from '@/components/work/Projects';
 
 import { baseURL, routes } from '@/app/resources'; 
@@ -71,6 +71,11 @@ export default function Home() {
 				paddingY="l" gap="m">
 				<Column
 					maxWidth="m">
+					<Badge background="accent-medium" paddingY="8" paddingX="16" href="/blog/our-future" textVariant="label-default-s" marginBottom="24">
+						<LetterFx trigger="instant" speed="slow">
+							Our future is being written
+						</LetterFx>
+					</Badge>
 					<RevealFx
 						translateY="4" fillWidth horizontal="start" paddingBottom="m">
 						<Heading
