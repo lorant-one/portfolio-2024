@@ -71,11 +71,14 @@ export default function Home() {
 				paddingY="l" gap="m">
 				<Column
 					maxWidth="m">
-					<Badge background="accent-medium" paddingY="8" paddingX="16" href="/blog/our-future" textVariant="label-default-s" marginBottom="24">
-						<LetterFx trigger="instant" speed="slow">
-							Our future is being written
-						</LetterFx>
-					</Badge>
+					<RevealFx
+						fillWidth horizontal="start" paddingBottom="32" speed="fast">
+						<Badge background="accent-medium" paddingY="8" paddingX="16" href="/blog/our-future" textVariant="label-default-s">
+							<LetterFx trigger="instant" speed="slow">
+								Our future is being written
+							</LetterFx>
+						</Badge>
+					</RevealFx>
 					<RevealFx
 						translateY="4" fillWidth horizontal="start" paddingBottom="m">
 						<Heading
