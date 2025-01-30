@@ -7,9 +7,10 @@ import { formatDate } from '@/app/utils/formatDate';
 interface PostProps {
     post: any;
     thumbnail: boolean;
+    direction?: "row" | "column";
 }
 
-export default function Post({ post, thumbnail }: PostProps) {
+export default function Post({ post, thumbnail, direction }: PostProps) {
     return (
         <SmartLink
             fillWidth
@@ -19,12 +20,12 @@ export default function Post({ post, thumbnail }: PostProps) {
             href={`/blog/${post.slug}`}>
             <Flex
                 position="relative"
+                direction={direction}
                 mobileDirection="column"
                 fillWidth paddingY="12" paddingX="16" gap="32">
                 {post.metadata.image && thumbnail && (
                     <SmartImage
                         priority
-                        maxWidth={20}
                         className={styles.image}
                         sizes="640px"
                         border="neutral-alpha-weak"

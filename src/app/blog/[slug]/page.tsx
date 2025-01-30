@@ -3,9 +3,10 @@ import { CustomMDX } from '@/components/mdx'
 import { getPosts } from '@/app/utils/utils'
 import { AvatarGroup, Button, Column, Heading, Row, Text } from '@/once-ui/components'
 import { baseURL } from '@/app/resources';
-import { person } from '@/app/resources/content';
+import { newsletter, person } from '@/app/resources/content';
 import { formatDate } from '@/app/utils/formatDate';
 import ScrollToHash from '@/components/ScrollToHash';
+import { Mailchimp } from '@/components';
 
 interface BlogParams {
     params: {
@@ -140,6 +141,9 @@ export default function Blog({ params }: BlogParams) {
 				as="article"
 				fillWidth>
 				<CustomMDX source={post.content} />
+				{newsletter.display && (
+					<Mailchimp newsletter={newsletter} marginTop="xl"/>
+				)}
 			</Column>
 			<ScrollToHash />
 		</Column>

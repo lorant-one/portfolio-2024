@@ -1,19 +1,80 @@
-import { Button, Column, Flex, Heading, HoloFx, Icon, LetterFx, SmartImage, SmartLink, Text, TiltFx } from "@/once-ui/components";
+---
+title: "Spread the word. Spread the world."
+image: "/images/blog/thumbnails/design-engineers-invite.jpg"
+publishedAt: "2025-01-30"
+summary: "Spread the word. Spread the world."
+team:
+  - name: "Lorant One"
+    role: "Design Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/company/once-ui/"
+tag: "community"
+---
+
+<Discord marginBottom="32"/>
+
+## The Design Engineers Club isn’t just growing—it’s evolving.
+
+And that evolution starts with you.
+
+Every movement needs momentum. Every great idea spreads because people believe in it enough to bring others in. Today, we’re making it even easier for you to do just that.
+
+## Why invites matter
+Word of mouth has always been the most powerful way to build something that lasts.
+
+> Big corporations spend billions on marketing, ads, and algorithms that manipulate attention.
+
+We’re doing the opposite—we grow because people _genuinely_ care.
+
+By adding an invite component to your Portfolio or Once UI project, you’re not just sharing a link—you’re opening a door. Every invite sent brings in people who align with what we’re building, strengthening the community, the movement, and the future we’re shaping together.
+
+## How to add an invite component to your project
+We’ve made it simple. Whether you’re using Magic Portfolio, Once UI, or any Next.js project, you can drop this invite component straight into your codebase and start spreading the word instantly.
+
+## Install Once UI (if you haven’t already)
+Make sure Once UI is installed in your project:
+
+<CodeBlock
+    compact
+    maxWidth="xs"
+    marginBottom="32"
+    codeInstances={[
+        {
+            language: 'bash',
+            label: 'Install',
+            code:
+`npx create-once-ui-app@latest`,
+        }
+]}/>
+
+### Add the invite component
+Copy and paste this into your project (for example, in <InlineCode>components/Invite.tsx</InlineCode>):
+
+<CodeBlock
+    maxWidth="xs"
+    marginBottom="32"
+    codeHeight={16}
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'tsx',
+            code:
+`import { Button, Column, Flex, Heading, HoloFx, Icon, LetterFx, SmartImage, SmartLink, Text, TiltFx } from "@/once-ui/components";
 import classNames from "classnames";
 import Image from "next/image";
 
-import styles from './Discord.module.scss'
+import styles from './Invite.module.scss'
 
 import { ReactNode } from "react";
 
-interface DiscordProps extends React.ComponentProps<typeof Flex> {
+interface InviteProps extends React.ComponentProps<typeof Flex> {
     children?: ReactNode;
 };
 
-function Discord({
+function Invite({
     children,
     ...rest
-}: DiscordProps) {
+}: InviteProps) {
     return (
         <TiltFx fillWidth>
             <HoloFx fillWidth radius="xl"
@@ -128,4 +189,89 @@ function Discord({
     )
 }
 
-export { Discord };
+export { Discord };`,
+        },
+        {
+            language: 'css',
+            label: 'scss',
+            code:
+`@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.rock {
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards, float infinite 5s ease-in-out;
+
+    @for $i from 1 through 4 {
+        &#{$i} {
+            animation-duration: (5s + $i * 0.5s), (3s + $i * 0.5s); 
+            animation-delay: $i * 0.3s, 0s;
+        }
+    }
+}
+
+.position {
+    position: absolute;
+    height: 100%;
+}
+
+@media (--m) {
+    .position {
+        position: relative;
+        height: auto;
+    }
+}`,
+        }
+]}/>
+
+## Include the component in your site
+Open your homepage or a relevant section, for example <InlineCode>pages/index.tsx</InlineCode>, and add:
+
+<CodeBlock
+    compact
+    maxWidth="xs"
+    marginBottom="32"
+    codeInstances={[
+        {
+            language: 'tsx',
+            label: 'tsx',
+            code:
+'<Invite/>',
+        }
+]}/>
+
+## Add the invite banner images
+Download and place the following images in your <InlineCode>public/</InlineCode> folder:
+- <SmartLink href="/images/store/cover/oversized-hoodie-anime.png" target="_blank">Base layer</SmartLink>
+- <SmartLink href="/images/store/cover/oversized-hoodie-anime-layer-1.png" target="_blank">Layer 1</SmartLink>
+- <SmartLink href="/images/store/cover/oversized-hoodie-anime-layer-2.png" target="_blank">Layer 2</SmartLink>
+- <SmartLink href="/images/store/cover/oversized-hoodie-anime-layer-3.png" target="_blank">Layer 3</SmartLink>
+- <SmartLink href="/images/store/cover/oversized-hoodie-anime-layer-4.png" target="_blank">Layer 4</SmartLink>
+
+## Spread the word, build the world
+This isn’t about numbers—it’s about bringing in the right people. If you believe in what we’re building, help us reach those who should be part of it.
+
+1. Add the invite component to your site.
+2. Send invites to those who belong here.
+3. Help us grow the future, one connection at a time.
+
+> Remember, Oncer: The future doesn’t build itself—We build it together.

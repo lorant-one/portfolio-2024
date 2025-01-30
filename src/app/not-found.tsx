@@ -4,7 +4,7 @@ export default function NotFound() {
     return (
         <Flex
             as="section"
-            direction="column" vertical="center">
+            direction="column" center>
             <Text
                 marginBottom="s"
                 variant="display-strong-xl">

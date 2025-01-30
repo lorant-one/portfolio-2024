@@ -1,17 +1,17 @@
 "use client";
 
 import { mailchimp } from '@/app/resources'
-import { Button, Heading, Input, Text, Background, Column, Avatar, Row } from '@/once-ui/components';
+import { Button, Heading, Input, Text, Background, Column, Avatar, Row, Flex } from '@/once-ui/components';
 import { useState } from 'react';
 
-type NewsletterProps = {
+interface NewsletterProps extends Omit<React.ComponentProps<typeof Flex>, "title"> {
     display: boolean;
     title: string | JSX.Element;
     description: string | JSX.Element;
 }
 
 export const Mailchimp = (
-    { newsletter }: { newsletter: NewsletterProps}
+    { newsletter, ...rest }: { newsletter: NewsletterProps}
 ) => {
     const [email, setEmail] = useState<string>('');
 
@@ -51,7 +51,8 @@ export const Mailchimp = (
             position="relative"
             fillWidth padding="xl"  radius="l" marginBottom="m"
             horizontal="center" align="center"
-            background="surface" border="neutral-alpha-weak" shadow="xl">
+            background="surface" border="neutral-alpha-weak" shadow="xl"
+            {...rest}>
             <Background
                 mask={{
                     cursor: mailchimp.effects.mask.cursor,

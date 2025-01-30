@@ -3,11 +3,26 @@
     box-sizing: border-box;
 }
 
-ul {
+ul, ol {
     margin: 0;
-    padding: 0 0 0 var(--static-space-12);
     max-width: var(--responsive-width-xs);
     width: 100%;
+}
+
+ul {
+    padding: 0 0 0 var(--static-space-12);
+
+    li {
+        padding-left: var(--static-space-8);
+    }
+}
+
+ol {
+    padding: 0 0 0 var(--static-space-16);
+
+    li {
+        padding-left: var(--static-space-16);
+    }
 }
 
 li {
@@ -16,7 +31,6 @@ li {
     font-size: inherit;
     color: inherit;
     margin-bottom: var(--static-space-12);
-    padding-left: var(--static-space-8);
 
     &::marker {
         color: var(--brand-on-background-weak);

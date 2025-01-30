@@ -65,32 +65,30 @@ export function Invite() {
                     </Column>
                 </Flex>
             )}
-            <TiltFx>
-                <Discord>
-                    <Column maxWidth={32} fillHeight vertical="center" gap="16">
-                        <Heading
-                            style={{ textTransform: 'capitalize' }}
-                            wrap="balance"
-                            variant="display-strong-m">
-                            {to}<Text weight="default">'s</Text><br /><Text weight="default">Club pass</Text>
-                        </Heading>
-                        <Text
-                            marginBottom="32"
-                            variant="body-default-m" wrap="balance"
-                            style={{ transform: 'translate3D(0, 0, 5px)' }}>
-                            <Text style={{ textTransform: 'capitalize' }}>{from}</Text> has invited you to join the<br />
-                            <Text as="div" variant="code-default-xl" onBackground="brand-medium">Design Engineers Club</Text>
-                        </Text>
-                        <Button
-                            id="accept"
-                            href="https://club.dopler.io"
-                            style={{ pointerEvents: 'all' }}
-                            arrowIcon>
-                            Accept invite
-                        </Button>
-                    </Column>
-                </Discord>
-            </TiltFx>
+            <Discord>
+                <Column maxWidth={32} fillHeight vertical="center" gap="16">
+                    <Heading
+                        style={{ textTransform: 'capitalize' }}
+                        wrap="balance"
+                        variant="display-strong-m">
+                        {to}<Text weight="default">'s</Text><br /><Text weight="default">Club pass</Text>
+                    </Heading>
+                    <Text
+                        marginBottom="32"
+                        variant="body-default-m" wrap="balance"
+                        style={{ transform: 'translate3D(0, 0, 5px)' }}>
+                        <Text style={{ textTransform: 'capitalize' }}>{from}</Text> has invited you to join the<br />
+                        <Text as="div" variant="code-default-xl" onBackground="brand-medium">Design Engineers Club</Text>
+                    </Text>
+                    <Button
+                        id="accept"
+                        href="https://club.dopler.io"
+                        style={{ pointerEvents: 'all' }}
+                        arrowIcon>
+                        Accept invite
+                    </Button>
+                </Column>
+            </Discord>
             {!editor && (
                 <Row fillWidth horizontal="center">
                     <Column fillWidth gap="40" paddingY="160" paddingX="24" maxWidth="s">
