@@ -142,7 +142,9 @@ export default function Blog({ params }: BlogParams) {
 				fillWidth>
 				<CustomMDX source={post.content} />
 				{newsletter.display && (
-					<Mailchimp newsletter={newsletter} marginTop="xl"/>
+					<Row fillWidth marginTop="xl">
+						<Mailchimp newsletter={newsletter}/>
+					</Row>
 				)}
 			</Column>
 			<ScrollToHash />
