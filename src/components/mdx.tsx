@@ -1,7 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
 
-import { Accordion, Background, Button, Card, Column, Feedback, Flex, Grid, Heading, HoloFx, InlineCode, Input, PasswordInput, Row, SmartImage, SmartLink, Text, TiltFx, User } from '@/once-ui/components';
+import { Accordion, Avatar, Background, Button, Card, Column, Feedback, Flex, Grid, Heading, HoloFx, InlineCode, Input, PasswordInput, Row, SmartImage, SmartLink, Text, TiltFx, User } from '@/once-ui/components';
 import { CodeBlock } from '@/once-ui/modules';
 import { HeadingLink } from '@/components';
 
@@ -10,6 +10,7 @@ import { SmartImageProps } from '@/once-ui/components/SmartImage';
 import { Discord } from './Discord';
 import { Projects } from './work/Projects';
 import { LetterFxHover, Navbar } from '@/app/blog/demos';
+import { Message } from './Message';
 
 type TableProps = {
     data: {
@@ -126,6 +127,7 @@ function createParagraph({ children }: TextProps) {
                 lineHeight: '175%',
                 maxWidth: 'var(--responsive-width-xs)',
             }}
+            as="div"
             className="fill-width"
             variant="body-default-m"
             onBackground="neutral-medium"
@@ -149,7 +151,9 @@ const components = {
     Table,
     CodeBlock,
     Accordion,
+    Avatar,
     Discord,
+    Message,
     Flex,
     Projects,
     LetterFxHover,
